@@ -1,0 +1,1426 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recuperação Contínua · Química 3º bimestre</title>
+<meta name="description" content="Trilha autoinstrucional de recuperação contínua de Química — Química orgânica, biomoléculas e química ambiental (3º bimestre), 2ª Série A, MTec-N Administração, Etec Padre Carlos Leôncio da Silva.">
+<style>
+:root{
+  --nav:#102a43; --nav2:#163e63; --blue:#1769aa; --blue-2:#125a93; --blue-soft:#eef6ff;
+  --ink:#172033; --ink-2:#56657a; --bg:#f4f7fb; --card:#ffffff; --card-2:#f6f9fc; --line:#dbe4ee;
+  --ok:#137a4b; --ok-soft:#eaf8f0; --warn:#8a5a00; --warn-soft:#fff4e5; --wait:#475569; --wait-soft:#eef2f6;
+  --note:#fff9e9; --note-line:#f1d38b; --note-bar:#d79a14; --red:#c62828;
+  --on-blue:#ffffff; --radius:18px; --shadow:0 10px 30px rgba(25,59,99,.07);
+  --font: Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+    --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --wait:#b5c1cf; --wait-soft:#1d2a38;
+    --note:#2a2412; --note-line:#5c4a1d; --note-bar:#d79a14; --on-blue:#0b1622; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+  --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --wait:#b5c1cf; --wait-soft:#1d2a38;
+  --note:#2a2412; --note-line:#5c4a1d; --note-bar:#d79a14; --on-blue:#0b1622; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--blue)}
+/* ---------- barra lateral ---------- */
+.sidebar{position:fixed;inset:0 auto 0 0;width:290px;background:linear-gradient(180deg,var(--nav),var(--nav2));color:#fff;padding:22px 14px 30px;overflow:auto;z-index:50}
+.logo{padding:0 10px 16px;border-bottom:1px solid #ffffff28}
+.logo small{opacity:.75;font-size:12px;letter-spacing:.06em}
+.logo h2{margin:5px 0 3px;font-size:21px;line-height:1.2}
+.logo p{margin:0;font-size:12.5px;opacity:.8}
+.progwrap{margin:14px 10px 0}
+.backhome{display:flex;align-items:center;min-height:44px;margin:10px 10px 0;padding:6px 12px;border-radius:10px;background:#ffffff14;color:#eaf3fb;text-decoration:none;font-size:14.5px;font-weight:700}
+.backhome:hover,.backhome:focus-visible{background:#ffffff26}
+.progwrap .lbl{display:flex;justify-content:space-between;font-size:12px;opacity:.85}
+.prog{height:8px;background:#ffffff22;border-radius:99px;margin-top:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:#7fd6a8;border-radius:99px;transition:width .35s}
+.navtitle{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin:18px 10px 6px;font-weight:800}
+.navbtn{width:100%;border:0;background:transparent;color:#eaf3fb;text-align:left;padding:10px 12px;border-radius:10px;cursor:pointer;margin:2px 0;display:flex;gap:10px;align-items:center;min-height:46px;font-size:15.5px}
+.navbtn:hover,.navbtn.active{background:#ffffff1c}
+.navbtn .n{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#ffffff17;font-size:12.5px;font-weight:800}
+.navbtn.done .n{background:#dff7e9;color:#126b43}
+.navbtn[disabled]{opacity:.45;cursor:not-allowed}
+.navbtn .st{margin-left:auto;font-size:11.5px;opacity:.75}
+.mobilebar{display:none;position:sticky;top:0;z-index:40;background:var(--nav);color:#fff;padding:10px 14px;align-items:center;justify-content:space-between;gap:10px}
+.mobilebar b{font-size:15px}
+.mobilebar .mprog{height:5px;background:#ffffff22;border-radius:99px;overflow:hidden;margin-top:5px;width:140px}
+.mobilebar .mprog i{display:block;height:100%;background:#7fd6a8}
+.mobilebar button{background:#ffffff1f;color:#fff;border:0;border-radius:10px;padding:10px 14px;min-height:44px;font-weight:700}
+.scrim{display:none}
+/* ---------- conteúdo ---------- */
+.content{margin-left:290px;min-height:100vh}
+.top{background:linear-gradient(120deg,var(--blue-soft),var(--card));border-bottom:1px solid var(--line);padding:26px 5vw 22px}
+.top .inner,.page{max-width:900px;margin:auto}
+.top h1{font-size:clamp(25px,4vw,38px);margin:4px 0;line-height:1.15}
+.top p{color:var(--ink-2);margin:0}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.page{padding:22px 24px 70px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,4vw,30px);box-shadow:var(--shadow);margin-bottom:18px}
+h2{font-size:clamp(23px,3vw,31px);margin:5px 0 10px;line-height:1.2}
+h3{margin:24px 0 8px;font-size:19px;line-height:1.3}
+p{margin:0 0 12px}
+.lead{font-size:17px;line-height:1.65;color:var(--ink-2)}
+.muted{color:var(--ink-2)} .small{font-size:14.5px}
+.callout{padding:14px 16px;border-radius:12px;background:var(--blue-soft);border-left:4px solid var(--blue);line-height:1.55;margin:16px 0}
+.notebook{background:var(--note);border:1px solid var(--note-line);border-left:5px solid var(--note-bar);padding:16px 18px;border-radius:12px;margin:18px 0}
+.notebook h3{margin:0 0 8px}
+.notebook ol,.notebook ul{margin:6px 0 0;padding-left:22px}
+.notebook li{margin:4px 0}
+.notebook .done-line{margin-top:12px;display:flex;gap:10px;align-items:center;font-weight:600}
+.notebook .done-line input{width:24px;height:24px;accent-color:var(--blue)}
+.video{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:15px 0;background:var(--card-2)}
+.video strong{display:block;margin-bottom:4px}
+.video a{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:8px 14px;border-radius:10px}
+.guide{margin:6px 0 0;padding-left:20px} .guide li{margin:3px 0}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.step{border:1px solid var(--line);border-radius:13px;padding:14px}
+.step b{display:block;color:var(--blue);margin-bottom:5px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+table.data th{background:var(--card-2);font-size:14px}
+.tablewrap{overflow-x:auto}
+/* ---------- questões ---------- */
+.qcard{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0;background:var(--card)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.qid{font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.04em}
+.qstatus{font-size:12.5px;font-weight:700;border-radius:99px;padding:3px 10px}
+.qstatus.ok{background:var(--ok-soft);color:var(--ok)} .qstatus.dev{background:var(--warn-soft);color:var(--warn)} .qstatus.open{background:var(--card-2);color:var(--ink-2)}
+.qtitle{font-weight:800;font-size:17.5px;margin:2px 0 8px}
+.prompt{font-weight:650;margin:6px 0 12px;line-height:1.5}
+.ctx{background:var(--card-2);border-radius:12px;padding:12px 14px;margin:0 0 12px;font-size:15.5px}
+.opts{display:grid;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;min-height:50px;padding:11px 13px;border:1.5px solid var(--line);background:var(--card);border-radius:12px;cursor:pointer}
+.opt .k{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:800;color:var(--ink-2)}
+.opt[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft)}
+.opt[aria-pressed="true"] .k{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt:disabled{cursor:default}
+.row-item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.row-item .t{margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1 1 88px;min-height:46px;border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;cursor:pointer;font-size:15px}
+.seg button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.seg button:disabled{cursor:default}
+.seg.multi button{display:flex;align-items:center;gap:8px;text-align:left}
+.seg.multi .box{flex:0 0 22px;height:22px;border:1.5px solid var(--line);border-radius:6px;display:grid;place-items:center;font-size:14px;font-weight:800;color:var(--on-blue)}
+.seg.multi button[aria-pressed="true"] .box{background:var(--blue);border-color:var(--blue)}
+select.sel{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);padding:8px 10px}
+.order{list-style:none;padding:0;margin:0}
+.order li{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:9px 9px 9px 13px;margin-bottom:8px;background:var(--card)}
+.order .n{font-weight:800;color:var(--blue);width:18px}
+.order .txt{flex:1}
+.order .mv{display:flex;gap:6px}
+.order .mv button{width:44px;height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-size:17px}
+.num{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.num input{width:170px;min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card);font-size:18px}
+.btn{min-height:48px;padding:10px 18px;border-radius:11px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-weight:800}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.btn.primary:disabled{opacity:.45;cursor:not-allowed}
+.btn.secondary{background:var(--blue-soft);border-color:transparent;color:var(--blue-2)}
+.qactions{margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fb{border-radius:12px;padding:11px 13px;margin-top:12px;font-size:15.5px}
+.fb.ok{background:var(--ok-soft);border-left:5px solid var(--ok)}
+.fb.try{background:var(--warn-soft);border-left:5px solid var(--warn)}
+.fb.end{background:var(--card-2);border-left:5px solid var(--ink-2)}
+.fb strong{display:block;margin-bottom:3px}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:24px}
+/* ---------- formulários ---------- */
+.field{margin:16px 0}
+.field > label,.field .lab{display:block;font-weight:700;margin-bottom:7px}
+.field input[type=text]{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card)}
+textarea{width:100%;min-height:160px;border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--card);resize:vertical;line-height:1.5}
+textarea:focus,input:focus,select:focus{outline:3px solid color-mix(in srgb,var(--blue) 35%,transparent);outline-offset:1px;border-color:var(--blue)}
+button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:2px}
+.counter{font-size:13.5px;color:var(--ink-2);text-align:right;margin-top:4px}
+.counter.over{color:var(--red);font-weight:700}
+.feelings{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.feel{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:82px;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-size:13px;text-align:center}
+.feel .e{font-size:29px;line-height:1}
+.feel[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:46px;padding:8px 14px;border:1.5px solid var(--line);border-radius:99px;background:var(--card);cursor:pointer;font-size:15px}
+.chip[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.self3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.self3 button{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:12px;cursor:pointer;min-height:64px}
+.self3 button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.mode{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.mode button{flex:1 1 200px;min-height:48px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-weight:600}
+.mode button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:800}
+.checks{list-style:none;padding:0;margin:10px 0 0}
+.checks li{display:flex;gap:8px;align-items:flex-start;margin:4px 0;font-size:15px}
+.checks .s{flex:0 0 22px;font-weight:800}
+.checks .y{color:var(--ok)} .checks .n{color:var(--warn)}
+.checklist label,.selfcheck label{display:flex;gap:10px;align-items:flex-start;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.checklist input,.selfcheck input{width:22px;height:22px;margin-top:2px;accent-color:var(--blue);flex:0 0 22px}
+details.doss{margin:0 0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details.doss summary{cursor:pointer;padding:12px 14px;font-weight:700;min-height:48px}
+.dossie{display:grid;gap:10px;padding:0 12px 12px}
+.doc{border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:var(--card-2)}
+.doc b{display:block;font-size:14px;color:var(--blue-2);margin-bottom:2px}
+.doc span{font-size:12.5px;color:var(--ink-2)}
+/* ---------- resultado ---------- */
+.ind{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.ind:last-child{border-bottom:0}
+.ind .l{font-weight:700}
+.ind .l small{display:block;font-weight:400;color:var(--ink-2);font-size:13.5px}
+.pill{flex:0 0 auto;border-radius:99px;padding:5px 12px;font-size:13px;font-weight:800;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.dev{background:var(--warn-soft);color:var(--warn)} .pill.wait{background:var(--wait-soft);color:var(--wait)}
+.pill.prov{background:var(--card-2);color:var(--ink-2);font-weight:600;font-size:12px;margin-left:6px}
+.compare{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:stretch;margin-top:8px}
+.compare .box{background:var(--card-2);border-radius:12px;padding:10px;font-size:14px;text-align:center}
+.compare .box b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);margin-bottom:4px}
+.compare .arr{align-self:center;color:var(--ink-2)}
+.stationstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.stationstrip div{background:var(--card-2);border-radius:12px;padding:10px;text-align:center;font-size:13.5px}
+.stationstrip div b{display:block;font-size:22px}
+.pend{background:var(--warn-soft);border-radius:12px;padding:12px 14px;margin:10px 0}
+.pend button{background:none;border:0;color:var(--blue);text-decoration:underline;cursor:pointer;padding:4px 0;min-height:36px;font-weight:700}
+.footer{font-size:12.5px;color:var(--ink-2);text-align:center;padding:26px}
+.footer button{background:none;border:0;color:var(--ink-2);text-decoration:underline;cursor:pointer;font-size:12.5px;min-height:40px}
+@media (max-width:860px){
+  .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:10px 0 30px rgba(0,0,0,.25)}
+  .sidebar.open{transform:none}
+  .scrim.open{display:block;position:fixed;inset:0;background:rgba(10,20,30,.45);z-index:45}
+  .mobilebar{display:flex}
+  .content{margin-left:0}
+  .steps3,.self3{grid-template-columns:1fr}
+  .page{padding:14px}
+  .top{padding:20px 18px}
+}
+@media (max-width:560px){
+  .feelings{grid-template-columns:repeat(3,1fr)}
+  .compare{grid-template-columns:1fr}.compare .arr{transform:rotate(90deg);justify-self:center}
+  .stationstrip{grid-template-columns:repeat(2,1fr)}
+  body{font-size:16.5px}
+}
+@media print{.sidebar,.mobilebar,.top,.actions,.video,.qactions,.scrim{display:none!important}.content{margin:0}.panel{box-shadow:none;break-inside:avoid}}
+
+.nuvem{margin:10px 10px 0;font-size:12.5px;line-height:1.35;opacity:.9;display:flex;gap:6px;align-items:flex-start;min-height:18px}
+.nuvem.erro{color:#ffd48a;opacity:1}
+.syncov{position:fixed;inset:0;z-index:200;background:color-mix(in srgb,var(--bg) 88%,transparent);display:flex;align-items:center;justify-content:center;padding:16px}
+.syncov .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px;max-width:380px;text-align:center;box-shadow:var(--shadow)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));z-index:210;background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:12px;max-width:min(92vw,520px);font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.msgerro{color:var(--warn);font-weight:700}
+.msgok{color:var(--ok);font-weight:700}
+.field input.pin{letter-spacing:.3em;max-width:180px}
+</style>
+</head>
+<body>
+<div class="mobilebar">
+  <div><b>Recuperação · 3º bimestre</b><div class="mprog"><i id="mprog" style="width:0%"></i></div></div>
+  <button type="button" id="btnMenu" aria-controls="sidebar" aria-expanded="false">☰ Trilha</button>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar" aria-label="Trilha">
+  <div class="logo"><small>QUÍMICA · 2ª SÉRIE A · MTEC-N</small><h2>Recuperação Contínua</h2><p>3º bimestre · Química orgânica e ambiental · Prof. Bruno Cortez</p></div>
+  <a class="backhome" href="../">← Todas as trilhas</a>
+  <div class="nuvem" id="nuvem" aria-live="polite"></div>
+  <div class="progwrap"><div class="lbl"><span>Meu progresso</span><span id="progTxt">0%</span></div><div class="prog"><i id="prog" style="width:0%"></i></div></div>
+  <nav id="nav"></nav>
+</aside>
+<div class="content">
+  <header class="top"><div class="inner"><div class="eyebrow">Trilha autoinstrucional</div><h1 id="topTitle">Aprender, retomar e demonstrar</h1><p id="topSub">Você pode fazer esta recuperação em etapas, no seu ritmo.</p></div></header>
+  <main class="page" id="main" tabindex="-1"></main>
+  <div class="footer">Química · Recuperação Contínua · 3º bimestre · Etec Padre Carlos Leôncio da Silva</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO — ajuste aqui
+   ===================================================================== */
+const CONFIG = {
+  trilhaId: "quimica-2A-mtecn-3bim-2026",
+  titulo: "Recuperação Contínua — Química — 3º bimestre (Química orgânica, biomoléculas e química ambiental)",
+  turmaPadrao: "2ª A – MTec-N Administração",
+  // URL do app da Web do Google Apps Script (termina em /exec). Vazio = só relatório para download.
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbxurtub0XrfwSggq1-TNnZqXCaMpa-l4QW4-THesX0Yass7hajixz72Cjf9HRm_FHjMGw/exec",
+  maxTentativas: 2,
+  limites: {
+    compreensao:  { minCorretas: 9, umPorEstacao: true },   // 13 checagens das estações (≈70%)
+    aplicacao:    { minCorretas: 3 },                        // A1, A3, A4, A6
+    interpretacao:{ minCorretas: 2, obrigatoria: "D1" },     // A2, A5, D1
+    argumentacao: { minCriteriosD3: 3 },
+    hab207: { min: 6, precisaUm: ["A1","A3","A6"] },         // 9 itens
+    hab202: { min: 4 },                                       // R7, R8, R9, A2, A4
+    hab301: { min: 3 }                                        // I1, I2, I3, A5
+  },
+  textos: { D2min: 200, D3min: 450, D4min: 80, D4max: 400, D1textoMin: 20 },
+  videos: {
+    investigacao:   { t:"Método científico", canal:"Brasil Escola", url:"https://www.youtube.com/watch?v=htCQKpKh2DI" },
+    hidrocarbonetos:{ t:"Nomenclatura de hidrocarbonetos", canal:"Professor Gabriel Cabral", url:"https://www.youtube.com/watch?v=ObNkcP-lizU" },
+    funcoes:        { t:"Funções orgânicas: identifique rápido", canal:"Professor Gabriel Cabral", url:"https://www.youtube.com/watch?v=VbFMZhEViAM" },
+    biomoleculas:   { t:"Forças intermoleculares — rápido e fácil", canal:"Professor Gabriel Cabral", url:"https://www.youtube.com/watch?v=fJIadgJQzHw" }
+  }
+};
+
+/* =====================================================================
+   CONTEÚDO — PTD 4282 e CANTO; LEITE; CANTO. Moderna Plus Química na
+   abordagem do cotidiano. Moderna, 2024 (páginas impressas)
+   ===================================================================== */
+const ESTACOES = {
+  investigacao:{ n:1, titulo:"Química ambiental e investigação científica", ico:"🔎", paginas:"18 a 20, 66, 166 e 184", cap:"Capítulos 1, 3, 8 e 9",
+            lead:"Retome como a Ciência investiga um problema (da pergunta à divulgação), como escolher fontes confiáveis e como o livro mostra poluentes que se acumulam no ambiente.",
+            guia:["Etapas da atividade científica: problema, hipótese, observações, análise e divulgação — p. 18.","Observações qualitativas e quantitativas; leis e teorias — p. 18–19.","Relatório e artigo científico — p. 20.","Como selecionar fontes confiáveis de informação — p. 66.","Partes por milhão (ppm) e limites legais — p. 166.","PCBs e DDT: poluentes persistentes que se acumulam — p. 184."],
+            caderno:{ titulo:"ATIVIDADE 1 — Planejando uma investigação", html:"<p>Escolha um problema ambiental da sua cidade ligado a um dos ODS que você pesquisou para a Revista Etec&Ambiente. No caderno, registre:</p><ol><li>o problema, em forma de pergunta;</li><li>uma hipótese (possível explicação) para ele;</li><li>uma observação qualitativa e uma quantitativa que você faria para testá-la (p. 18);</li><li>duas fontes confiáveis que consultaria e por que confia nelas (p. 66).</li></ol>" },
+            questoes:["I1","I2","I3","I4"] },
+  hidrocarbonetos:{ n:2, titulo:"Hidrocarbonetos e cadeias carbônicas", ico:"⛓️", paginas:"97 a 104 e 347 a 348", cap:"Capítulos 5 e 20 — Fundamentos dos compostos orgânicos; Classes funcionais orgânicas",
+            lead:"Retome como ler as fórmulas orgânicas, como classificar uma cadeia carbônica e o que o nome de um hidrocarboneto informa.",
+            guia:["Representações das moléculas orgânicas e fórmula com linhas — p. 97–98.","Cadeia carbônica e heteroátomo — p. 100.","Anel benzênico — p. 102.","Classificação das cadeias (aberta, fechada, saturada, heterogênea…) — p. 104.","Hidrocarbonetos: prefixo, infixo e sufixo — p. 347–348."],
+            caderno:{ titulo:"ATIVIDADE 2 — Lendo fórmulas orgânicas", html:"<ol><li>Represente o butano e o etanol de três formas: fórmula estrutural, fórmula condensada e fórmula com linhas (p. 97).</li><li>Classifique a cadeia carbônica da vanilina e a do isopreno, como na Figura 5 da p. 104.</li><li>Explique o que significam as partes do nome <b>propeno</b>: prefixo, infixo e sufixo (p. 347–348).</li></ol>" },
+            questoes:["R1","R2","R3"] },
+  funcoes:{ n:3, titulo:"Funções orgânicas e saúde", ico:"💊", paginas:"350 a 360", cap:"Capítulo 20 — Classes funcionais orgânicas",
+            lead:"Retome os grupos funcionais que caracterizam álcoois, aldeídos, cetonas, ácidos carboxílicos, ésteres, aminas e amidas, e a relação dessas substâncias com a saúde.",
+            guia:["Álcoois; metanol e etanol e seus efeitos no organismo — p. 350–352.","Aldeídos e cetonas (formol, etanal, acetona) — p. 354.","Ácidos carboxílicos e ésteres — p. 356–357.","Quadro 1: grupos funcionais das principais classes — p. 359.","Substâncias com mais de uma classe funcional (gingerol, capsaicina) — p. 360."],
+            caderno:{ titulo:"ATIVIDADE 3 — Funções orgânicas no dia a dia", html:"<p>Escolha três substâncias citadas nas p. 350–357 (por exemplo: etanol, ácido acético do vinagre, acetona, acetato de etila). Para cada uma, registre no caderno:</p><ul><li>onde ela aparece no cotidiano;</li><li>a classe funcional e o grupo funcional (use o Quadro 1, p. 359);</li><li>um cuidado com a saúde ou a segurança citado no livro.</li></ul>" },
+            questoes:["R4","R5","R6"] },
+  biomoleculas:{ n:4, titulo:"Interações intermoleculares e biomoléculas", ico:"🧬", paginas:"123 a 124, 179 a 180, 383, 387 a 388, 395 e 398", cap:"Capítulos 6, 9 e 22",
+            lead:"Retome as interações entre moléculas e como elas explicam a solubilidade e a estrutura de proteínas, carboidratos e DNA.",
+            guia:["Dipolo-dipolo, ligação de hidrogênio e dipolo instantâneo-dipolo induzido — p. 123–124.","Grupos hidrófilos e hidrófobos; solubilidade dos álcoois (Quadro 5) — p. 179.","Vitaminas hidrossolúveis e lipossolúveis — p. 180.","Biomoléculas e a evidência de um ancestral comum — p. 383.","Aminoácidos, proteínas e ligação peptídica — p. 387–388.","Carboidratos — p. 395; ácidos nucleicos (DNA e RNA) — p. 398."],
+            caderno:{ titulo:"ATIVIDADE 4 — Mapa mental das biomoléculas", html:"<p>Faça no caderno um mapa mental com o tema central <b>Biomoléculas</b> e quatro ramos: proteínas, carboidratos, lipídios e ácidos nucleicos. Em cada ramo, registre:</p><ul><li>um exemplo citado no livro (p. 383–398);</li><li>os grupos funcionais presentes;</li><li>uma interação intermolecular importante (por exemplo, as forças que unem as duas fitas do DNA, p. 398).</li></ul>" },
+            questoes:["R7","R8","R9"] }
+};
+
+const DOSSIE = [
+  { t:"DDT: persistente e bioamplificado", p:"p. 184", d:"O DDT, inseticida organoclorado, persiste no ambiente por muitos anos e não é decomposto por microrganismos (não biodegradável). Em um estudo, havia 10 ppm de DDT no solo, 141 ppm em minhocas e 444 ppm no cérebro de pássaros que se alimentavam delas. Hoje é proibido em muitos países ou tem uso restrito." },
+  { t:"PCBs nos Grandes Lagos", p:"p. 184", d:"Com 0,000002 ppm de PCBs na água, as concentrações foram: fitoplâncton 0,0025 ppm; zooplâncton 0,123 ppm; peixes pequenos 1,04 ppm; truta 4,83 ppm; gaivota 124 ppm. Esses compostos são altamente solúveis nos lipídios corporais." },
+  { t:"Estrutura do DDT", p:"p. 184 e Quadro 1, p. 359", d:"A molécula do DDT tem dois anéis benzênicos e cinco átomos de cloro ligados a carbonos (classe funcional haleto). Não tem grupos como −OH ou −COOH, que fariam ligações de hidrogênio com a água." },
+  { t:"Grupos hidrófobos e lipofilia", p:"p. 179", d:"Partes apolares da molécula (hidrocarbônicas) são hidrófobas: dificultam a dissolução em água e favorecem a dissolução em óleos e gorduras (lipofilia)." },
+  { t:"Acúmulo no organismo", p:"p. 180", d:"Substâncias lipossolúveis, como as vitaminas A, D, E e K, não são facilmente eliminadas pela urina e podem se acumular na parte gordurosa do organismo." },
+  { t:"Fontes confiáveis", p:"p. 66", d:"Uma informação confiável aparece em mais de uma fonte; livros e materiais de órgãos do governo ou de universidades conceituadas costumam ter maior credibilidade que blogs individuais ou postagens em redes sociais." }
+];
+const DOSSIE_TEXTO = DOSSIE.map(x=>x.d).join(" ");
+
+const QUESTOES = [
+  // ---------- Estação 1 ----------
+  { id:"I1", est:"investigacao", hab:"EM13CNT301", tipo:"order",
+    prompt:"Coloque em ordem as etapas de uma investigação científica (use as setas):",
+    itens:["Estudar o que já se sabe e definir o problema","Elaborar uma hipótese","Realizar experimentos e observações","Analisar os resultados e aceitar ou não a hipótese","Divulgar o estudo para outros cientistas"],
+    inicio:[2,0,4,1,3],
+    dica:"Siga o ciclo da Figura 4 da p. 18: antes de testar, é preciso ter uma hipótese; antes de divulgar, é preciso analisar.",
+    explica:"Problema → hipótese → experimentos e observações → análise (aceitar ou não a hipótese) → divulgação — p. 18.",
+    resposta:"Problema → hipótese → observações → análise → divulgação." },
+  { id:"I2", est:"investigacao", hab:"EM13CNT301", tipo:"classify",
+    prompt:"Classifique cada observação feita em um estudo sobre um rio:",
+    bins:["Qualitativa","Quantitativa"],
+    itens:[{t:"A água do rio tem cheiro forte e cor escura.",a:0},{t:"A DBO medida na água foi de 20 mg/L.",a:1},{t:"Moradores relatam peixes mortos nas margens.",a:0},{t:"A concentração de chumbo na água é 0,03 mg/L.",a:1}],
+    dica:"Na p. 18, qualitativas não envolvem números; quantitativas vêm de medidas feitas com instrumentos.",
+    explica:"Cheiro, cor e relatos são observações qualitativas; DBO e concentração de chumbo são medidas numéricas, portanto quantitativas — p. 18.",
+    resposta:"Qualitativas: cheiro e cor; peixes mortos. Quantitativas: DBO; chumbo." },
+  { id:"I3", est:"investigacao", hab:"EM13CNT302", tipo:"mc",
+    prompt:"Para a reportagem da Revista Etec&Ambiente, qual fonte merece MAIS confiança, segundo os critérios da p. 66?",
+    opcoes:[{t:"Um material de universidade pública, cuja informação também aparece em outras fontes.",ok:true},
+            {t:"Um vídeo muito compartilhado em rede social, sem autor identificado.",fb:"Compartilhamento não garante qualidade. Veja na p. 66 o alerta sobre redes sociais."},
+            {t:"Um blog individual com opinião do autor.",fb:"Blogs individuais costumam ter menor credibilidade que fontes institucionais (p. 66)."},
+            {t:"Uma notícia que só aparece em um único site.",fb:"Informação divulgada por uma única fonte é motivo de desconfiança (p. 66)."}],
+    explica:"Informações confirmadas em mais de uma fonte, e vindas de universidades ou órgãos do governo, tendem a ser mais confiáveis — p. 66.",
+    resposta:"Material de universidade pública confirmado em outras fontes." },
+  { id:"I4", est:"investigacao", hab:"EM13CNT206", tipo:"mc",
+    prompt:"Por que os PCBs e o DDT se acumulam nos organismos e aumentam de concentração ao longo da cadeia alimentar?",
+    opcoes:[{t:"Porque não são biodegradáveis e são muito solúveis nos lipídios (gorduras) do corpo.",ok:true},
+            {t:"Porque são muito solúveis em água e saem facilmente pela urina.",fb:"Se saíssem pela urina, não se acumulariam. Releia a p. 184: em que eles são muito solúveis?"},
+            {t:"Porque são decompostos rapidamente por microrganismos.",fb:"É o contrário: eles persistem porque não são decompostos por processos naturais (p. 184)."},
+            {t:"Porque só existem no solo e não chegam aos animais.",fb:"O livro mostra o DDT passando do solo para minhocas e delas para pássaros (p. 184)."}],
+    explica:"Não biodegradáveis e muito solúveis em lipídios, esses compostos se acumulam nos tecidos (bioacumulação) e aumentam de concentração a cada nível da cadeia (bioamplificação) — p. 184.",
+    resposta:"Não biodegradáveis e lipossolúveis." },
+  // ---------- Estação 2 ----------
+  { id:"R1", est:"hidrocarbonetos", hab:"EM13CNT207", tipo:"mc",
+    ctxHtml:'Fórmula com linhas de um hidrocarboneto (nenhum símbolo escrito):<svg width="170" height="60" viewBox="0 0 170 60" role="img" aria-label="Fórmula com linhas: zigue-zague com 4 pontas e vértices" style="display:block;margin:6px auto 2px"><polyline points="15,45 60,15 105,45 150,15" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>',
+    prompt:"Qual é a fórmula molecular dessa substância?",
+    opcoes:[{t:"C₄H₁₀",ok:true},
+            {t:"C₃H₈",fb:"Na p. 97, cada vértice E cada extremidade representam um carbono. Conte as pontas também."},
+            {t:"C₄H₄",fb:"Os hidrogênios não aparecem, mas existem: cada carbono faz 4 ligações (p. 97–98)."},
+            {t:"C₂H₆",fb:"Conte os carbonos: dois nas pontas e dois nos vértices."}],
+    explica:"4 carbonos (2 extremidades + 2 vértices). Os das pontas têm 3 H e os do meio têm 2 H: C₄H₁₀, o butano — p. 97.",
+    resposta:"C₄H₁₀ (butano)." },
+  { id:"R2", est:"hidrocarbonetos", hab:"EM13CNT207", tipo:"tf",
+    prompt:"Sobre cadeias carbônicas, verdadeiro ou falso?",
+    itens:[{t:"Um átomo de enxofre entre dois carbonos faz parte da cadeia carbônica (heteroátomo).",a:true},
+           {t:"Uma ligação dupla C=O torna a cadeia insaturada.",a:false},
+           {t:"A cadeia do benzeno é fechada (cíclica) e homogênea.",a:true},
+           {t:"Os átomos de hidrogênio fazem parte da cadeia carbônica.",a:false}],
+    dica:"Na p. 104, a insaturação é considerada só entre átomos de carbono. Na p. 100, veja quais átomos fazem parte da cadeia.",
+    explica:"Heteroátomo entre carbonos integra a cadeia (p. 100). Insaturação é ligação dupla ou tripla entre carbonos, e C=O não conta (p. 104). O benzeno tem cadeia fechada e homogênea. Hidrogênios não fazem parte da cadeia (p. 100).",
+    resposta:"V, F, V, F." },
+  { id:"R3", est:"hidrocarbonetos", hab:"EM13CNT207", tipo:"mc",
+    prompt:"O eteno é o gás usado para amadurecer bananas (p. 348). Pelo nome, o que se conclui sobre sua molécula?",
+    opcoes:[{t:"Tem 2 carbonos e uma ligação dupla entre eles.",ok:true},
+            {t:"Tem 2 carbonos e apenas ligações simples.",fb:"Esse seria o etano, com o infixo \"an\". Veja a Tabela 2 (p. 347–348)."},
+            {t:"Tem 3 carbonos e uma ligação dupla.",fb:"O prefixo \"et\" indica 2 carbonos; 3 seria \"prop\" (p. 347)."},
+            {t:"Tem 2 carbonos e uma ligação tripla.",fb:"A ligação tripla usa o infixo \"in\" (etino). Veja a p. 348."}],
+    explica:"et = 2 carbonos; en = ligação dupla; o = hidrocarboneto. Eteno: H₂C=CH₂ — p. 347–348.",
+    resposta:"2 carbonos com ligação dupla." },
+  // ---------- Estação 3 ----------
+  { id:"R4", est:"funcoes", hab:"EM13CNT207", tipo:"match",
+    prompt:"Associe cada grupo funcional à sua classe (Quadro 1, p. 359):",
+    opcoesLista:["Álcool","Ácido carboxílico","Cetona","Éster","Amina","Amida"],
+    itens:[{t:"−OH ligado a carbono saturado",a:0},{t:"−COOH",a:1},{t:"C=O entre dois carbonos",a:2},{t:"−COO− ligado a outro carbono",a:3},{t:"−NH₂ ligado a carbono",a:4},{t:"C=O ligado a nitrogênio",a:5}],
+    dica:"Compare cada grupo com o Quadro 1 da p. 359. Atenção à vizinhança: onde está o C=O, e a que ele está ligado?",
+    explica:"Álcool: −OH em carbono saturado; ácido carboxílico: −COOH; cetona: C=O entre carbonos; éster: −COO−C; amina: nitrogênio ligado a carbono; amida: C=O ligado a N — p. 359.",
+    resposta:"OH → álcool; COOH → ácido; C=O entre C → cetona; COO−C → éster; NH₂ → amina; C=O−N → amida." },
+  { id:"R5", est:"funcoes", hab:"EM13CNT207", tipo:"mc",
+    prompt:"A capsaicina dá o ardor das pimentas. Na molécula há um −OH ligado a um anel benzênico, um oxigênio entre dois carbonos e um C=O ligado a nitrogênio. Quais classes funcionais ela tem?",
+    opcoes:[{t:"Fenol, éter e amida",ok:true},
+            {t:"Álcool, éter e amina",fb:"−OH ligado ao anel benzênico caracteriza fenol, e C=O ligado a N é amida (p. 360)."},
+            {t:"Fenol, cetona e amida",fb:"O oxigênio entre dois carbonos, sem ligação dupla, é éter (p. 359–360)."},
+            {t:"Álcool, éster e amina",fb:"Releia na p. 360 a diferença entre álcool e fenol, e confira o grupo amida no Quadro 1."}],
+    explica:"−OH no anel benzênico = fenol; C−O−C = éter; C=O ligado a N = amida — p. 360.",
+    resposta:"Fenol, éter e amida." },
+  { id:"R6", est:"funcoes", hab:"EM13CNT207", tipo:"mc",
+    prompt:"O metanol também é um álcool, como o etanol. Por que ele não pode estar em bebidas nem ser manuseado sem cuidado?",
+    opcoes:[{t:"É extremamente tóxico: 30 mL ou menos podem matar, e quantidades menores causam cegueira.",ok:true},
+            {t:"Porque não é um álcool de verdade.",fb:"O metanol tem −OH em carbono saturado: é um álcool (p. 350)."},
+            {t:"Porque não se mistura com a água.",fb:"O metanol é totalmente miscível em água (p. 179). O problema é outro (p. 350)."},
+            {t:"Porque é um hidrocarboneto inflamável.",fb:"O metanol tem oxigênio: não é hidrocarboneto. Veja o motivo na p. 350."}],
+    explica:"O metanol é extremamente tóxico: a ingestão de 30 mL ou menos provoca morte, e quantidades menores causam intoxicação severa e cegueira — p. 350.",
+    resposta:"É extremamente tóxico." },
+  // ---------- Estação 4 ----------
+  { id:"R7", est:"biomoleculas", hab:"EM13CNT202", tipo:"match",
+    prompt:"Associe cada substância à interação intermolecular que predomina entre suas moléculas:",
+    opcoesLista:["Ligação de hidrogênio","Dipolo-dipolo","Dipolo instantâneo-dipolo induzido"],
+    itens:[{t:"Água (H₂O)",a:0},{t:"Etanol (CH₃CH₂OH)",a:0},{t:"Acetona (H₃CCOCH₃)",a:1},{t:"Hidrocarbonetos da gasolina",a:2}],
+    dica:"Ligação de hidrogênio exige H ligado diretamente a F, O ou N (p. 124). Na acetona, os H estão ligados a carbono.",
+    explica:"Água e etanol têm H ligado a O: ligação de hidrogênio. A acetona é polar, mas sem H ligado a O: dipolo-dipolo. Hidrocarbonetos são apolares: dipolo instantâneo-dipolo induzido — p. 123–124.",
+    resposta:"Água e etanol → ligação de hidrogênio; acetona → dipolo-dipolo; gasolina → dipolo induzido." },
+  { id:"R8", est:"biomoleculas", hab:"EM13CNT202", tipo:"tf",
+    prompt:"Sobre as biomoléculas, verdadeiro ou falso?",
+    itens:[{t:"Aminoácidos têm os grupos funcionais amina e ácido carboxílico.",a:true},
+           {t:"A ligação peptídica, que une aminoácidos, forma o grupo funcional amida.",a:true},
+           {t:"As duas fitas do DNA estão unidas por ligações iônicas.",a:false},
+           {t:"A glicose é aldeído e poliálcool.",a:true}],
+    dica:"Confira as p. 387–388 (aminoácidos e ligação peptídica), 395 (glicose) e 398 (o que une as fitas do DNA).",
+    explica:"Aminoácidos: amina + ácido carboxílico; a ligação peptídica forma amida (p. 387–388). As fitas do DNA se unem por forças intermoleculares (p. 398). Glicose: aldeído e poliálcool (p. 395).",
+    resposta:"V, V, F, V." },
+  { id:"R9", est:"biomoleculas", hab:"EM13CNT208", tipo:"mc",
+    prompt:"Capivaras, pássaros e plantas têm os mesmos tipos de biomoléculas e a mesma forma de codificar a informação genética. Que conclusão os cientistas tiram disso (p. 383)?",
+    opcoes:[{t:"É uma importante evidência de que todos os seres vivos descendem de um ancestral comum.",ok:true},
+            {t:"Que esses seres vivos são da mesma espécie.",fb:"São espécies muito diferentes. O que a semelhança química indica? Releia a p. 383."},
+            {t:"Que as biomoléculas foram copiadas entre espécies.",fb:"O livro não fala em cópia entre espécies. Veja na p. 383 qual evidência essas similaridades fornecem."},
+            {t:"Que a química dos seres vivos não tem relação com a evolução.",fb:"É o contrário: a p. 383 diz que essas investigações são muito usadas nos estudos sobre a evolução da vida."}],
+    explica:"As similaridades químicas entre os seres vivos são uma importante evidência de que todos descendem de um ancestral comum — p. 383.",
+    resposta:"Evidência de um ancestral comum." },
+  // ---------- Aplicar ----------
+  { id:"A1", est:"aplicar", hab:"EM13CNT207", tipo:"composite", titulo:"A ficha técnica do fornecedor",
+    ctx:"Você trabalha no setor de compras de uma empresa de cosméticos e recebeu a lista de matérias-primas de um fornecedor: acetato de etila (aroma de maçã), propanona (acetona) e glicerol (glicerina, com três grupos −OH).",
+    partes:[
+      { rotulo:"Parte 1 — Qual é a classe funcional de cada matéria-prima?", tipo:"match",
+        opcoesLista:["Éster","Cetona","Álcool","Aldeído"],
+        itens:[{t:"Acetato de etila",a:0},{t:"Propanona (acetona)",a:1},{t:"Glicerol",a:2}],
+        dicaParte:"Acetato de etila: p. 357. Acetona: p. 354. Glicerol tem −OH em carbonos saturados (p. 350 e 384)." },
+      { rotulo:"Parte 2 — Qual delas exige local bem ventilado e longe de chamas e faíscas?", tipo:"mc",
+        opcoes:[{t:"Propanona (acetona)",ok:true},{t:"Glicerol"},{t:"Nenhuma delas"}],
+        dicaParte:"Releia os cuidados descritos na p. 354." }],
+    explica:"Acetato de etila é éster (p. 357); propanona é cetona (p. 354); glicerol é álcool (p. 384). A acetona é altamente inflamável e seus vapores irritam: só deve ser usada em local ventilado e longe de chamas — p. 354.",
+    resposta:"Éster, cetona e álcool; a acetona." },
+  { id:"A2", est:"aplicar", hab:"EM13CNT202", tipo:"composite", titulo:"Por que alguns álcoois não se misturam à água?",
+    ctx:"Dados do Quadro 5 (p. 179): solubilidade em água a 25 °C (g por 100 g de água).",
+    tabela:{cab:["Álcool","Nº de carbonos","Solubilidade"],linhas:[["Metanol, etanol, propan-1-ol","1 a 3","Ilimitada"],["Butan-1-ol","4","7,9"],["Pentan-1-ol","5","2,2"],["Hexan-1-ol","6","0,6"]]},
+    partes:[
+      { rotulo:"Parte 1 — Qual explicação combina com os dados?", tipo:"mc",
+        opcoes:[{t:"O −OH faz ligações de hidrogênio com a água, mas, quanto maior a parte apolar (hidrófoba), menor a solubilidade.",ok:true},{t:"Álcoois maiores perdem o grupo −OH."},{t:"A solubilidade aumenta com o número de carbonos."}],
+        dicaParte:"Observe a tabela: a solubilidade cai ou sobe com mais carbonos? Releia a p. 179 sobre grupos hidrófobos." },
+      { rotulo:"Parte 2 — Quantas vezes o butan-1-ol é mais solúvel que o hexan-1-ol? (arredonde para uma casa decimal)", tipo:"numeric", min:13, max:13.3, unidade:"vezes",
+        dicaParte:"Divida 7,9 por 0,6." }],
+    explica:"O −OH interage com a água por ligações de hidrogênio, mas a cadeia apolar cresce e passa a predominar, diminuindo a solubilidade. 7,9 ÷ 0,6 ≈ 13,2 vezes — p. 179.",
+    resposta:"A parte apolar cresce; cerca de 13,2 vezes." },
+  { id:"A3", est:"aplicar", hab:"EM13CNT207", tipo:"mc", titulo:"O suplemento por conta própria",
+    ctx:"Um colega de trabalho começou a tomar cápsulas de vitamina A todos os dias, sem orientação, dizendo: \"Vitamina nunca faz mal, o que sobrar sai no xixi\".",
+    prompt:"O que a Química diz sobre isso (p. 180)?",
+    opcoes:[{t:"A vitamina A é lipossolúvel: não sai facilmente pela urina e pode se acumular, causando hipervitaminose. Suplementos só com orientação médica.",ok:true},
+            {t:"Ele está certo: toda vitamina em excesso sai pela urina.",fb:"Isso vale para as hidrossolúveis (complexo B e C). E a vitamina A? (p. 180)"},
+            {t:"A vitamina A é hidrossolúvel, então não há risco.",fb:"A molécula da vitamina A tem predominância hidrocarbônica. Veja a classificação na p. 180."},
+            {t:"Vitaminas não se dissolvem nem em água nem em gordura.",fb:"O livro divide as vitaminas justamente em hidrossolúveis e lipossolúveis (p. 180)."}],
+    explica:"Vitaminas lipossolúveis (A, D, E e K) não são facilmente excretadas e podem se acumular na gordura corporal; o excesso de vitamina A pode lesar fígado, rins e ossos. Suplementos só com orientação médica — p. 180.",
+    resposta:"A vitamina A é lipossolúvel e pode se acumular." },
+  { id:"A4", est:"aplicar", hab:"EM13CNT202", tipo:"mc", titulo:"Qual colagem vai dar certo?",
+    ctx:"Uma cola à base de poli(álcool vinílico) funciona estabelecendo ligações de hidrogênio com o material a ser colado (p. 125, atividade 22). Materiais: polietileno (só C e H); poliestireno (só C e H); PVC (C, H e Cl); tecido de algodão (celulose, com muitos grupos −OH).",
+    prompt:"Em qual material essa cola tem mais chance de funcionar?",
+    opcoes:[{t:"Tecido de algodão, porque os grupos −OH da celulose fazem ligações de hidrogênio.",ok:true},
+            {t:"Polietileno, porque é um plástico muito resistente.",fb:"Resistência não é o critério. O polietileno tem H ligado a O, N ou F? (p. 124)"},
+            {t:"PVC, porque tem cloro.",fb:"Para a ligação de hidrogênio, o H precisa estar ligado a F, O ou N (p. 124). No PVC, o cloro está ligado ao carbono."},
+            {t:"Poliestireno, porque tem anel benzênico.",fb:"O poliestireno só tem C e H: não faz ligações de hidrogênio (p. 124)."}],
+    explica:"A celulose tem muitos −OH, que fazem ligações de hidrogênio com a cola; os plásticos citados não têm H ligado a O, N ou F — p. 124–125.",
+    resposta:"Tecido de algodão." },
+  { id:"A5", est:"aplicar", hab:"EM13CNT302", tipo:"classify", titulo:"Curadoria de fontes para a reportagem",
+    ctx:"Sua equipe está reunindo fontes sobre poluentes persistentes para a Revista Etec&Ambiente.",
+    prompt:"Classifique cada fonte segundo os critérios da p. 66:",
+    bins:["Mais confiável","Menos confiável"],
+    itens:[{t:"Página de um órgão do Governo Federal sobre agrotóxicos",a:0},{t:"Postagem em rede social sem autor, com milhares de compartilhamentos",a:1},{t:"Livro didático de Química citado nas referências",a:0},{t:"Blog pessoal com opiniões, sem fontes",a:1},{t:"Texto de universidade conceituada, confirmado por outras fontes",a:0}],
+    dica:"Releia a p. 66: quem publica e se a informação aparece em outras fontes.",
+    explica:"Órgãos do governo, universidades conceituadas e livros tendem a ser mais confiáveis, principalmente quando confirmados por outras fontes; postagens sem autor e blogs pessoais exigem desconfiança — p. 66.",
+    resposta:"Mais confiáveis: órgão do governo, livro, universidade. Menos: rede social, blog." },
+  { id:"A6", est:"aplicar", hab:"EM13CNT207", tipo:"mc", titulo:"A oferta de álcool mais barato",
+    ctx:"Um fornecedor oferece à empresa, por preço bem menor, um \"álcool para limpeza\" à base de metanol, no lugar do álcool etílico usado hoje.",
+    prompt:"Qual deve ser o parecer do setor de compras?",
+    opcoes:[{t:"Recusar: o metanol é extremamente tóxico, e a economia não compensa o risco à saúde dos trabalhadores.",ok:true},
+            {t:"Aceitar: todo álcool tem a mesma toxicidade.",fb:"O livro diferencia os dois: compare a toxicidade do metanol e a do etanol na p. 350."},
+            {t:"Aceitar, desde que o produto seja diluído em água.",fb:"O metanol é miscível em água, mas continua tóxico. Veja a p. 350."},
+            {t:"Aceitar, porque o metanol também é usado em indústrias.",fb:"Em indústrias e laboratórios, ele é usado com procedimentos de segurança específicos (p. 350). Não é um produto de limpeza."}],
+    explica:"O metanol é extremamente tóxico (30 mL ou menos podem matar; quantidades menores causam cegueira) e exige procedimentos de segurança próprios de laboratórios e indústrias — p. 350.",
+    resposta:"Recusar." },
+  // ---------- Demonstrar ----------
+  { id:"D1", est:"demonstrar", hab:"EM13CNT206", tipo:"numeric", titulo:"D1 — Analisar dados",
+    prompt:"No estudo do dossiê, havia 10 ppm de DDT no solo e 444 ppm no cérebro dos pássaros. Quantas VEZES a concentração no cérebro dos pássaros é maior que a do solo?",
+    min:44, max:44.5, unidade:"vezes",
+    dica:"Divida a concentração no cérebro dos pássaros pela concentração no solo: 444 ÷ 10.",
+    explica:"444 ÷ 10 = 44,4 vezes. A concentração aumentou a cada nível da cadeia (solo → minhocas → pássaros): é a bioamplificação — p. 184.",
+    resposta:"44,4 vezes." }
+];
+
+const TEXTOS = {
+  D1t:{ titulo:"D1 — O que esse número significa?", min:CONFIG.textos.D1textoMin, curto:true, semModo:true,
+        prompt:"Em uma ou duas frases: o que esse resultado indica sobre o risco de aplicar o inseticida perto da lagoa?" },
+  D2:{ titulo:"D2 — Explicar o fenômeno", min:CONFIG.textos.D2min,
+       prompt:"Explique, a partir da estrutura da molécula do DDT, por que ele se acumula na gordura dos seres vivos e por que sua concentração aumenta ao longo da cadeia alimentar.",
+       apoio:["A molécula tem anéis benzênicos e átomos de cloro (haleto), sem grupos −OH ou −COOH — p. 184 e 359.","Partes apolares são hidrófobas e favorecem a dissolução em gorduras — p. 179.","Substâncias lipossolúveis não são eliminadas facilmente — p. 180.","Não biodegradável: persiste e passa de um ser vivo para outro — p. 184."] },
+  D3:{ titulo:"D3 — Parecer técnico", min:CONFIG.textos.D3min,
+       prompt:"Escreva um parecer técnico (10 a 15 linhas) para a diretoria da Cooperativa Agrícola de Vale Verde, dizendo o que fazer com o estoque de DDT. Não existe resposta única: vale a qualidade da sua argumentação.",
+       criterios:["Deixo claro o que recomendo fazer com o estoque.","Uso pelo menos dois argumentos científicos, com conceitos corretos.","Cito pelo menos um dado numérico do dossiê.","Aponto um impacto ambiental ou à saúde e uma ação para evitá-lo."] },
+  D4:{ titulo:"D4 — Comunicar para a comunidade", min:CONFIG.textos.D4min, max:CONFIG.textos.D4max,
+       prompt:"Escreva uma chamada curta (até 400 caracteres) para a Revista Etec&Ambiente explicando aos moradores por que o DDT não deve ser usado perto da lagoa, sem termos técnicos e sem erro de conceito." }
+};
+
+const HABILIDADES = {
+  EM13CNT207:{ nome:"Compostos orgânicos: estrutura, classes funcionais e saúde", itens:["R1","R2","R3","R4","R5","R6","A1","A3","A6"], paginas:"97–104 e 347–360" },
+  EM13CNT202:{ nome:"Interações intermoleculares e biomoléculas (com EM13CNT201 e 208)", itens:["R7","R8","R9","A2","A4"], paginas:"123–124, 179–180 e 383–398" },
+  EM13CNT206:{ nome:"Química ambiental: poluentes persistentes e parâmetros", itens:["I4","D1","D3"], paginas:"166 e 184" },
+  EM13CNT301:{ nome:"Investigação e comunicação científica (com EM13CNT302)", itens:["I1","I2","I3","A5"], paginas:"18–20 e 66" }
+};
+
+const SENTIMENTOS = [["😄","Muito bem"],["🙂","Bem"],["😐","Mais ou menos"],["😟","Preocupado(a)"],["😫","Cansado(a)"]];
+const TEMPOS = ["Até 30 minutos","30 a 60 minutos","1 a 2 horas","Mais de 2 horas"];
+const NIVEL_INI = ["Tenho bastante dificuldade","Tenho alguma dificuldade","Entendo parcialmente","Acredito que domino o conteúdo"];
+const NIVEL_FIM = ["Ainda tenho bastante dificuldade","Ainda tenho algumas dúvidas","Compreendo melhor o conteúdo","Consigo explicar e aplicar o conteúdo"];
+const SELF3 = [["🔴","Ainda preciso estudar"],["🟡","Entendi parcialmente"],["🟢","Consigo explicar"]];
+
+/* =====================================================================
+   PÁGINAS E NAVEGAÇÃO
+   ===================================================================== */
+const PAGINAS = [
+  {id:"home", grupo:"Comece aqui", rot:"Orientações", n:"⌂"},
+  {id:"caderno", grupo:"Comece aqui", rot:"Como usar o caderno", n:"📓"},
+  {id:"investigacao", grupo:"Retomar", rot:"Ambiente e investigação", n:"1"},
+  {id:"hidrocarbonetos", grupo:"Retomar", rot:"Hidrocarbonetos", n:"2"},
+  {id:"funcoes", grupo:"Retomar", rot:"Funções orgânicas e saúde", n:"3"},
+  {id:"biomoleculas", grupo:"Retomar", rot:"Interações e biomoléculas", n:"4"},
+  {id:"aplicar", grupo:"Mobilizar conhecimentos", rot:"Aplicar", n:"5"},
+  {id:"demonstrar", grupo:"Mobilizar conhecimentos", rot:"Demonstrar", n:"6"},
+  {id:"auto", grupo:"Encerrar", rot:"Autoavaliação", n:"7"},
+  {id:"percurso", grupo:"Encerrar", rot:"Meu percurso e entrega", n:"8"}
+];
+const CADERNO_EXTRA = {
+  aplicar:{ titulo:"ATIVIDADE 5 — Hidrossolúvel ou lipossolúvel?", html:"<ol><li>Compare a vitamina C e a vitamina A (p. 180): qual se dissolve em água e qual em gordura? Relacione com os grupos hidrófilos e hidrófobos de cada molécula (p. 179).</li><li>Explique por que o excesso de vitamina A é mais arriscado que o excesso de vitamina C.</li><li>Relacione essa ideia com o acúmulo de DDT nos seres vivos (p. 184), que você vai usar no Desafio final.</li></ol>" }
+};
+
+/* =====================================================================
+   ESTADO (salvo no navegador)
+   ===================================================================== */
+const STORE_KEY = "trilha:" + CONFIG.trilhaId;
+function novoEstado(){
+  return { v:3, pagina:"home", ultima:"caderno", checkin:{nome:"",turma:CONFIG.turmaPadrao,rm:"",pin:"",sentimento:null,tempo:null,nivel:null}, atualizadoEm:0,
+           inicio:null, fim:null, resp:{}, textos:{}, modos:{}, autocheck:[false,false,false,false], cadernoFeito:{}, estacao:{},
+           final:{nivel:null,sentimento:null,tempo:null,antes:"",agora:"",ajudou:"",retomar:""}, entrega:[], envio:{status:null,em:null} };
+}
+let S = carregar();
+function carregar(){
+  try{ const raw = localStorage.getItem(STORE_KEY); if(raw){ const s = JSON.parse(raw); if(s && s.v===3) return Object.assign(novoEstado(), s); } }catch(e){}
+  return novoEstado();
+}
+S.checkin = Object.assign(novoEstado().checkin, S.checkin||{});
+let tSalvar=null;
+/* salvar(): marca a alteração, grava neste navegador e agenda a cópia na nuvem (planilha do professor). */
+function salvar(){ S.atualizadoEm=Date.now(); clearTimeout(tSalvar); tSalvar=setTimeout(gravarLocal,150); agendarNuvem(); }
+function salvarJa(){ S.atualizadoEm=Date.now(); gravarLocal(); agendarNuvem(); }
+function gravarLocal(){ clearTimeout(tSalvar); try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
+window.addEventListener("beforeunload", ()=>{ gravarLocal(); if(nuvemPendente) salvarNuvem(true); });
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="hidden"){ gravarLocal(); if(nuvemPendente) salvarNuvem(true); } });
+
+/* =====================================================================
+   PROGRESSO NA NUVEM (RM + senha) — funciona em qualquer computador
+   ===================================================================== */
+const NUVEM = !!CONFIG.appsScriptUrl;
+let tNuvem=null, nuvemPendente=false, nuvemUltimo=null, nuvemErro=false;
+function temIdentidade(){ const c=S.checkin; return /^\d{3,}$/.test((c.rm||"").trim()) && /^\d{4}$/.test((c.pin||"").trim()); }
+function agendarNuvem(){
+  if(!NUVEM || !temIdentidade()) return;
+  nuvemPendente=true; statusNuvem();
+  clearTimeout(tNuvem); tNuvem=setTimeout(()=>salvarNuvem(false), 4000);
+}
+function estadoParaNuvem(){ const e=JSON.parse(JSON.stringify(S)); e.checkin.pin=""; e.pagina="home"; return e; }
+function salvarNuvem(saindo){
+  clearTimeout(tNuvem);
+  if(!NUVEM || !temIdentidade()) return Promise.resolve();
+  const c=S.checkin;
+  const corpo=JSON.stringify({tipo:"progresso", trilha:CONFIG.trilhaId, rm:c.rm.trim(), pin:c.pin.trim(), nome:c.nome, atualizadoEm:S.atualizadoEm||Date.now(), estado:estadoParaNuvem()});
+  nuvemPendente=false;
+  return fetch(CONFIG.appsScriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:corpo,keepalive:!!saindo && corpo.length<60000})
+    .then(()=>{ nuvemErro=false; nuvemUltimo=Date.now(); statusNuvem(); })
+    .catch(()=>{ nuvemErro=true; nuvemPendente=true; statusNuvem(); clearTimeout(tNuvem); tNuvem=setTimeout(()=>salvarNuvem(false), 30000); });
+}
+function carregarDaNuvem(rm,pin){
+  const u=CONFIG.appsScriptUrl+(CONFIG.appsScriptUrl.includes("?")?"&":"?")+"acao=carregar&trilha="+encodeURIComponent(CONFIG.trilhaId)+"&rm="+encodeURIComponent(rm)+"&pin="+encodeURIComponent(pin)+"&t="+Date.now();
+  const ctl=("AbortController" in window)?new AbortController():null;
+  const to=setTimeout(()=>ctl&&ctl.abort(), 15000);
+  return fetch(u,{signal:ctl?ctl.signal:undefined}).then(r=>r.json()).then(j=>{ clearTimeout(to); return j; })
+    .catch(()=>{ clearTimeout(to); return {ok:false, motivo:"rede"}; });
+}
+/* Junta duas cópias do mesmo aluno sem perder nada: parte da mais recente e completa com o que só a outra tem. */
+function juntarEstados(a,b){
+  const [nova,velha]=(a.atualizadoEm||0)>=(b.atualizadoEm||0)?[a,b]:[b,a];
+  const r=Object.assign(novoEstado(), JSON.parse(JSON.stringify(nova)));
+  r.checkin=Object.assign(novoEstado().checkin, r.checkin||{});
+  Object.entries(velha.resp||{}).forEach(([k,v])=>{ const n=r.resp[k]; if(!n || (!n.travada && v.travada) || (!n.travada && !v.travada && (v.tentativas||0)>(n.tentativas||0))) r.resp[k]=v; });
+  Object.entries(velha.textos||{}).forEach(([k,v])=>{ const n=r.textos[k]; if(!n || ((v.texto||"").length>(n.texto||"").length && !(n.texto||"").trim())) r.textos[k]=v; });
+  ["modos","estacao"].forEach(g=>{ Object.entries(velha[g]||{}).forEach(([k,v])=>{ if(r[g][k]===undefined || r[g][k]===null) r[g][k]=v; }); });
+  Object.entries(velha.cadernoFeito||{}).forEach(([k,v])=>{ if(v) r.cadernoFeito[k]=v; });
+  (velha.autocheck||[]).forEach((v,i)=>{ if(v) r.autocheck[i]=true; });
+  (velha.entrega||[]).forEach((v,i)=>{ if(v) r.entrega[i]=v; });
+  Object.entries(velha.final||{}).forEach(([k,v])=>{ if((r.final[k]===null||r.final[k]==="") && v!==null && v!=="") r.final[k]=v; });
+  if(velha.inicio && (!r.inicio || velha.inicio<r.inicio)) r.inicio=velha.inicio;
+  if(!r.fim && velha.fim) r.fim=velha.fim;
+  if((!r.envio||r.envio.status!=="ok") && velha.envio && velha.envio.status==="ok") r.envio=velha.envio;
+  if(!r.ultima || r.ultima==="caderno") r.ultima=velha.ultima||r.ultima;
+  r.atualizadoEm=Math.max(a.atualizadoEm||0,b.atualizadoEm||0);
+  return r;
+}
+function hora(t){ return new Date(t).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); }
+function statusNuvem(){
+  const el=document.getElementById("nuvem"); if(!el) return;
+  el.className="nuvem";
+  if(!NUVEM){ el.textContent="💾 Progresso salvo só neste navegador."; return; }
+  if(!temIdentidade()){ el.textContent="☁️ Informe RM e senha no início para salvar na nuvem."; return; }
+  if(nuvemErro){ el.className="nuvem erro"; el.textContent="⚠️ Sem conexão: tentando salvar na nuvem de novo…"; return; }
+  if(nuvemPendente){ el.textContent="☁️ Salvando na nuvem…"; return; }
+  el.textContent = nuvemUltimo ? "☁️ Salvo na nuvem às "+hora(nuvemUltimo)+" (RM "+S.checkin.rm+")." : "☁️ Progresso guardado com o RM "+S.checkin.rm+".";
+}
+function toast(msg){
+  const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg;
+  document.body.append(t); setTimeout(()=>t.remove(), 6500);
+}
+/* Troca o estado inteiro (restauração da nuvem ou de arquivo). */
+function aplicarEstado(novo, pin){
+  S=Object.assign(novoEstado(), novo);
+  S.checkin=Object.assign(novoEstado().checkin, S.checkin||{});
+  if(pin!==undefined) S.checkin.pin=pin;
+  gravarLocal();
+}
+function baixarProgresso(){
+  const blob=new Blob([JSON.stringify({trilha:CONFIG.trilhaId, estado:S})],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download="progresso-"+CONFIG.trilhaId+"-"+((S.checkin.nome||"aluno").trim().split(/\s+/)[0]||"aluno").toLowerCase()+".json";
+  document.body.append(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+function abrirArquivoProgresso(aoTerminar){
+  const inp=document.createElement("input"); inp.type="file"; inp.accept=".json,application/json";
+  inp.addEventListener("change",()=>{
+    const f=inp.files&&inp.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=()=>{ try{ const d=JSON.parse(rd.result); if(!d || d.trilha!==CONFIG.trilhaId || !d.estado) throw 0; aplicarEstado(d.estado); aoTerminar(true); }catch(e){ aoTerminar(false); } };
+    rd.readAsText(f);
+  });
+  inp.click();
+}
+
+/* =====================================================================
+   UTILITÁRIOS
+   ===================================================================== */
+const $ = (s,el=document)=>el.querySelector(s);
+const Q = Object.fromEntries(QUESTOES.map(q=>[q.id,q]));
+function h(tag, attrs={}, ...kids){
+  const el = document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){
+    if(v===null || v===undefined || v===false) continue;
+    if(k==="class") el.className=v;
+    else if(k==="html") el.innerHTML=v;
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v===true?"":v);
+  }
+  for(const kid of kids.flat()){ if(kid===null||kid===undefined||kid===false) continue; el.append(kid.nodeType?kid:document.createTextNode(String(kid))); }
+  return el;
+}
+function numero(txt){
+  if(txt===null||txt===undefined) return NaN;
+  let s = String(txt).trim().toLowerCase().replace(/\s/g,"").replace(/[^0-9,.\-e]/g,"");
+  if(/^\-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(s)) s = s.replace(/\./g,"").replace(",",".");
+  else s = s.replace(",",".");
+  return parseFloat(s);
+}
+function norm(t){ return (t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9₂ ]+/g," ").replace(/\s+/g," ").trim(); }
+function fmtTempo(ms){ if(!ms||ms<0) return "—"; const m=Math.round(ms/60000); if(m<60) return m+" min"; return Math.floor(m/60)+" h "+String(m%60).padStart(2,"0")+" min"; }
+function cadernoBox(key, c){
+  const cb = h("input",{type:"checkbox",checked:!!S.cadernoFeito[key]});
+  cb.addEventListener("change",()=>{ S.cadernoFeito[key]=cb.checked; salvar(); atualizarNav(); });
+  return h("div",{class:"notebook"}, h("h3",{},"📓 "+c.titulo), h("div",{html:c.html}),
+    h("label",{class:"done-line"}, cb, "Fiz esta atividade no caderno"));
+}
+function dossieEl(){ return h("div",{class:"dossie"}, ...DOSSIE.map(d=>h("div",{class:"doc"},h("b",{},d.t),h("div",{class:"small"},d.d),h("span",{},d.p)))); }
+function dossieDetails(){ return h("details",{class:"doss"},h("summary",{},"📂 Abrir o dossiê técnico"),dossieEl()); }
+
+/* =====================================================================
+   WIDGETS DE QUESTÃO
+   ===================================================================== */
+function valorInicial(q){
+  switch(q.tipo){
+    case "mc": return null;
+    case "tf": case "classify": case "match": return q.itens.map(()=>null);
+    case "order": return q.inicio ? q.inicio.slice() : q.itens.map((_,i)=>i);
+    case "numeric": return "";
+    case "grid": return q.linhas.map(()=>[]);
+    case "composite": return q.partes.map(p=>valorInicial(p));
+  }
+}
+function completo(q,v){
+  switch(q.tipo){
+    case "mc": return v!==null && v!==undefined;
+    case "tf": case "classify": case "match": return v.every(x=>x!==null && x!=="");
+    case "order": return true;
+    case "numeric": return !isNaN(numero(v));
+    case "grid": return v.every(r=>r.length>0);
+    case "composite": return q.partes.every((p,i)=>completo(p,v[i]));
+  }
+}
+function corrigir(q,v){
+  switch(q.tipo){
+    case "mc": return !!(q.opcoes[v] && q.opcoes[v].ok);
+    case "tf": case "classify": case "match": return q.itens.every((it,i)=>v[i]===it.a);
+    case "order": return v.every((x,i)=>x===i);
+    case "numeric": { let n=numero(v); if(q.unidade==="toneladas" && n>1000) n=n/1e6; return n>=q.min-1e-9 && n<=q.max+1e-9; }
+    case "grid": return q.linhas.every((l,i)=>l.a.length===v[i].length && l.a.every(a=>v[i].includes(a)));
+    case "composite": return q.partes.every((p,i)=>corrigir(p,v[i]));
+  }
+}
+function renderWidget(q, v, travado, onChange){
+  const box = h("div"); let cur = v;
+  if(q.tipo==="mc"){
+    const opts = h("div",{class:"opts",role:"radiogroup"});
+    q.opcoes.forEach((o,i)=>{
+      const b = h("button",{type:"button",class:"opt"+(travado && o.ok?" right":""),"aria-pressed":String(v===i),disabled:travado,role:"radio","aria-checked":String(v===i)},
+        h("span",{class:"k"},String.fromCharCode(65+i)), h("span",{},o.t));
+      b.addEventListener("click",()=>onChange(i));
+      opts.append(b);
+    });
+    box.append(opts);
+  } else if(q.tipo==="tf" || q.tipo==="classify"){
+    const labels = q.tipo==="tf" ? ["Verdadeiro","Falso"] : q.bins;
+    q.itens.forEach((it,i)=>{
+      const seg = h("div",{class:"seg",role:"group","aria-label":it.t});
+      labels.forEach((lab,j)=>{
+        const val = q.tipo==="tf" ? (j===0) : j;
+        const b = h("button",{type:"button","aria-pressed":String(v[i]===val),disabled:travado},lab);
+        b.addEventListener("click",()=>{ const nv=v.slice(); nv[i]=val; onChange(nv); });
+        seg.append(b);
+      });
+      box.append(h("div",{class:"row-item"}, h("div",{class:"t"},it.t), seg));
+    });
+  } else if(q.tipo==="match"){
+    q.itens.forEach((it,i)=>{
+      const id = "m_"+q.id+"_"+i;
+      const sel = h("select",{class:"sel",id,disabled:travado}, h("option",{value:""},"Escolha…"),
+        ...q.opcoesLista.map((o,j)=>h("option",{value:String(j),selected:v[i]===j},o)));
+      sel.addEventListener("change",()=>{ const nv=cur.slice(); nv[i]= sel.value===""?null:Number(sel.value); cur=nv; onChange(nv,true); });
+      box.append(h("div",{class:"row-item"}, h("label",{for:id,class:"t",style:"display:block;font-weight:700"},it.t), sel));
+    });
+  } else if(q.tipo==="order"){
+    const ol = h("ol",{class:"order"});
+    v.forEach((idx,pos)=>{
+      const up = h("button",{type:"button","aria-label":"Mover para cima",disabled:travado||pos===0},"▲");
+      const dn = h("button",{type:"button","aria-label":"Mover para baixo",disabled:travado||pos===v.length-1},"▼");
+      up.addEventListener("click",()=>{ const nv=v.slice(); [nv[pos-1],nv[pos]]=[nv[pos],nv[pos-1]]; onChange(nv); });
+      dn.addEventListener("click",()=>{ const nv=v.slice(); [nv[pos+1],nv[pos]]=[nv[pos],nv[pos+1]]; onChange(nv); });
+      ol.append(h("li",{}, h("span",{class:"n"},String(pos+1)), h("span",{class:"txt"},q.itens[idx]), h("span",{class:"mv"},up,dn)));
+    });
+    box.append(ol);
+  } else if(q.tipo==="numeric"){
+    const inp = h("input",{type:"text",inputmode:"decimal",value:v||"",disabled:travado,autocomplete:"off","aria-label":"Resposta em "+q.unidade});
+    inp.addEventListener("input",()=>onChange(inp.value,true));
+    box.append(h("div",{class:"num"}, inp, h("span",{class:"muted"},q.unidade)), h("div",{class:"small muted",style:"margin-top:6px"},"Use vírgula ou ponto para decimais."));
+  } else if(q.tipo==="grid"){
+    q.linhas.forEach((l,i)=>{
+      const seg = h("div",{class:"seg multi",role:"group","aria-label":l.t});
+      q.colunas.forEach((c,j)=>{
+        const on = cur[i].includes(j);
+        const b = h("button",{type:"button","aria-pressed":String(on),disabled:travado}, h("span",{class:"box","aria-hidden":"true"},on?"✓":""), c);
+        b.addEventListener("click",()=>{
+          const nv=cur.map(r=>r.slice());
+          if(nv[i].includes(j)) nv[i]=nv[i].filter(x=>x!==j); else nv[i].push(j);
+          cur=nv; const now=nv[i].includes(j);
+          b.setAttribute("aria-pressed",String(now)); b.querySelector(".box").textContent= now?"✓":"";
+          onChange(nv,true);
+        });
+        seg.append(b);
+      });
+      box.append(h("div",{class:"row-item"}, h("div",{class:"t"},l.t), seg));
+    });
+  } else if(q.tipo==="composite"){
+    q.partes.forEach((p,i)=>{
+      const sub = {...p, id:q.id+"p"+i};
+      box.append(h("h3",{style:"font-size:16.5px"},p.rotulo));
+      box.append(renderWidget(sub, v[i], travado, (nv,soft)=>{ const all=cur.slice(); all[i]=nv; cur=all; onChange(all,soft); }));
+    });
+  }
+  return box;
+}
+function dicaPara(q,v){
+  if(q.tipo==="mc"){ const o=q.opcoes[v]; return (o && o.fb) ? o.fb : (q.dica||""); }
+  if(q.tipo==="composite"){
+    const msgs = q.partes.map((p,i)=>corrigir(p,v[i])?null:p.dicaParte).filter(Boolean);
+    return h("div",{},"Ainda não estão corretas:", h("ul",{style:"margin:6px 0 0;padding-left:20px"},...msgs.map(m=>h("li",{},m))));
+  }
+  if(["tf","classify","match"].includes(q.tipo)){
+    const n = q.itens.filter((it,i)=>v[i]===it.a).length;
+    return h("div",{},q.dica, h("div",{class:"small",style:"margin-top:4px"},"Você acertou "+n+" de "+q.itens.length+" itens."));
+  }
+  if(q.tipo==="grid"){
+    const n = q.linhas.filter((l,i)=>l.a.length===v[i].length && l.a.every(a=>v[i].includes(a))).length;
+    return h("div",{},q.dica, h("div",{class:"small",style:"margin-top:4px"},n+" de "+q.linhas.length+" linhas corretas."));
+  }
+  return q.dica||"";
+}
+function questaoCard(id, numeroTexto){
+  const q = Q[id];
+  if(!S.resp[id]) S.resp[id] = { valor: valorInicial(q), tentativas:0, correta:false, primeira:false, travada:false };
+  const r = S.resp[id];
+  const status = h("span",{class:"qstatus"});
+  const card = h("div",{class:"qcard",id:"q-"+id},
+    h("div",{class:"qhead"}, h("span",{class:"qid"},numeroTexto), status));
+  if(q.titulo) card.append(h("div",{class:"qtitle"},q.titulo));
+  if(q.ctx) card.append(h("div",{class:"ctx"},q.ctx));
+  if(q.ctxHtml) card.append(h("div",{class:"ctx",html:q.ctxHtml}));
+  if(q.tabela) card.append(h("div",{class:"tablewrap"},h("table",{class:"data"},h("thead",{},h("tr",{},...q.tabela.cab.map(c=>h("th",{},c)))),h("tbody",{},...q.tabela.linhas.map(l=>h("tr",{},...l.map(c=>h("td",{},c))))))));
+  if(q.prompt) card.append(h("p",{class:"prompt"},q.prompt));
+  const area = h("div"), fb = h("div",{"aria-live":"polite"});
+  const btn = h("button",{type:"button",class:"btn primary"},"Verificar resposta");
+  const acoes = h("div",{class:"qactions"}, btn);
+  card.append(area, acoes, fb);
+  function desenhar(){
+    area.innerHTML="";
+    area.append(renderWidget(q, r.valor, r.travada, (nv,soft)=>{ r.valor=nv; salvar(); if(!soft) desenhar(); atualizar(); }));
+    atualizar();
+  }
+  function atualizar(){
+    acoes.style.display = r.travada ? "none" : "";
+    btn.disabled = !completo(q, r.valor);
+    status.className = "qstatus " + (r.travada ? (r.correta?"ok":"dev") : "open");
+    status.textContent = r.travada ? (r.correta?"✓ Concluída":"Em desenvolvimento") : (r.tentativas? "1 tentativa restante" : "2 tentativas");
+  }
+  function mostrarFb(){
+    fb.innerHTML="";
+    if(r.travada && r.correta) fb.append(h("div",{class:"fb ok"},h("strong",{},r.primeira?"Isso mesmo!":"Agora sim!"),q.explica));
+    else if(r.travada) fb.append(h("div",{class:"fb end"},h("strong",{},"Vamos seguir — veja a explicação:"),h("div",{},"Resposta esperada: "+q.resposta),h("div",{style:"margin-top:6px"},q.explica),h("div",{class:"small muted",style:"margin-top:6px"},"Esta checagem ficou registrada como \"em desenvolvimento\". Vale revisar as páginas indicadas.")));
+    else if(r.tentativas>0) fb.append(h("div",{class:"fb try"},h("strong",{},"Ainda não."),dicaPara(q,r.valor),h("div",{class:"small muted",style:"margin-top:6px"},"Retome o trecho indicado e tente mais uma vez.")));
+  }
+  btn.addEventListener("click",()=>{
+    if(!completo(q,r.valor)) return;
+    r.tentativas++;
+    if(corrigir(q,r.valor)){ r.correta=true; r.primeira=r.tentativas===1; r.travada=true; }
+    else if(r.tentativas>=CONFIG.maxTentativas){ r.correta=false; r.travada=true; }
+    salvarJa(); desenhar(); mostrarFb(); atualizarNav();
+    fb.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  desenhar(); mostrarFb();
+  return card;
+}
+
+/* =====================================================================
+   TEXTOS: integridade e checagem automática
+   ===================================================================== */
+function registroTexto(id){
+  if(!S.textos[id]) S.textos[id] = { texto:"", colagens:0, charsColados:0, teclas:0, msDigitando:0, ultimo:0 };
+  return S.textos[id];
+}
+function copiaDoDossie(texto){
+  const a = norm(texto).split(" "), b = norm(DOSSIE_TEXTO).split(" ");
+  const N=9, set=new Set();
+  for(let i=0;i+N<=b.length;i++) set.add(b.slice(i,i+N).join(" "));
+  let hits=0; for(let i=0;i+N<=a.length;i++) if(set.has(a.slice(i,i+N).join(" "))) hits++;
+  return hits;
+}
+function alertasTexto(id){
+  const r = S.textos[id]; if(!r || S.modos[id]==="caderno") return [];
+  const out=[], len=(r.texto||"").length;
+  if(r.colagens>0 && r.charsColados > len*0.4) out.push("texto colado ("+r.charsColados+" caracteres em "+r.colagens+" colagem(ns))");
+  const seg = r.msDigitando/1000;
+  if(len>200 && seg < len/12) out.push("digitação muito rápida para o tamanho do texto ("+Math.round(seg)+" s)");
+  const cp = copiaDoDossie(r.texto||""); if(cp>0) out.push("trechos quase idênticos ao dossiê ("+cp+")");
+  return out;
+}
+const RX = {
+  posicao:/\b(recomend|proponho|propomos|sugiro|sugerimos|escolh|defendo|indico|opto|minha recomendacao|nao (aplicar|usar|utilizar)|deve ser)/,
+  conceitos:[/ddt/,/organoclor/,/lipossol|lipid|gordura/,/bioacum|bioampl/,/biodegrad/,/apolar|hidrofob/,/ppm/,/cadeia alimentar/,/persist/,/anel|benzen/,/cloro|haleto/,/solubil|dissolv/,/interac|ligac(ao|oes) de hidrogenio/],
+  numero:/\d/, unidade:/\b(ppm|vezes|anos?|%)/,
+  impacto:/(contamin|peixe|passaro|ave|saude|cadeia|ovos|lagoa|agua|solo|intoxic|toxic|morte|acumul)/,
+  acao:/(descart|destin|recolh|devolv|nao (aplicar|usar|utilizar)|proib|orgao|fiscaliz|armazen|substitu|orient|monitor|isolar|alternativ|evitar|lacrar)/
+};
+function checarD3(){
+  const t = norm((S.textos.D3||{}).texto||"");
+  const c = RX.conceitos.filter(r=>r.test(t)).length;
+  return [ {ok:RX.posicao.test(t),txt:"Deixa claro o que recomenda"},
+           {ok:c>=2,txt:"Dois ou mais conceitos científicos ("+c+" encontrados)"},
+           {ok:RX.numero.test(t)&&RX.unidade.test(t),txt:"Dado numérico com unidade"},
+           {ok:RX.impacto.test(t)&&RX.acao.test(t),txt:"Impacto e ação para evitá-lo"} ];
+}
+function checarD2(){
+  const t = norm((S.textos.D2||{}).texto||"");
+  return [ {ok:/(apolar|hidrofob|lipossol|gordura|lipid)/.test(t)&&/(cloro|haleto|anel|benzen|hidrocarbon|carbono)/.test(t),txt:"Relaciona a estrutura ao caráter apolar/lipossolúvel"},
+           {ok:/(biodegrad|persist|nao (e|eh) (decomposto|eliminado)|acumul)/.test(t),txt:"Explica a persistência e o acúmulo"},
+           {ok:/(cadeia alimentar|bioampl|minhoca|passaro|nivel)/.test(t),txt:"Relaciona com a cadeia alimentar (bioamplificação)"} ];
+}
+const JARGAO = /(organoclor|lipossol|bioampl|bioacum|hidrofob|apolar|ppm|haleto|benzen)/;
+function checarD4(){
+  const raw=(S.textos.D4||{}).texto||"", t=norm(raw);
+  return [ {ok:raw.length>=CONFIG.textos.D4min&&raw.length<=CONFIG.textos.D4max,txt:"Entre "+CONFIG.textos.D4min+" e "+CONFIG.textos.D4max+" caracteres"},
+           {ok:!JARGAO.test(t),txt:"Sem termos técnicos (organoclorado, lipossolúvel, ppm…)"},
+           {ok:/(nao|evite|proib|perig|risco|cuid)/.test(t)&&/(lagoa|agua|peixe|passaro|animal|saude|natureza|ambiente)/.test(t),txt:"Explica o risco para o ambiente ou a saúde"} ];
+}
+function textoPronto(id){
+  const T = TEXTOS[id]; const modo = T.semModo ? "aqui" : S.modos[id];
+  if(!modo) return false;
+  if(modo==="caderno") return !!S.cadernoFeito["txt_"+id];
+  const len = ((S.textos[id]||{}).texto||"").length;
+  return len>=T.min && (!T.max || len<=T.max);
+}
+function textoCard(id){
+  const T = TEXTOS[id]; const r = registroTexto(id);
+  const card = h("div",{class:"qcard",id:"t-"+id}, h("div",{class:"qhead"},h("span",{class:"qid"},id==="D1t"?"D1":id),h("span",{class:"qstatus"})), h("div",{class:"qtitle"},T.titulo), h("p",{class:"prompt"},T.prompt));
+  const status = card.querySelector(".qstatus");
+  if(T.apoio) card.append(h("details",{class:"doss"},h("summary",{},"💡 Pistas para organizar a explicação"),h("ul",{class:"guide",style:"padding:0 16px 14px 34px"},...T.apoio.map(a=>h("li",{},a)))));
+  const corpo = h("div");
+  if(!T.semModo){
+    const modoBox = h("div",{class:"mode",role:"radiogroup","aria-label":"Onde vou responder"});
+    [["aqui","⌨️ Vou escrever aqui"],["caderno","📓 Vou fazer no caderno"]].forEach(([k,rot])=>{
+      const b=h("button",{type:"button","aria-pressed":String(S.modos[id]===k),role:"radio"},rot);
+      b.addEventListener("click",()=>{ S.modos[id]=k; salvar(); desenharCorpo(); modoBox.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); atualizarNav(); });
+      modoBox.append(b);
+    });
+    card.append(h("div",{class:"small muted"},"Escolha onde vai responder:"), modoBox);
+  }
+  card.append(corpo);
+  function atualizarStatus(){ const ok=textoPronto(id); status.className="qstatus "+(ok?"ok":"open"); status.textContent= ok ? "✓ Registrado" : "Pendente"; }
+  function desenharCorpo(){
+    corpo.innerHTML="";
+    const modo = T.semModo ? "aqui" : S.modos[id];
+    if(!modo){ atualizarStatus(); return; }
+    if(modo==="caderno"){
+      const cb=h("input",{type:"checkbox",checked:!!S.cadernoFeito["txt_"+id]});
+      cb.addEventListener("change",()=>{ S.cadernoFeito["txt_"+id]=cb.checked; salvar(); atualizarStatus(); atualizarNav(); });
+      corpo.append(h("div",{class:"notebook"},h("h3",{},"📓 No caderno: "+T.titulo),
+        h("p",{class:"small"},"Escreva o título e responda no caderno. Esta resposta será lida pelo professor nas fotos que você enviar pelo Teams."),
+        T.criterios ? h("ul",{class:"guide"},...T.criterios.map(c=>h("li",{},c))) : null,
+        h("label",{class:"done-line"},cb,"Fiz no caderno")));
+      atualizarStatus(); return;
+    }
+    const ta = h("textarea",{"aria-label":T.titulo,spellcheck:"true",maxlength:T.max?String(T.max):null,placeholder:"Escreva aqui com suas palavras…"});
+    ta.value = r.texto||""; if(T.curto||id==="D4") ta.style.minHeight="110px";
+    const cnt = h("div",{class:"counter"}), checks = h("ul",{class:"checks","aria-live":"polite"});
+    corpo.append(ta, cnt);
+    if(T.criterios){
+      const sc = h("div",{class:"selfcheck"}, h("div",{class:"small",style:"font-weight:700;margin-top:10px"},"Antes de seguir, confira seu texto:"));
+      T.criterios.forEach((c,i)=>{ const cb=h("input",{type:"checkbox",checked:!!S.autocheck[i]}); cb.addEventListener("change",()=>{S.autocheck[i]=cb.checked; salvar();}); sc.append(h("label",{},cb,h("span",{},c))); });
+      corpo.append(sc);
+    }
+    if(["D2","D3","D4"].includes(id)) corpo.append(h("div",{class:"small",style:"font-weight:700;margin-top:12px"},"O que o sistema já identificou (provisório):"), checks, h("p",{class:"small muted"},"É só uma pista. Quem valida o seu texto é o professor."));
+    function atualizarTexto(){
+      const len=ta.value.length;
+      cnt.textContent = T.max ? (len+" / "+T.max+" caracteres") : (len+" caracteres · mínimo "+T.min);
+      cnt.classList.toggle("over", T.max ? len>T.max : false);
+      checks.innerHTML="";
+      (id==="D3"?checarD3():id==="D2"?checarD2():id==="D4"?checarD4():[]).forEach(c=>checks.append(h("li",{},h("span",{class:"s "+(c.ok?"y":"n")},c.ok?"✓":"•"),h("span",{},c.txt))));
+      atualizarStatus();
+    }
+    ta.addEventListener("paste",e=>{ const txt=(e.clipboardData||window.clipboardData)?.getData("text")||""; r.colagens++; r.charsColados+=txt.length; salvar(); });
+    ta.addEventListener("keydown",()=>{ r.teclas++; });
+    ta.addEventListener("input",()=>{ const now=Date.now(); if(r.ultimo && now-r.ultimo<10000) r.msDigitando+=now-r.ultimo; r.ultimo=now; r.texto=ta.value; salvar(); atualizarTexto(); atualizarNav(); });
+    atualizarTexto();
+  }
+  desenharCorpo();
+  return card;
+}
+
+/* =====================================================================
+   PROGRESSO E PENDÊNCIAS
+   ===================================================================== */
+function checkinOk(){ const c=S.checkin; return c.nome.trim().split(/\s+/).length>=2 && c.turma.trim() && c.sentimento!==null && c.tempo!==null && c.nivel!==null && (!NUVEM || temIdentidade()); }
+function questoesDe(est){ return QUESTOES.filter(q=>q.est===est).map(q=>q.id); }
+function paginaCompleta(id){
+  if(id==="home") return checkinOk();
+  if(id==="caderno") return !!S.cadernoLido;
+  if(ESTACOES[id]) return questoesDe(id).every(q=>S.resp[q]&&S.resp[q].travada) && S.estacao[id]!==undefined && !!S.cadernoFeito[id];
+  if(id==="aplicar") return questoesDe("aplicar").every(q=>S.resp[q]&&S.resp[q].travada) && !!S.cadernoFeito.aplicar;
+  if(id==="demonstrar") return S.resp.D1 && S.resp.D1.travada && ["D1t","D2","D3","D4"].every(textoPronto);
+  if(id==="auto"){ const f=S.final; return f.nivel!==null && f.sentimento!==null && f.tempo!==null && f.antes.trim().length>=3 && f.agora.trim().length>=3 && f.ajudou.trim().length>=3 && f.retomar.trim().length>=3; }
+  if(id==="percurso") return !!S.envio.status || S.entrega.filter(Boolean).length>=4;
+  return false;
+}
+function pendencias(){
+  const out=[];
+  PAGINAS.forEach(p=>{
+    if(p.id==="percurso"||p.id==="caderno") return;
+    if(ESTACOES[p.id] || p.id==="aplicar"){
+      const faltam = questoesDe(p.id).filter(q=>!(S.resp[q]&&S.resp[q].travada));
+      if(faltam.length) out.push([p.id, p.rot+": checagens "+faltam.join(", ")]);
+      if(!S.cadernoFeito[p.id]) out.push([p.id, p.rot+": atividade do caderno"]);
+      if(ESTACOES[p.id] && S.estacao[p.id]===undefined) out.push([p.id, p.rot+": como foi esta estação"]);
+    } else if(p.id==="demonstrar"){
+      if(!(S.resp.D1&&S.resp.D1.travada)) out.push(["demonstrar","Demonstrar: D1"]);
+      ["D1t","D2","D3","D4"].forEach(t=>{ if(!textoPronto(t)) out.push(["demonstrar","Demonstrar: "+(t==="D1t"?"significado do D1":t)]); });
+    } else if(!paginaCompleta(p.id)) out.push([p.id, p.rot]);
+  });
+  return out;
+}
+function progresso(){
+  const ids = ["home",...Object.keys(ESTACOES),"aplicar","demonstrar","auto"];
+  let total=0, feito=0;
+  ids.forEach(id=>{
+    if(ESTACOES[id]||id==="aplicar"){ const qs=questoesDe(id); total+=qs.length+1+(ESTACOES[id]?1:0); feito+=qs.filter(q=>S.resp[q]&&S.resp[q].travada).length+(S.cadernoFeito[id]?1:0)+(ESTACOES[id]&&S.estacao[id]!==undefined?1:0); }
+    else if(id==="demonstrar"){ total+=5; feito+=(S.resp.D1&&S.resp.D1.travada?1:0)+["D1t","D2","D3","D4"].filter(textoPronto).length; }
+    else { total+=1; feito+=paginaCompleta(id)?1:0; }
+  });
+  return Math.round(100*feito/total);
+}
+
+/* =====================================================================
+   AVALIAÇÃO
+   ===================================================================== */
+function acertou(id){ const r=S.resp[id]; return !!(r && r.correta); }
+function avaliar(){
+  const L=CONFIG.limites;
+  const modoD2=S.modos.D2, modoD3=S.modos.D3, modoD4=S.modos.D4;
+  const d3=checarD3(), d2=checarD2(), d4=checarD4();
+  const d3n=d3.filter(c=>c.ok).length;
+  const d2ok=d2.filter(c=>c.ok).length>=2 && ((S.textos.D2||{}).texto||"").length>=CONFIG.textos.D2min;
+  const d3ok=((S.textos.D3||{}).texto||"").length>=CONFIG.textos.D3min && d3n>=L.argumentacao.minCriteriosD3;
+  const d4ok=d4.every(c=>c.ok);
+  const R = [].concat(...Object.values(ESTACOES).map(e=>e.questoes));
+  const nR = R.filter(acertou).length;
+  const estOk = Object.keys(ESTACOES).every(k=>questoesDe(k).some(acertou));
+  const nApl=["A1","A3","A4","A6"].filter(acertou).length;
+  const nInt=["A2","A5","D1"].filter(acertou).length;
+  const wait = (...m)=>m.includes("caderno");
+  const ind = [
+    {k:"Compreensão dos conceitos", ev:"checagens das 4 estações", st: nR>=L.compreensao.minCorretas && (!L.compreensao.umPorEstacao||estOk) ? "ok":"dev", det:nR+" de "+R.length+" corretas"+(estOk?"":" · falta acerto em alguma estação")},
+    {k:"Aplicação dos conhecimentos", ev:"A1, A3, A4, A6", st: nApl>=L.aplicacao.minCorretas?"ok":"dev", det:nApl+" de 4 corretas"},
+    {k:"Interpretação e análise", ev:"A2, A5, D1", st: nInt>=L.interpretacao.minCorretas && acertou(L.interpretacao.obrigatoria)?"ok":"dev", det:nInt+" de 3 corretas"+(acertou("D1")?"":" · D1 ainda não")},
+    {k:"Argumentação científica", ev:"D2, D3 e caderno", st: wait(modoD2,modoD3) ? "wait" : (d3ok&&d2ok?"ok":"dev"), prov:!wait(modoD2,modoD3), det: wait(modoD2,modoD3) ? "respondido no caderno" : "D3: "+d3n+" de 4 critérios · D2: "+d2.filter(c=>c.ok).length+" de 3"},
+    {k:"Comunicação científica", ev:"D3, D4 e caderno", st: wait(modoD3,modoD4) ? "wait" : (d4ok&&d3[1].ok?"ok":"dev"), prov:!wait(modoD3,modoD4), det: wait(modoD3,modoD4) ? "respondido no caderno" : "D4: "+d4.filter(c=>c.ok).length+" de 3 · vocabulário no D3"}
+  ];
+  const hab={}, cont=ids=>ids.filter(acertou).length;
+  { const ids=HABILIDADES.EM13CNT207.itens, n=cont(ids); hab.EM13CNT207={st: n>=L.hab207.min && L.hab207.precisaUm.some(acertou)?"ok":"dev", det:n+" de "+ids.length}; }
+  { const ids=HABILIDADES.EM13CNT202.itens, n=cont(ids); hab.EM13CNT202={st: n>=L.hab202.min?"ok":"dev", det:n+" de "+ids.length}; }
+  { const fechado=acertou("I4")&&acertou("D1");
+    hab.EM13CNT206 = modoD3==="caderno" ? {st: fechado?"wait":"dev", det:"I4 "+(acertou("I4")?"✓":"✗")+" · D1 "+(acertou("D1")?"✓":"✗")+" · D3 no caderno"}
+                                        : {st: fechado&&d3ok?"ok":"dev", prov:true, det:"I4 "+(acertou("I4")?"✓":"✗")+" · D1 "+(acertou("D1")?"✓":"✗")+" · D3 "+d3n+"/4"}; }
+  { const ids=HABILIDADES.EM13CNT301.itens, n=cont(ids); hab.EM13CNT301={st: n>=L.hab301.min?"ok":"dev", det:n+" de "+ids.length}; }
+  const primeira = Object.values(S.resp).filter(r=>r.primeira).length;
+  return {ind,hab,d2,d3,d4,primeira,totalFechadas:QUESTOES.length,nR};
+}
+
+/* =====================================================================
+   RENDERIZAÇÃO DAS PÁGINAS
+   ===================================================================== */
+const main = $("#main");
+function go(id){
+  if(id!=="home" && id!=="caderno" && !checkinOk()) id="home";
+  S.pagina = id; if(id!=="home") S.ultima = id;
+  salvar(); render(); fecharMenu(); window.scrollTo(0,0); main.focus({preventScroll:true});
+}
+function render(){
+  main.innerHTML="";
+  const id=S.pagina;
+  ({home:pgHome,caderno:pgCaderno,aplicar:pgAplicar,demonstrar:pgDemonstrar,auto:pgAuto,percurso:pgPercurso}[id] || pgEstacao)(id);
+  atualizarNav();
+}
+function atualizarNav(){
+  const nav=$("#nav"); nav.innerHTML=""; let grupo="";
+  PAGINAS.forEach(p=>{
+    if(p.grupo!==grupo){ grupo=p.grupo; nav.append(h("div",{class:"navtitle"},grupo)); }
+    const bloqueado = p.id!=="home" && p.id!=="caderno" && !checkinOk();
+    const feito = paginaCompleta(p.id);
+    let st="";
+    if(ESTACOES[p.id]||p.id==="aplicar"){ const qs=questoesDe(p.id); st=qs.filter(q=>S.resp[q]&&S.resp[q].travada).length+"/"+qs.length; }
+    const b=h("button",{type:"button",class:"navbtn"+(S.pagina===p.id?" active":"")+(feito?" done":""),disabled:bloqueado,"aria-current":S.pagina===p.id?"page":null},
+      h("span",{class:"n"},feito?"✓":p.n), p.rot, st?h("span",{class:"st"},st):null);
+    b.addEventListener("click",()=>go(p.id));
+    nav.append(b);
+  });
+  const pr=progresso(); $("#prog").style.width=pr+"%"; $("#mprog").style.width=pr+"%"; $("#progTxt").textContent=pr+"%";
+}
+function setTop(eb,t,s){ $("#topTitle").textContent=t; $("#topSub").textContent=s; }
+function acoes(prev, next, rotNext){
+  const a=h("div",{class:"actions"});
+  a.append(prev ? h("button",{type:"button",class:"btn secondary",onclick:()=>go(prev)},"← ANTERIOR") : h("span"));
+  if(next) a.append(h("button",{type:"button",class:"btn primary",onclick:()=>go(next)},rotNext||"SEGUIR →"));
+  return a;
+}
+function feelings(val,on){
+  const g=h("div",{class:"feelings",role:"radiogroup"});
+  SENTIMENTOS.forEach(([e,t],i)=>{ const b=h("button",{type:"button",class:"feel","aria-pressed":String(val===i),role:"radio"},h("span",{class:"e","aria-hidden":"true"},e),t); b.addEventListener("click",()=>{ g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); on(i); }); g.append(b); });
+  return g;
+}
+function chips(lista,val,on){
+  const g=h("div",{class:"chips",role:"radiogroup"});
+  lista.forEach((t,i)=>{ const b=h("button",{type:"button",class:"chip","aria-pressed":String(val===i),role:"radio"},t); b.addEventListener("click",()=>{ g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); on(i); }); g.append(b); });
+  return g;
+}
+
+/* ---------- Orientações + check-in ---------- */
+function pgHome(){
+  setTop("","Aprender, retomar e demonstrar","Você pode fazer esta recuperação em etapas, no seu ritmo.");
+  const c=S.checkin;
+  const p1=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Bem-vindo(a)"), h("h2",{},"Esta recuperação é um novo percurso de aprendizagem"),
+    h("p",{class:"lead"},"Você não precisa fazer toda a trilha de uma vez. Pode estudar uma estação hoje, parar e continuar em outro momento. Use o menu da trilha para escolher onde começar ou retomar."),
+    h("div",{class:"steps3"},
+      h("div",{class:"step"},h("b",{},"1 · ESTUDE"),"Leia as páginas indicadas do livro e assista ao vídeo recomendado."),
+      h("div",{class:"step"},h("b",{},"2 · REGISTRE"),"Faça no caderno as atividades marcadas com 📓."),
+      h("div",{class:"step"},h("b",{},"3 · VERIFIQUE"),"Responda às checagens: se errar, você recebe uma orientação e tenta de novo.")),
+    NUVEM
+      ? h("div",{class:"callout"},h("b",{},"Seu progresso fica guardado com o seu RM e uma senha de 4 números. "),"Assim você pode parar num computador e continuar em outro (na escola, em casa ou no celular). Anote a senha no caderno. O caderno continua sendo o registro principal do percurso.")
+      : h("div",{class:"callout"},h("b",{},"Seu progresso fica salvo neste navegador. "),"Alguns computadores apagam os dados ao desligar. Antes de sair, use “Salvar progresso em arquivo” (no fim desta página) e guarde o arquivo; no outro computador, use “Carregar arquivo”. O caderno é o registro principal do percurso."));
+  const nome=h("input",{type:"text",id:"nome",value:c.nome,autocomplete:"name",placeholder:"Digite seu nome completo"});
+  const turma=h("input",{type:"text",id:"turma",value:c.turma});
+  const rm=h("input",{type:"text",id:"rm",value:c.rm||"",inputmode:"numeric",autocomplete:"off",placeholder:"Somente números"});
+  const pin=h("input",{type:"text",id:"pin",class:"pin",value:c.pin||"",inputmode:"numeric",maxlength:"4",autocomplete:"off",placeholder:"0000"});
+  const btn=h("button",{type:"button",class:"btn primary"}, S.inicio ? "CONTINUAR DE ONDE PAREI →" : "INICIAR MINHA RECUPERAÇÃO");
+  const aviso=h("span",{class:"small muted"});
+  const p2=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Antes de começar..."), h("h2",{},"Conte um pouco sobre você"),
+    NUVEM && !S.inicio ? h("p",{class:"small",style:"margin:-4px 0 4px"},"Já começou em outro computador? ",h("a",{href:"#recuperar"},"Recupere seu progresso aqui ↓")) : null,
+    h("div",{class:"field"},h("label",{for:"nome"},"1. Nome completo"),nome),
+    h("div",{class:"field"},h("label",{for:"turma"},"2. Turma"),turma),
+    NUVEM ? h("div",{class:"row2"},
+      h("div",{class:"field"},h("label",{for:"rm"},"3. RM (número de matrícula)"),rm),
+      h("div",{class:"field"},h("label",{for:"pin"},"4. Crie uma senha de 4 números"),pin,h("div",{class:"small muted",style:"margin-top:6px"},"Anote no caderno. Você vai usar RM e senha para continuar em outro computador."))) : null,
+    h("div",{class:"field"},h("span",{class:"lab"},"Como você está se sentindo agora?"),feelings(c.sentimento,v=>{c.sentimento=v;ok();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Quanto tempo você reservou para esta atividade hoje?"),chips(TEMPOS,c.tempo,v=>{c.tempo=v;ok();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Antes de começar, como você avalia seu conhecimento sobre os conteúdos desta recuperação?"),chips(NIVEL_INI,c.nivel,v=>{c.nivel=v;ok();})),
+    h("div",{class:"actions"},aviso,btn));
+  nome.addEventListener("input",()=>{c.nome=nome.value;ok();});
+  turma.addEventListener("input",()=>{c.turma=turma.value;ok();});
+  const soDig=(el,max)=>{ const v=el.value.replace(/\D/g,"").slice(0,max); if(v!==el.value) el.value=v; return v; };
+  rm.addEventListener("input",()=>{c.rm=soDig(rm,12);ok();});
+  pin.addEventListener("input",()=>{c.pin=soDig(pin,4);ok();});
+  function ok(){ salvar(); ui(); }
+  function ui(){ const v=checkinOk(); btn.disabled=!v; aviso.className="small muted"; aviso.textContent=v?"":(NUVEM?"Preencha nome completo, RM, senha de 4 números e as três perguntas.":"Preencha o nome completo e as três perguntas."); atualizarNav(); statusNuvem(); }
+  function seguir(){ if(!S.inicio) S.inicio=Date.now(); salvarJa(); if(NUVEM) salvarNuvem(false); go(S.ultima && S.ultima!=="home" ? S.ultima : "caderno"); }
+  btn.addEventListener("click",()=>{
+    if(!checkinOk()) return;
+    if(!NUVEM) return seguir();
+    btn.disabled=true; aviso.className="small muted"; aviso.textContent="Conferindo o RM…";
+    carregarDaNuvem(c.rm.trim(), c.pin.trim()).then(j=>{
+      btn.disabled=false;
+      if(j.ok && j.estado){ const meu=JSON.parse(JSON.stringify(S)); aplicarEstado(juntarEstados(meu, j.estado), c.pin); toast("Encontramos seu progresso salvo. Você continua de onde parou."); return seguir(); }
+      if(j.motivo==="senha"){ aviso.className="small msgerro"; aviso.textContent="Este RM já tem progresso salvo com outra senha. Digite a senha que você criou. Se esqueceu, fale com o professor pelo Teams."; return; }
+      if(j.motivo==="rede"){ toast("Sem conexão com a nuvem agora. Você pode continuar; o site tenta salvar de novo sozinho."); }
+      seguir();
+    });
+  });
+  const extra=[];
+  if(NUVEM){
+    const rrm=h("input",{type:"text",id:"rrm",inputmode:"numeric",autocomplete:"off",placeholder:"Seu RM"});
+    const rpin=h("input",{type:"text",id:"rpin",class:"pin",inputmode:"numeric",maxlength:"4",autocomplete:"off",placeholder:"0000"});
+    const rmsg=h("p",{class:"small",role:"status",style:"margin:10px 0 0"});
+    const rbtn=h("button",{type:"button",class:"btn secondary"},"Recuperar meu progresso");
+    rrm.addEventListener("input",()=>soDig(rrm,12)); rpin.addEventListener("input",()=>soDig(rpin,4));
+    rbtn.addEventListener("click",()=>{
+      const a=rrm.value.trim(), b=rpin.value.trim();
+      if(!/^\d{3,}$/.test(a) || !/^\d{4}$/.test(b)){ rmsg.className="small msgerro"; rmsg.textContent="Digite o RM (só números) e a senha de 4 números."; return; }
+      rbtn.disabled=true; rmsg.className="small muted"; rmsg.textContent="Procurando seu progresso…";
+      carregarDaNuvem(a,b).then(j=>{
+        rbtn.disabled=false;
+        if(j.ok && j.estado){
+          const mesmo=(S.checkin.rm||"")===a;
+          aplicarEstado(mesmo ? juntarEstados(JSON.parse(JSON.stringify(S)), j.estado) : j.estado, b);
+          toast("Progresso recuperado. Bem-vindo(a) de volta, "+(S.checkin.nome||"").split(" ")[0]+"!");
+          if(checkinOk()) go(S.ultima && S.ultima!=="home" ? S.ultima : "caderno"); else render();
+          return;
+        }
+        rmsg.className="small msgerro";
+        rmsg.textContent = j.motivo==="senha" ? "Senha não confere para este RM. Confira no caderno; se esqueceu, fale com o professor pelo Teams."
+          : j.motivo==="nao_encontrado" ? "Não encontramos progresso salvo com este RM nesta trilha. Se é a primeira vez, preencha o formulário acima."
+          : "Não foi possível falar com a nuvem agora. Verifique a internet e tente de novo.";
+      });
+    });
+    extra.push(h("section",{class:"panel",id:"recuperar"},
+      h("div",{class:"eyebrow"},"Já começou em outro computador?"), h("h2",{},"Recupere seu progresso"),
+      h("p",{class:"muted"},"Digite o RM e a senha que você criou no primeiro acesso."),
+      h("div",{class:"row2"}, h("div",{class:"field"},h("label",{for:"rrm"},"RM"),rrm), h("div",{class:"field"},h("label",{for:"rpin"},"Senha (4 números)"),rpin)),
+      h("div",{class:"actions",style:"justify-content:flex-start;margin-top:4px"},rbtn), rmsg));
+    if(temIdentidade() && S.inicio){
+      const outro=h("button",{type:"button",class:"btn"},"Não sou "+((c.nome||"").split(" ")[0]||"esta pessoa")+" — começar como outro aluno");
+      outro.addEventListener("click",()=>{ salvarNuvem(false).then(()=>{ S=novoEstado(); gravarLocal(); statusNuvem(); render(); window.scrollTo(0,0); }); });
+      extra.push(h("section",{class:"panel"},
+        h("p",{class:"muted",style:"margin-top:0"},"Computador compartilhado? O progresso de "+(c.nome||"quem estava usando")+" já está guardado na nuvem (RM "+c.rm+"). Para usar este computador com o seu próprio RM, clique abaixo."), outro));
+    }
+  } else {
+    const fmsg=h("p",{class:"small",role:"status",style:"margin:10px 0 0"});
+    const bS=h("button",{type:"button",class:"btn secondary"},"💾 Salvar progresso em arquivo");
+    const bC=h("button",{type:"button",class:"btn"},"📂 Carregar arquivo");
+    bS.addEventListener("click",()=>{ gravarLocal(); baixarProgresso(); fmsg.className="small msgok"; fmsg.textContent="Arquivo baixado. Guarde-o (pen drive, e-mail ou OneDrive) para continuar em outro computador."; });
+    bC.addEventListener("click",()=>abrirArquivoProgresso(okk=>{ if(okk){ toast("Progresso carregado do arquivo."); render(); } else { fmsg.className="small msgerro"; fmsg.textContent="Este arquivo não é o progresso desta trilha."; } }));
+    extra.push(h("section",{class:"panel"},
+      h("div",{class:"eyebrow"},"Vai trocar de computador?"), h("h2",{},"Leve seu progresso num arquivo"),
+      h("p",{class:"muted"},"Antes de sair, salve o arquivo. No outro computador, abra esta trilha e carregue o arquivo."),
+      h("div",{class:"actions",style:"justify-content:flex-start;margin-top:4px"},bS,bC), fmsg));
+  }
+  main.append(p1,p2,...extra); ui();
+}
+/* ---------- Caderno ---------- */
+function pgCaderno(){
+  setTop("","Como registrar seu percurso","O caderno é a sua evidência de aprendizagem.");
+  S.cadernoLido = true; salvar();
+  main.append(h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Organização"), h("h2",{},"Como registrar seu percurso"),
+    h("p",{class:"lead",html:"Comece uma nova página e escreva: <b>Recuperação Contínua de Química — 3º Bimestre</b>, seu nome, turma e data. Cada atividade da trilha terá um título próprio."}),
+    h("div",{class:"notebook"},h("h3",{},"📓 O que vai para o caderno"),
+      h("ul",{},h("li",{},"As atividades marcadas com 📓 nas quatro estações e na etapa Aplicar."),
+        h("li",{},"No Demonstrar, você escolhe: escrever na tela ou no caderno. As duas formas valem."),
+        h("li",{},"Registre cálculos, esquemas, justificativas e o seu raciocínio, e não só respostas soltas."))),
+    h("div",{class:"callout"},"As checagens da tela não precisam ser copiadas: o site já registra suas respostas e tentativas. Ao final, você fotografa as páginas do caderno e envia pelo Teams."),
+    acoes("home","investigacao","COMEÇAR A ESTAÇÃO 1 →")));
+}
+/* ---------- Estações ---------- */
+function pgEstacao(id){
+  const e=ESTACOES[id];
+  setTop("","Estação "+e.n+" — "+e.titulo,"Retomar: leia, assista, registre e verifique.");
+  const v=CONFIG.videos[id];
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Retomar · Estação "+e.n), h("h2",{},e.ico+" "+e.titulo),
+    h("p",{class:"lead"},e.lead),
+    h("div",{class:"callout"},h("b",{},"📖 No livro: "),e.cap+". Leia as páginas "+e.paginas+" antes das checagens.",
+      h("div",{class:"small",style:"margin-top:6px"},"O que procurar na leitura:"), h("ul",{class:"guide"},...e.guia.map(g=>h("li",{},g)))),
+    v ? h("div",{class:"video"},h("strong",{},"▶️ Recurso complementar"),v.t+" — "+v.canal+".",h("br"),h("a",{href:v.url,target:"_blank",rel:"noopener"},"ABRIR VÍDEO EM NOVA ABA ↗")) : null,
+    cadernoBox(id, e.caderno),
+    h("h3",{},"🧠 Checagem de aprendizagem"),
+    h("p",{class:"small muted"},"Você tem até "+CONFIG.maxTentativas+" tentativas em cada checagem. Se errar, leia a orientação, volte ao livro e tente de novo."));
+  e.questoes.forEach((qid,i)=>panel.append(questaoCard(qid,"Checagem "+e.n+"."+(i+1))));
+  const self=h("div",{class:"self3",role:"radiogroup"});
+  SELF3.forEach(([ico,t],i)=>{ const b=h("button",{type:"button","aria-pressed":String(S.estacao[id]===i),role:"radio"},ico,h("br"),t); b.addEventListener("click",()=>{ S.estacao[id]=i; salvar(); self.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); atualizarNav(); }); self.append(b); });
+  panel.append(h("h3",{},"Como foi esta estação para você?"), self);
+  const ordem=["investigacao","hidrocarbonetos","funcoes","biomoleculas"], k=ordem.indexOf(id);
+  const prox=ordem[k+1]||"aplicar";
+  panel.append(acoes(k===0?"caderno":ordem[k-1], prox, prox==="aplicar"?"IR PARA APLICAR →":"SEGUIR PARA A ESTAÇÃO "+(k+2)+" →"));
+  main.append(panel);
+}
+/* ---------- Aplicar ---------- */
+function pgAplicar(){
+  setTop("","Aplicar os conhecimentos","Situações novas, do dia a dia e do mundo do trabalho.");
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 5"), h("h2",{},"🧩 Aplicar os conhecimentos"),
+    h("p",{class:"lead"},"Agora você usa o que retomou para analisar situações novas, do dia a dia e do mundo do trabalho. Os dados estão todos na tela; se precisar, volte às estações pelo menu."));
+  ["A1","A2","A3"].forEach(id=>panel.append(questaoCard(id,"Situação "+id)));
+  panel.append(cadernoBox("aplicar", CADERNO_EXTRA.aplicar));
+  ["A4","A5","A6"].forEach(id=>panel.append(questaoCard(id,"Situação "+id)));
+  panel.append(acoes("biomoleculas","demonstrar","IR PARA DEMONSTRAR →"));
+  main.append(panel);
+}
+/* ---------- Demonstrar ---------- */
+function pgDemonstrar(){
+  setTop("","Demonstrar o que aprendi","Desafio final: o estoque esquecido da cooperativa.");
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 6"), h("h2",{},"🎯 Desafio final: o estoque esquecido"),
+    h("p",{class:"lead"},"A Cooperativa Agrícola de Vale Verde encontrou, no fundo do almoxarifado, tambores antigos de um inseticida organoclorado: o DDT. Um funcionário sugeriu aplicar o produto no terreno ao lado da lagoa \"para não desperdiçar\". A diretoria pediu um parecer técnico ao setor administrativo, e você foi chamado(a) para ajudar."),
+    h("div",{class:"callout"},"Você pode consultar suas anotações, o livro e o dossiê abaixo. O importante é responder com suas palavras e mostrar como chegou à conclusão."),
+    h("h3",{},"📂 Dossiê técnico (dados do livro)"), dossieEl(),
+    h("h3",{},"Suas respostas"));
+  panel.append(questaoCard("D1","D1"), textoCard("D1t"), textoCard("D2"), textoCard("D3"), textoCard("D4"));
+  panel.append(acoes("aplicar","auto","IR PARA A AUTOAVALIAÇÃO →"));
+  main.append(panel);
+}
+/* ---------- Autoavaliação ---------- */
+function pgAuto(){
+  setTop("","Autoavaliação","Antes de encerrar, reflita sobre o que mudou durante o percurso.");
+  const f=S.final;
+  const ta=(k,ph)=>{ const t=h("textarea",{style:"min-height:84px",placeholder:ph||""}); t.value=f[k]; t.addEventListener("input",()=>{f[k]=t.value; salvar(); atualizarNav();}); return t; };
+  main.append(h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 7"), h("h2",{},"🌱 Olhando para a minha aprendizagem"),
+    h("div",{class:"field"},h("span",{class:"lab"},"Depois de realizar esta trilha, como você avalia seu conhecimento sobre os conteúdos estudados?"),chips(NIVEL_FIM,f.nivel,v=>{f.nivel=v;salvar();atualizarNav();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Como você está se sentindo agora?"),feelings(f.sentimento,v=>{f.sentimento=v;salvar();atualizarNav();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Quanto tempo você realmente usou para fazer toda a trilha?"),chips(TEMPOS,f.tempo,v=>{f.tempo=v;salvar();atualizarNav();}),
+      h("div",{class:"small muted",style:"margin-top:6px"},"Tempo registrado pelo site desde o início (inclui pausas): "+fmtTempo(Date.now()-(S.inicio||Date.now())))),
+    h("div",{class:"field"},h("span",{class:"lab"},"Complete: “Antes desta recuperação eu tinha dificuldade em…”"),ta("antes")),
+    h("div",{class:"field"},h("span",{class:"lab"},"“…Agora consigo compreender que…”"),ta("agora")),
+    h("div",{class:"field"},h("span",{class:"lab"},"Qual parte da trilha mais ajudou você a aprender?"),ta("ajudou")),
+    h("div",{class:"field"},h("span",{class:"lab"},"Qual conteúdo ainda precisa ser retomado?"),ta("retomar")),
+    acoes("demonstrar","percurso","VER MEU PERCURSO →")));
+}
+/* ---------- Meu percurso + entrega ---------- */
+function pgPercurso(){
+  setTop("","Meu percurso e entrega","O que você já demonstrou, o que vale revisar e como entregar.");
+  const pend=pendencias();
+  const completo = pend.length===0;
+  if(completo && !S.fim){ S.fim=Date.now(); salvarJa(); }
+  const A=avaliar(), c=S.checkin, f=S.final;
+  const cab=h("section",{class:"panel"}, h("div",{class:"eyebrow"},"Meu percurso de recuperação"),
+    h("h2",{},(c.nome||"Estudante").split(" ")[0]+", este é o seu percurso"),
+    h("p",{class:"lead"},"Aqui não há nota. Você vê o que já demonstrou e o que ainda vale revisar. \"Aguarda o professor\" indica respostas feitas no caderno, que o professor vai ler nas fotos."));
+  if(!completo){
+    const box=h("div",{class:"pend"},h("b",{},"Ainda falta concluir:"));
+    const ul=h("ul",{style:"margin:6px 0 0;padding-left:20px"});
+    pend.slice(0,14).forEach(([pg,txt])=>ul.append(h("li",{},h("button",{type:"button",onclick:()=>go(pg)},txt))));
+    box.append(ul, h("div",{class:"small",style:"margin-top:6px"},"O envio ao professor é liberado quando tudo estiver concluído."));
+    cab.append(box);
+  }
+  const pill=(st,prov)=>h("div",{},h("span",{class:"pill "+(st==="ok"?"ok":st==="wait"?"wait":"dev")},st==="ok"?"Desenvolvido":st==="wait"?"Aguarda o professor":"Em desenvolvimento"), prov&&st!=="wait"?h("span",{class:"pill prov"},"provisório"):null);
+  const indP=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Indicadores"));
+  A.ind.forEach(i=>indP.append(h("div",{class:"ind"},h("div",{class:"l"},i.k,h("small",{},"Evidências: "+i.ev+" · "+i.det)),pill(i.st,i.prov))));
+  const habP=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Habilidades do 3º bimestre"));
+  Object.entries(HABILIDADES).forEach(([cod,hh])=>{ const r=A.hab[cod];
+    const p=pill(r.st,r.prov); const sp=p.querySelector(".pill"); if(r.st==="ok") sp.textContent="Recuperada";
+    habP.append(h("div",{class:"ind"},h("div",{class:"l"},cod+" — "+hh.nome,h("small",{},"Evidências: "+hh.itens.join(", ")+" · "+r.det+(r.st==="dev"?" · Revise as páginas "+hh.paginas:""))),p)); });
+  const nHab=Object.values(A.hab).filter(x=>x.st==="ok").length;
+  const strip=h("div",{class:"stationstrip"},...Object.entries(ESTACOES).map(([k,e])=>h("div",{},h("b",{},S.estacao[k]!==undefined?SELF3[S.estacao[k]][0]:"·"),e.titulo)));
+  const cmp=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Antes → durante → depois"),
+    h("div",{class:"compare"},
+      h("div",{class:"box"},h("b",{},"Antes"),NIVEL_INI[c.nivel]??"—",h("div",{},SENTIMENTOS[c.sentimento]?.[0]||"")),
+      h("div",{class:"arr","aria-hidden":"true"},"→"),
+      h("div",{class:"box"},h("b",{},"Durante"),A.primeira+" de "+A.totalFechadas+" checagens certas na 1ª tentativa",h("div",{},nHab+" de "+Object.keys(HABILIDADES).length+" habilidades já confirmadas")),
+      h("div",{class:"arr","aria-hidden":"true"},"→"),
+      h("div",{class:"box"},h("b",{},"Depois"),NIVEL_FIM[f.nivel]??"—",h("div",{},SENTIMENTOS[f.sentimento]?.[0]||""))),
+    h("p",{style:"margin-top:12px"},frase(c.nivel,nHab,Object.keys(HABILIDADES).length)),
+    h("div",{class:"small muted",style:"margin-top:8px"},"Como você avaliou cada estação:"), strip);
+  // entrega
+  const itens=["Identifiquei meu nome e turma no caderno.","Fiz as atividades 📓 das quatro estações e da etapa Aplicar.","Se escolhi o caderno no Demonstrar, respondi lá o D2, o D3 ou o D4.","Conferi se cálculos e justificativas estão legíveis.","Fotografei todas as páginas utilizadas."];
+  const chk=h("div",{class:"checklist"});
+  itens.forEach((t,i)=>{ const cb=h("input",{type:"checkbox",checked:!!S.entrega[i]}); cb.addEventListener("change",()=>{S.entrega[i]=cb.checked; salvar();}); chk.append(h("label",{},cb,h("span",{},t))); });
+  const status=h("div",{class:"small","aria-live":"polite",style:"margin-top:10px"});
+  const bEnv=h("button",{type:"button",class:"btn primary",disabled:!completo},"ENVIAR MEU PERCURSO AO PROFESSOR");
+  const bBx=h("button",{type:"button",class:"btn secondary"},"Baixar meu relatório");
+  bEnv.addEventListener("click",()=>enviar(status)); bBx.addEventListener("click",baixarRelatorio);
+  const ent=h("section",{class:"panel"},h("div",{class:"eyebrow"},"Etapa 8"),h("h2",{},"📤 Entrega das evidências"),
+    h("p",{class:"lead"},"São duas partes: o site envia suas checagens e textos, e você posta as fotos do caderno no Teams."),
+    h("h3",{},"1. Enviar o que fiz no site"),
+    h("div",{class:"actions",style:"justify-content:flex-start;margin-top:8px"}, CONFIG.appsScriptUrl?bEnv:null, bBx),
+    CONFIG.appsScriptUrl ? null : h("p",{class:"small muted",style:"margin-top:8px"},"Baixe o relatório e anexe na mesma atividade do Teams, junto com as fotos."),
+    status,
+    h("h3",{},"2. Enviar as fotos do caderno"), chk,
+    h("div",{class:"callout",html:"<b>Próximo passo:</b> abra o Microsoft Teams → canal <b>Recuperação Contínua</b> → atividade <b>Recuperação do 3º Bimestre</b> → anexe as fotos → clique em <b>Entregar</b>."}),
+    h("div",{class:"notebook"},h("h3",{},"🎯 O que será analisado?"),"As produções permitem observar evidências de compreensão dos conceitos, aplicação dos conhecimentos, interpretação e análise, argumentação científica e comunicação científica. A recuperação é uma nova oportunidade para desenvolver e demonstrar as habilidades que ainda precisam ser consolidadas."));
+  mostrarEnvio(status);
+  const reset=h("button",{type:"button"},"Recomeçar a trilha neste aparelho"); let n=0;
+  reset.addEventListener("click",()=>{ n++; if(n===1) reset.textContent="Tem certeza? Clique de novo para apagar tudo deste aparelho."; else { try{localStorage.removeItem(STORE_KEY);}catch(e){} S=novoEstado(); go("home"); } });
+  main.append(cab, indP, habP, cmp, ent, h("div",{class:"footer"},reset));
+}
+function frase(ini,nHab,tot){
+  if(ini===null||ini===undefined) return "";
+  if(ini<=1 && nHab>=tot-1) return "Você começou avaliando que tinha dificuldade e já demonstrou "+nHab+" das "+tot+" habilidades. Você sabe mais do que imaginava.";
+  if(ini<=1) return "Você começou avaliando que tinha dificuldade. As habilidades em desenvolvimento acima mostram por onde continuar.";
+  if(ini>=3 && nHab<tot-1) return "Você começou avaliando que dominava o conteúdo. Vale revisar com atenção as habilidades ainda em desenvolvimento.";
+  return nHab===tot ? "Você demonstrou as "+tot+" habilidades. Parabéns pelo percurso!" : "Continue pelas páginas indicadas nas habilidades em desenvolvimento.";
+}
+
+/* =====================================================================
+   RELATÓRIO E ENVIO
+   ===================================================================== */
+function montarPayload(){
+  const A=avaliar(), c=S.checkin, f=S.final;
+  const itens={}; QUESTOES.forEach(q=>{ const r=S.resp[q.id]||{}; itens[q.id]={correta:!!r.correta,primeira:!!r.primeira,tentativas:r.tentativas||0,resposta:r.valor??null}; });
+  const alertas={}; ["D1t","D2","D3","D4"].forEach(id=>{ const a=alertasTexto(id); if(a.length) alertas[id]=a; });
+  const stTxt=(st,prov)=>(st==="ok"?"Desenvolvido":st==="wait"?"Aguarda leitura do caderno":"Em desenvolvimento")+(prov&&st!=="wait"?" (provisório)":"");
+  const txt=id=> S.modos[id]==="caderno" ? "[no caderno]" : ((S.textos[id]||{}).texto||"");
+  const linha={
+    "Enviado em":new Date().toLocaleString("pt-BR"), "Trilha":CONFIG.trilhaId, "Nome":c.nome, "RM":c.rm||"", "Turma":c.turma,
+    "Sentimento início":SENTIMENTOS[c.sentimento]?.[1]||"", "Sentimento fim":SENTIMENTOS[f.sentimento]?.[1]||"",
+    "Tempo reservado":TEMPOS[c.tempo]||"", "Tempo informado":TEMPOS[f.tempo]||"", "Tempo registrado (min, com pausas)":Math.round(((S.fim||Date.now())-(S.inicio||Date.now()))/60000),
+    "Autoavaliação início":NIVEL_INI[c.nivel]||"", "Autoavaliação fim":NIVEL_FIM[f.nivel]||"",
+    ...Object.fromEntries(Object.entries(ESTACOES).map(([k,e])=>["Estação "+e.n+" (como foi)", S.estacao[k]!==undefined?SELF3[S.estacao[k]][1]:""])),
+    ...Object.fromEntries(A.ind.map(i=>["IND "+i.k, stTxt(i.st,i.prov)])),
+    ...Object.fromEntries(Object.entries(A.hab).map(([k,v])=>["HAB "+k, v.st==="ok"?"Recuperada"+(v.prov?" (provisório)":""):stTxt(v.st,v.prov)])),
+    "Acertos na 1ª tentativa":A.primeira+"/"+A.totalFechadas,
+    "Itens corretos":QUESTOES.filter(q=>acertou(q.id)).map(q=>q.id).join(" "),
+    "Itens em desenvolvimento":QUESTOES.filter(q=>!acertou(q.id)).map(q=>q.id).join(" "),
+    "Atividades no caderno (declaradas)":["investigacao","hidrocarbonetos","funcoes","biomoleculas","aplicar"].map((k,i)=>"Ativ."+(i+1)+(S.cadernoFeito[k]?" ✓":" ✗")).join(" · "),
+    "D1 (toneladas)":(S.resp.D1||{}).valor||"", "D1 significado":txt("D1t"),
+    "D2":txt("D2"), "D3 parecer":txt("D3"), "D4 mensagem":txt("D4"),
+    "D3 critérios (auto)":S.modos.D3==="caderno"?"—":A.d3.map(x=>(x.ok?"✓ ":"✗ ")+x.txt).join(" | "),
+    "D3 autoverificação do aluno":S.modos.D3==="caderno"?"—":TEXTOS.D3.criterios.map((t,i)=>(S.autocheck[i]?"✓ ":"✗ ")+t).join(" | "),
+    "Alertas de integridade":Object.entries(alertas).map(([k,v])=>k+": "+v.join("; ")).join(" | ")||"nenhum",
+    "Antes eu tinha dificuldade em":f.antes, "Agora consigo compreender que":f.agora, "O que mais ajudou":f.ajudou, "O que retomar":f.retomar
+  };
+  return {trilha:CONFIG.trilhaId, versao:3, linha, itens, textos:S.textos, modos:S.modos, checkin:Object.assign({},c,{pin:undefined}), final:f, inicio:S.inicio, fim:S.fim};
+}
+function enviar(el){
+  if(!CONFIG.appsScriptUrl) return;
+  el.textContent="Enviando…";
+  fetch(CONFIG.appsScriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(montarPayload())})
+    .then(()=>{ S.envio={status:"ok",em:Date.now()}; salvarJa(); mostrarEnvio(el); atualizarNav(); })
+    .catch(()=>{ S.envio={status:"erro",em:Date.now()}; salvarJa(); mostrarEnvio(el); });
+}
+function mostrarEnvio(el){
+  if(S.envio.status==="ok") el.textContent="✓ Enviado em "+new Date(S.envio.em).toLocaleString("pt-BR")+". Se o professor pedir, você pode enviar de novo.";
+  else if(S.envio.status==="erro") el.textContent="Não foi possível enviar agora (verifique a internet). Tente de novo ou baixe o relatório e anexe no Teams.";
+}
+function baixarRelatorio(){
+  const P=montarPayload(), L=P.linha, out=[CONFIG.titulo,"=".repeat(60),""];
+  Object.entries(L).forEach(([k,v])=>{ out.push(k+": "+(v===""?"—":v)); if(String(v).length>80) out.push(""); });
+  out.push("","DETALHE DAS CHECAGENS","-".repeat(60));
+  QUESTOES.forEach(q=>{ const r=P.itens[q.id]; out.push(q.id+" ("+q.hab+"): "+(r.correta?"correta":"em desenvolvimento")+" · tentativas: "+r.tentativas+(r.primeira?" · certa na 1ª":"")); });
+  try{
+    const blob=new Blob([out.join("\n")],{type:"text/plain;charset=utf-8"}), a=document.createElement("a");
+    const nome=(S.checkin.nome||"estudante").trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-");
+    a.href=URL.createObjectURL(blob); a.download="recuperacao-quimica-3bim-"+nome+".txt"; document.body.append(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},500);
+  }catch(e){}
+}
+
+/* =====================================================================
+   MENU (celular)
+   ===================================================================== */
+const sidebar=$("#sidebar"), scrim=$("#scrim"), btnMenu=$("#btnMenu");
+function abrirMenu(){ sidebar.classList.add("open"); scrim.classList.add("open"); btnMenu.setAttribute("aria-expanded","true"); }
+function fecharMenu(){ sidebar.classList.remove("open"); scrim.classList.remove("open"); btnMenu.setAttribute("aria-expanded","false"); }
+btnMenu.addEventListener("click",()=> sidebar.classList.contains("open") ? fecharMenu() : abrirMenu());
+scrim.addEventListener("click",fecharMenu);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") fecharMenu(); });
+
+if(!PAGINAS.some(p=>p.id===S.pagina)) S.pagina="home";
+if(S.pagina!=="home" && !checkinOk()) S.pagina="home";
+render(); statusNuvem();
+/* Ao abrir: se o aluno já se identificou, confere se existe uma cópia mais nova na nuvem (feita em outro computador). */
+let ultimaSync=0;
+function sincronizar(comTela){
+  if(!NUVEM || !temIdentidade()) return;
+  ultimaSync=Date.now();
+  let ov=null;
+  if(comTela){
+    ov=document.createElement("div"); ov.className="syncov"; ov.setAttribute("role","status");
+    ov.innerHTML='<div class="box"><b>☁️ Sincronizando seu progresso…</b><p class="small muted" style="margin:8px 0 0">Conferindo se você avançou em outro computador.</p></div>';
+    document.body.append(ov);
+  }
+  const fechar=()=>{ if(ov) ov.remove(); };
+  const lento=setTimeout(fechar, 9000);
+  const rmAtual=S.checkin.rm.trim();
+  carregarDaNuvem(rmAtual, S.checkin.pin.trim()).then(j=>{
+    clearTimeout(lento); fechar();
+    if(S.checkin.rm.trim()!==rmAtual) return;
+    if(j.ok && j.estado){
+      const tLocal=S.atualizadoEm||0, tNuvemE=j.estado.atualizadoEm||0;
+      if(tNuvemE>tLocal){
+        const pag=S.pagina; aplicarEstado(juntarEstados(JSON.parse(JSON.stringify(S)), j.estado), S.checkin.pin);
+        S.pagina = pag==="home" ? "home" : (S.ultima||pag); gravarLocal(); render();
+        toast("Seu progresso foi atualizado com o que você fez em outro computador.");
+      } else if(tLocal>tNuvemE){ agendarNuvem(); }
+      nuvemUltimo=nuvemUltimo||Date.now(); statusNuvem();
+    } else if(j.motivo==="nao_encontrado"){ agendarNuvem(); }
+    else if(j.motivo==="rede"){ nuvemErro=true; statusNuvem(); }
+  });
+}
+sincronizar(true);
+/* Voltou para esta aba depois de um tempo (talvez tenha avançado em outro computador): confere de novo. */
+document.addEventListener("visibilitychange", ()=>{
+  if(document.visibilityState!=="visible" || Date.now()-ultimaSync<60000) return;
+  const campo=document.activeElement && /^(TEXTAREA|INPUT)$/.test(document.activeElement.tagName);
+  if(!campo) sincronizar(false);
+});
+</script>
+</body>
+</html>

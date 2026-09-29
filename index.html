@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recuperação Contínua · Química</title>
+<meta name="description" content="Trilhas de recuperação contínua de Química — 2ª Série A, MTec-N Administração, Etec Padre Carlos Leôncio da Silva.">
+<style>
+:root{
+  --nav:#102a43; --nav2:#163e63; --blue:#1769aa; --blue-2:#125a93; --blue-soft:#eef6ff;
+  --ink:#172033; --ink-2:#56657a; --bg:#f4f7fb; --card:#ffffff; --card-2:#f6f9fc; --line:#dbe4ee;
+  --ok:#137a4b; --ok-soft:#eaf8f0; --warn:#8a5a00; --warn-soft:#fff4e5; --note:#fff9e9; --note-line:#f1d38b; --note-bar:#d79a14;
+  --on-blue:#ffffff; --shadow:0 10px 30px rgba(25,59,99,.07);
+  --font: Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+    --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --note:#2a2412; --note-line:#5c4a1d; --on-blue:#0b1622; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+  --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --note:#2a2412; --note-line:#5c4a1d; --on-blue:#0b1622; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55}
+a{color:var(--blue)}
+.hero{background:linear-gradient(180deg,var(--nav),var(--nav2));color:#fff;padding:34px 16px 70px}
+.wrap{max-width:1000px;margin:0 auto}
+.hero small{letter-spacing:.12em;font-size:12px;font-weight:800;opacity:.75;text-transform:uppercase}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:8px 0 8px;line-height:1.1}
+.hero p{margin:0;max-width:640px;opacity:.88;font-size:17.5px}
+main{margin-top:-44px;padding:0 16px 40px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px 20px;display:flex;flex-direction:column}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.bim{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.ico{font-size:30px;line-height:1}
+.card h2{font-size:21px;margin:6px 0 6px;line-height:1.25}
+.card .sub{color:var(--ink-2);font-size:15px;margin:0 0 12px}
+.topics{list-style:none;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px}
+.topics li{background:var(--card-2);border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:13px}
+.status{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
+.status .row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--ink-2);gap:8px}
+.pill{border-radius:99px;padding:3px 10px;font-size:12.5px;font-weight:800;white-space:nowrap}
+.pill.none{background:var(--card-2);color:var(--ink-2)}
+.pill.run{background:var(--warn-soft);color:var(--warn)}
+.pill.done{background:var(--ok-soft);color:var(--ok)}
+.bar{height:8px;background:var(--card-2);border-radius:99px;overflow:hidden;margin:8px 0 14px;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:99px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:50px;padding:10px 16px;border-radius:12px;background:var(--blue);color:var(--on-blue);font-weight:800;text-decoration:none;text-align:center}
+.btn:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:2px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px;margin-top:18px}
+.panel h3{margin:0 0 10px;font-size:19px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{background:var(--card-2);border-radius:12px;padding:14px}
+.step b{display:block;color:var(--blue);margin-bottom:4px}
+.notebook{background:var(--note);border:1px solid var(--note-line);border-left:5px solid var(--note-bar);padding:14px 16px;border-radius:12px;margin-top:14px}
+.footer{text-align:center;font-size:13px;color:var(--ink-2);padding:26px 16px 34px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <small>Química · 2ª Série A · MTec-N Administração</small>
+    <h1>Recuperação Contínua</h1>
+    <p>Escolha a trilha do bimestre que você precisa recuperar. Faça no seu ritmo: com o seu RM e uma senha de 4 números, você continua de onde parou em qualquer computador.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+
+    <section class="panel">
+      <h3>Como funciona cada trilha</h3>
+      <div class="steps">
+        <div class="step"><b>1 · Estude</b>Leia as páginas indicadas do livro e assista ao vídeo de cada estação.</div>
+        <div class="step"><b>2 · Registre</b>Faça no caderno as atividades marcadas com 📓.</div>
+        <div class="step"><b>3 · Verifique e entregue</b>Responda às checagens, envie o seu percurso pelo site e poste as fotos do caderno no Teams.</div>
+      </div>
+      <div class="notebook"><b>Trocou de computador?</b> O quadro acima mostra só o que foi feito neste aparelho. Abra a trilha e use “Recuperar meu progresso” com o seu RM e a sua senha.</div>
+      <div class="notebook"><b>Qual trilha fazer?</b> Faça a trilha de cada bimestre em que você ficou com menção I. Se tiver dúvida, confira com o professor pelo Teams. Cada trilha tem sua própria entrega.</div>
+    </section>
+  </div>
+</main>
+
+<div class="footer">Química · Prof. Bruno Cortez · Etec Padre Carlos Leôncio da Silva · Lorena/SP<br>Material de apoio: Moderna Plus — Química na abordagem do cotidiano (Canto, Leite e Canto, 2024)</div>
+
+<script>
+/* Ajuste aqui os endereços das pastas, se mudar a organização do repositório. */
+const TRILHAS = [
+  { bim:"1º bimestre", ico:"⚡", titulo:"Matéria e Energia", sub:"4 estações · Desafio: energia para Vale Verde",
+    topicos:["Termoquímica","Radioatividade","Energia e usinas","Pilhas e eletrólise"],
+    url:"1bim/", chave:"trilha:quimica-2A-mtecn-1bim-2026-v3", total:20 },
+  { bim:"2º bimestre", ico:"⚛️", titulo:"Vida, Terra e Cosmos", sub:"5 estações · Desafio: relatório ambiental do Laticínio Serra Azul",
+    topicos:["Modelos atômicos","Ligações e forças","Rapidez das reações","Equilíbrio químico","Química ambiental"],
+    url:"2bim/", chave:"trilha:quimica-2A-mtecn-2bim-2026", total:23 },
+  { bim:"3º bimestre", ico:"🧬", titulo:"Química orgânica e ambiental", sub:"4 estações · Desafio: o estoque esquecido da cooperativa",
+    topicos:["Ambiente e investigação","Hidrocarbonetos","Funções orgânicas e saúde","Interações e biomoléculas"],
+    url:"3bim/", chave:"trilha:quimica-2A-mtecn-3bim-2026", total:20 }
+];
+
+function lerEstado(chave){
+  try{ const raw = localStorage.getItem(chave); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
+}
+function el(tag, attrs, ...kids){
+  const e=document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){ if(k==="class") e.className=v; else if(k==="style") e.setAttribute("style",v); else e.setAttribute(k,v); }
+  kids.flat().forEach(k=>{ if(k!==null && k!==undefined) e.append(k.nodeType?k:document.createTextNode(String(k))); });
+  return e;
+}
+const grid=document.getElementById("grid");
+TRILHAS.forEach(t=>{
+  const s = lerEstado(t.chave);
+  const feitas = s && s.resp ? Object.values(s.resp).filter(r=>r && r.travada).length : 0;
+  const enviada = s && s.envio && s.envio.status==="ok";
+  const iniciada = s && s.inicio;
+  const pct = Math.min(100, Math.round(100*feitas/t.total));
+  let pill, rot, botao;
+  if(enviada){ pill="done"; rot="✓ Enviada"; botao="Rever meu percurso"; }
+  else if(iniciada){ pill="run"; rot="Em andamento"; botao="Continuar de onde parei"; }
+  else { pill="none"; rot="Não iniciada"; botao="Começar esta trilha"; }
+  const status = el("div",{class:"status"},
+    el("div",{class:"row"}, el("span",{}, iniciada ? feitas+" de "+t.total+" checagens" : "Seu progresso aparece aqui"), el("span",{class:"pill "+pill},rot)),
+    el("div",{class:"bar","aria-hidden":"true"}, el("i",{style:"width:"+(iniciada?pct:0)+"%"})),
+    el("a",{class:"btn",href:t.url}, botao+" →"));
+  grid.append(el("article",{class:"card"},
+    el("div",{class:"top"}, el("div",{}, el("div",{class:"bim"},t.bim), el("h2",{},t.titulo)), el("div",{class:"ico","aria-hidden":"true"},t.ico)),
+    el("p",{class:"sub"},t.sub),
+    el("ul",{class:"topics","aria-label":"Estações"}, t.topicos.map(x=>el("li",{},x))),
+    status));
+});
+</script>
+</body>
+</html>

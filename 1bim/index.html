@@ -1,0 +1,1438 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recuperação Contínua · Química 1º bimestre</title>
+<meta name="description" content="Trilha autoinstrucional de recuperação contínua de Química — Matéria e Energia (1º bimestre), 2ª Série A, MTec-N Administração, Etec Padre Carlos Leôncio da Silva.">
+<style>
+:root{
+  --nav:#102a43; --nav2:#163e63; --blue:#1769aa; --blue-2:#125a93; --blue-soft:#eef6ff;
+  --ink:#172033; --ink-2:#56657a; --bg:#f4f7fb; --card:#ffffff; --card-2:#f6f9fc; --line:#dbe4ee;
+  --ok:#137a4b; --ok-soft:#eaf8f0; --warn:#8a5a00; --warn-soft:#fff4e5; --wait:#475569; --wait-soft:#eef2f6;
+  --note:#fff9e9; --note-line:#f1d38b; --note-bar:#d79a14; --red:#c62828;
+  --on-blue:#ffffff; --radius:18px; --shadow:0 10px 30px rgba(25,59,99,.07);
+  --font: Inter,"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+    --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --wait:#b5c1cf; --wait-soft:#1d2a38;
+    --note:#2a2412; --note-line:#5c4a1d; --note-bar:#d79a14; --on-blue:#0b1622; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --blue:#6cb2ee; --blue-2:#9ccbf5; --blue-soft:#15273a; --ink:#e6edf5; --ink-2:#a5b4c6; --bg:#0d1520; --card:#142030; --card-2:#1a2939; --line:#28394c;
+  --ok:#6fd1a0; --ok-soft:#133126; --warn:#f0bf5c; --warn-soft:#352812; --wait:#b5c1cf; --wait-soft:#1d2a38;
+  --note:#2a2412; --note-line:#5c4a1d; --note-bar:#d79a14; --on-blue:#0b1622; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--blue)}
+/* ---------- barra lateral ---------- */
+.sidebar{position:fixed;inset:0 auto 0 0;width:290px;background:linear-gradient(180deg,var(--nav),var(--nav2));color:#fff;padding:22px 14px 30px;overflow:auto;z-index:50}
+.logo{padding:0 10px 16px;border-bottom:1px solid #ffffff28}
+.logo small{opacity:.75;font-size:12px;letter-spacing:.06em}
+.logo h2{margin:5px 0 3px;font-size:21px;line-height:1.2}
+.logo p{margin:0;font-size:12.5px;opacity:.8}
+.progwrap{margin:14px 10px 0}
+.backhome{display:flex;align-items:center;min-height:44px;margin:10px 10px 0;padding:6px 12px;border-radius:10px;background:#ffffff14;color:#eaf3fb;text-decoration:none;font-size:14.5px;font-weight:700}
+.backhome:hover,.backhome:focus-visible{background:#ffffff26}
+.progwrap .lbl{display:flex;justify-content:space-between;font-size:12px;opacity:.85}
+.prog{height:8px;background:#ffffff22;border-radius:99px;margin-top:6px;overflow:hidden}
+.prog i{display:block;height:100%;background:#7fd6a8;border-radius:99px;transition:width .35s}
+.navtitle{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin:18px 10px 6px;font-weight:800}
+.navbtn{width:100%;border:0;background:transparent;color:#eaf3fb;text-align:left;padding:10px 12px;border-radius:10px;cursor:pointer;margin:2px 0;display:flex;gap:10px;align-items:center;min-height:46px;font-size:15.5px}
+.navbtn:hover,.navbtn.active{background:#ffffff1c}
+.navbtn .n{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#ffffff17;font-size:12.5px;font-weight:800}
+.navbtn.done .n{background:#dff7e9;color:#126b43}
+.navbtn[disabled]{opacity:.45;cursor:not-allowed}
+.navbtn .st{margin-left:auto;font-size:11.5px;opacity:.75}
+.mobilebar{display:none;position:sticky;top:0;z-index:40;background:var(--nav);color:#fff;padding:10px 14px;align-items:center;justify-content:space-between;gap:10px}
+.mobilebar b{font-size:15px}
+.mobilebar .mprog{height:5px;background:#ffffff22;border-radius:99px;overflow:hidden;margin-top:5px;width:140px}
+.mobilebar .mprog i{display:block;height:100%;background:#7fd6a8}
+.mobilebar button{background:#ffffff1f;color:#fff;border:0;border-radius:10px;padding:10px 14px;min-height:44px;font-weight:700}
+.scrim{display:none}
+/* ---------- conteúdo ---------- */
+.content{margin-left:290px;min-height:100vh}
+.top{background:linear-gradient(120deg,var(--blue-soft),var(--card));border-bottom:1px solid var(--line);padding:26px 5vw 22px}
+.top .inner,.page{max-width:900px;margin:auto}
+.top h1{font-size:clamp(25px,4vw,38px);margin:4px 0;line-height:1.15}
+.top p{color:var(--ink-2);margin:0}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.page{padding:22px 24px 70px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,4vw,30px);box-shadow:var(--shadow);margin-bottom:18px}
+h2{font-size:clamp(23px,3vw,31px);margin:5px 0 10px;line-height:1.2}
+h3{margin:24px 0 8px;font-size:19px;line-height:1.3}
+p{margin:0 0 12px}
+.lead{font-size:17px;line-height:1.65;color:var(--ink-2)}
+.muted{color:var(--ink-2)} .small{font-size:14.5px}
+.callout{padding:14px 16px;border-radius:12px;background:var(--blue-soft);border-left:4px solid var(--blue);line-height:1.55;margin:16px 0}
+.notebook{background:var(--note);border:1px solid var(--note-line);border-left:5px solid var(--note-bar);padding:16px 18px;border-radius:12px;margin:18px 0}
+.notebook h3{margin:0 0 8px}
+.notebook ol,.notebook ul{margin:6px 0 0;padding-left:22px}
+.notebook li{margin:4px 0}
+.notebook .done-line{margin-top:12px;display:flex;gap:10px;align-items:center;font-weight:600}
+.notebook .done-line input{width:24px;height:24px;accent-color:var(--blue)}
+.video{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:15px 0;background:var(--card-2)}
+.video strong{display:block;margin-bottom:4px}
+.video a{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;padding:8px 14px;border-radius:10px}
+.guide{margin:6px 0 0;padding-left:20px} .guide li{margin:3px 0}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.step{border:1px solid var(--line);border-radius:13px;padding:14px}
+.step b{display:block;color:var(--blue);margin-bottom:5px}
+table.data{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+table.data th,table.data td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+table.data th{background:var(--card-2);font-size:14px}
+.tablewrap{overflow-x:auto}
+/* ---------- questões ---------- */
+.qcard{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0;background:var(--card)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.qid{font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.04em}
+.qstatus{font-size:12.5px;font-weight:700;border-radius:99px;padding:3px 10px}
+.qstatus.ok{background:var(--ok-soft);color:var(--ok)} .qstatus.dev{background:var(--warn-soft);color:var(--warn)} .qstatus.open{background:var(--card-2);color:var(--ink-2)}
+.qtitle{font-weight:800;font-size:17.5px;margin:2px 0 8px}
+.prompt{font-weight:650;margin:6px 0 12px;line-height:1.5}
+.ctx{background:var(--card-2);border-radius:12px;padding:12px 14px;margin:0 0 12px;font-size:15.5px}
+.opts{display:grid;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;min-height:50px;padding:11px 13px;border:1.5px solid var(--line);background:var(--card);border-radius:12px;cursor:pointer}
+.opt .k{flex:0 0 26px;height:26px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:800;color:var(--ink-2)}
+.opt[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft)}
+.opt[aria-pressed="true"] .k{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt:disabled{cursor:default}
+.row-item{border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.row-item .t{margin-bottom:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{flex:1 1 140px;min-height:46px;border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;cursor:pointer;font-size:15px}
+.seg button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.seg button:disabled{cursor:default}
+.seg.multi button{display:flex;align-items:center;gap:8px;text-align:left}
+.seg.multi .box{flex:0 0 22px;height:22px;border:1.5px solid var(--line);border-radius:6px;display:grid;place-items:center;font-size:14px;font-weight:800;color:var(--on-blue)}
+.seg.multi button[aria-pressed="true"] .box{background:var(--blue);border-color:var(--blue)}
+select.sel{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);padding:8px 10px}
+.order{list-style:none;padding:0;margin:0}
+.order li{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:9px 9px 9px 13px;margin-bottom:8px;background:var(--card)}
+.order .n{font-weight:800;color:var(--blue);width:18px}
+.order .txt{flex:1}
+.order .mv{display:flex;gap:6px}
+.order .mv button{width:44px;height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-size:17px}
+.num{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.num input{width:170px;min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card);font-size:18px}
+.btn{min-height:48px;padding:10px 18px;border-radius:11px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-weight:800}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
+.btn.primary:disabled{opacity:.45;cursor:not-allowed}
+.btn.secondary{background:var(--blue-soft);border-color:transparent;color:var(--blue-2)}
+.qactions{margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.fb{border-radius:12px;padding:11px 13px;margin-top:12px;font-size:15.5px}
+.fb.ok{background:var(--ok-soft);border-left:5px solid var(--ok)}
+.fb.try{background:var(--warn-soft);border-left:5px solid var(--warn)}
+.fb.end{background:var(--card-2);border-left:5px solid var(--ink-2)}
+.fb strong{display:block;margin-bottom:3px}
+.actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:24px}
+/* ---------- formulários ---------- */
+.field{margin:16px 0}
+.field > label,.field .lab{display:block;font-weight:700;margin-bottom:7px}
+.field input[type=text]{width:100%;min-height:48px;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--card)}
+textarea{width:100%;min-height:160px;border:1.5px solid var(--line);border-radius:12px;padding:12px;background:var(--card);resize:vertical;line-height:1.5}
+textarea:focus,input:focus,select:focus{outline:3px solid color-mix(in srgb,var(--blue) 35%,transparent);outline-offset:1px;border-color:var(--blue)}
+button:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 45%,transparent);outline-offset:2px}
+.counter{font-size:13.5px;color:var(--ink-2);text-align:right;margin-top:4px}
+.counter.over{color:var(--red);font-weight:700}
+.feelings{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.feel{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:82px;padding:10px 4px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-size:13px;text-align:center}
+.feel .e{font-size:29px;line-height:1}
+.feel[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:46px;padding:8px 14px;border:1.5px solid var(--line);border-radius:99px;background:var(--card);cursor:pointer;font-size:15px}
+.chip[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.self3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.self3 button{border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:12px;cursor:pointer;min-height:64px}
+.self3 button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:700}
+.mode{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.mode button{flex:1 1 200px;min-height:48px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-weight:600}
+.mode button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft);font-weight:800}
+.checks{list-style:none;padding:0;margin:10px 0 0}
+.checks li{display:flex;gap:8px;align-items:flex-start;margin:4px 0;font-size:15px}
+.checks .s{flex:0 0 22px;font-weight:800}
+.checks .y{color:var(--ok)} .checks .n{color:var(--warn)}
+.checklist label,.selfcheck label{display:flex;gap:10px;align-items:flex-start;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.checklist input,.selfcheck input{width:22px;height:22px;margin-top:2px;accent-color:var(--blue);flex:0 0 22px}
+details.doss{margin:0 0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+details.doss summary{cursor:pointer;padding:12px 14px;font-weight:700;min-height:48px}
+.dossie{display:grid;gap:10px;padding:0 12px 12px}
+.doc{border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:var(--card-2)}
+.doc b{display:block;font-size:14px;color:var(--blue-2);margin-bottom:2px}
+.doc span{font-size:12.5px;color:var(--ink-2)}
+/* ---------- resultado ---------- */
+.ind{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.ind:last-child{border-bottom:0}
+.ind .l{font-weight:700}
+.ind .l small{display:block;font-weight:400;color:var(--ink-2);font-size:13.5px}
+.pill{flex:0 0 auto;border-radius:99px;padding:5px 12px;font-size:13px;font-weight:800;white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.dev{background:var(--warn-soft);color:var(--warn)} .pill.wait{background:var(--wait-soft);color:var(--wait)}
+.pill.prov{background:var(--card-2);color:var(--ink-2);font-weight:600;font-size:12px;margin-left:6px}
+.compare{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:8px;align-items:stretch;margin-top:8px}
+.compare .box{background:var(--card-2);border-radius:12px;padding:10px;font-size:14px;text-align:center}
+.compare .box b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);margin-bottom:4px}
+.compare .arr{align-self:center;color:var(--ink-2)}
+.stationstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.stationstrip div{background:var(--card-2);border-radius:12px;padding:10px;text-align:center;font-size:13.5px}
+.stationstrip div b{display:block;font-size:22px}
+.pend{background:var(--warn-soft);border-radius:12px;padding:12px 14px;margin:10px 0}
+.pend button{background:none;border:0;color:var(--blue);text-decoration:underline;cursor:pointer;padding:4px 0;min-height:36px;font-weight:700}
+.footer{font-size:12.5px;color:var(--ink-2);text-align:center;padding:26px}
+.footer button{background:none;border:0;color:var(--ink-2);text-decoration:underline;cursor:pointer;font-size:12.5px;min-height:40px}
+@media (max-width:860px){
+  .sidebar{transform:translateX(-100%);transition:transform .25s;box-shadow:10px 0 30px rgba(0,0,0,.25)}
+  .sidebar.open{transform:none}
+  .scrim.open{display:block;position:fixed;inset:0;background:rgba(10,20,30,.45);z-index:45}
+  .mobilebar{display:flex}
+  .content{margin-left:0}
+  .steps3,.self3{grid-template-columns:1fr}
+  .page{padding:14px}
+  .top{padding:20px 18px}
+}
+@media (max-width:560px){
+  .feelings{grid-template-columns:repeat(3,1fr)}
+  .compare{grid-template-columns:1fr}.compare .arr{transform:rotate(90deg);justify-self:center}
+  .stationstrip{grid-template-columns:repeat(2,1fr)}
+  body{font-size:16.5px}
+}
+@media print{.sidebar,.mobilebar,.top,.actions,.video,.qactions,.scrim{display:none!important}.content{margin:0}.panel{box-shadow:none;break-inside:avoid}}
+
+.nuvem{margin:10px 10px 0;font-size:12.5px;line-height:1.35;opacity:.9;display:flex;gap:6px;align-items:flex-start;min-height:18px}
+.nuvem.erro{color:#ffd48a;opacity:1}
+.syncov{position:fixed;inset:0;z-index:200;background:color-mix(in srgb,var(--bg) 88%,transparent);display:flex;align-items:center;justify-content:center;padding:16px}
+.syncov .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px;max-width:380px;text-align:center;box-shadow:var(--shadow)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom));z-index:210;background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:12px;max-width:min(92vw,520px);font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.msgerro{color:var(--warn);font-weight:700}
+.msgok{color:var(--ok);font-weight:700}
+.field input.pin{letter-spacing:.3em;max-width:180px}
+</style>
+</head>
+<body>
+<div class="mobilebar">
+  <div><b>Recuperação · 1º bimestre</b><div class="mprog"><i id="mprog" style="width:0%"></i></div></div>
+  <button type="button" id="btnMenu" aria-controls="sidebar" aria-expanded="false">☰ Trilha</button>
+</div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar" aria-label="Trilha">
+  <div class="logo"><small>QUÍMICA · 2ª SÉRIE A · MTEC-N</small><h2>Recuperação Contínua</h2><p>1º bimestre · Matéria e Energia · Prof. Bruno Cortez</p></div>
+  <a class="backhome" href="../">← Todas as trilhas</a>
+  <div class="nuvem" id="nuvem" aria-live="polite"></div>
+  <div class="progwrap"><div class="lbl"><span>Meu progresso</span><span id="progTxt">0%</span></div><div class="prog"><i id="prog" style="width:0%"></i></div></div>
+  <nav id="nav"></nav>
+</aside>
+<div class="content">
+  <header class="top"><div class="inner"><div class="eyebrow">Trilha autoinstrucional</div><h1 id="topTitle">Aprender, retomar e demonstrar</h1><p id="topSub">Você pode fazer esta recuperação em etapas, no seu ritmo.</p></div></header>
+  <main class="page" id="main" tabindex="-1"></main>
+  <div class="footer">Química · Recuperação Contínua · 1º bimestre · Etec Padre Carlos Leôncio da Silva</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO — ajuste aqui
+   ===================================================================== */
+const CONFIG = {
+  trilhaId: "quimica-2A-mtecn-1bim-2026-v3",
+  titulo: "Recuperação Contínua — Química — 1º bimestre (Matéria e Energia)",
+  turmaPadrao: "2ª A – MTec-N Administração",
+  // URL do app da Web do Google Apps Script (termina em /exec). Vazio = só relatório para download.
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbxurtub0XrfwSggq1-TNnZqXCaMpa-l4QW4-THesX0Yass7hajixz72Cjf9HRm_FHjMGw/exec",
+  maxTentativas: 2,
+  limites: {
+    compreensao:  { minCorretas: 9, umPorEstacao: true },   // 13 checagens das estações (≈70%)
+    aplicacao:    { minCorretas: 3 },                        // A1, A3, A4, A6
+    interpretacao:{ minCorretas: 2, obrigatoria: "D1" },     // A2, A5, D1
+    argumentacao: { minCriteriosD3: 3 },
+    hab102: { min: 5, precisaUm: ["A2","D1"] },              // 7 itens
+    hab103: { min: 4, precisaUm: ["A3","A4"] },              // 6 itens
+    hab107: { min: 4 }                                        // 5 itens
+  },
+  textos: { D2min: 200, D3min: 450, D4min: 80, D4max: 400, D1textoMin: 20 },
+  videos: {
+    termo:  { t:"Reação endotérmica e exotérmica", canal:"Professor Gabriel Cabral", url:"https://www.youtube.com/watch?v=H5w-tFtjH3k" },
+    radio:  { t:"A meia-vida — Química nuclear", canal:"Khan Academy Brasil", url:"https://www.youtube.com/watch?v=cNlLK-rGG3o" },
+    energia:{ t:"Entramos na usina nuclear de Angra! (visita às usinas Angra 1 e 2)", canal:"Manual do Mundo", url:"https://www.youtube.com/watch?v=ZsR-2zkEwCM" },
+    eletro: { t:"Eletroquímica no Enem", canal:"Brasil Escola", url:"https://www.youtube.com/watch?v=0Yl42XmgOkk" }
+  }
+};
+
+/* =====================================================================
+   CONTEÚDO — PTD 4282 e CANTO; LEITE; CANTO. Moderna Plus Química na
+   abordagem do cotidiano. Moderna, 2024 (páginas impressas)
+   ===================================================================== */
+const ESTACOES = {
+  termo:  { n:1, titulo:"Termoquímica", ico:"🔥", paginas:"234 a 236 e 239 a 241", cap:"Capítulo 13 — Termoquímica, petróleo e combustíveis",
+            lead:"Retome as relações entre transformações e energia: processos exotérmicos e endotérmicos, o sinal de ΔH e a lei de Hess.",
+            guia:["Processos que liberam e que absorvem calor — p. 234.","O que o sinal de ΔH informa e como ler kJ/mol — p. 235.","Lei de Hess: somar, inverter e multiplicar equações — p. 239–240.","Entalpia-padrão de combustão e a Tabela 1 — p. 240–241."],
+            caderno:{ titulo:"ATIVIDADE 1 — Energia nas transformações", html:"<ol><li>Explique, com suas palavras, a diferença entre processo exotérmico e endotérmico. Dê um exemplo de cada um retirado da p. 234.</li><li>Registre a expressão <b>ΔH = H<sub>produtos</sub> − H<sub>reagentes</sub></b> e explique o significado do sinal positivo ou negativo.</li><li>Calcule ΔH para um processo em que H<sub>reagentes</sub> = 350 kJ e H<sub>produtos</sub> = 150 kJ. Interprete o resultado: o processo libera ou absorve calor?</li></ol>" },
+            questoes:["R1","R2","R11","R3"] },
+  radio:  { n:2, titulo:"Radioatividade", ico:"☢️", paginas:"403 a 405 e 408 a 409", cap:"Capítulo 23 — Radioatividade e origem dos elementos químicos",
+            lead:"Retome as emissões radioativas, o significado de meia-vida e a relação entre aplicações dos radioisótopos e os cuidados que elas exigem.",
+            guia:["Diferença entre reação química e processo nuclear — p. 403.","Emissões alfa, beta e gama: o que muda no núcleo — p. 403–404.","Meia-vida: Tabela 1 e curva de decaimento (Fig. 3) — p. 405.","Usos na Medicina e seus riscos — p. 408–409."],
+            caderno:{ titulo:"ATIVIDADE 2 — Meia-vida", html:"<p>Um radioisótopo tem meia-vida de 8 horas e a amostra inicial corresponde a 160 unidades.</p><ol><li>Construa no caderno a sequência da quantidade restante após 8 h, 16 h e 24 h. Se quiser, desenhe a curva, como na Fig. 3 da p. 405.</li><li>Explique por que conhecer a meia-vida é importante ao avaliar o uso de um radioisótopo ou o armazenamento de um rejeito.</li><li>Registre um exemplo de aplicação da radioatividade estudado nas p. 408–409 e um cuidado que ela exige.</li></ol>" },
+            questoes:["R4","R5","R6"] },
+  energia:{ n:3, titulo:"Energia: reatividade e usinas", ico:"⚡", paginas:"334, 248 e 410 a 411", cap:"Capítulos 18, 13 e 23",
+            lead:"Compare usinas de energia elétrica pelo que o livro apresenta: energia liberada, emissão de CO₂, resíduos e riscos. Retome também a reatividade pelos potenciais-padrão.",
+            guia:["Potencial-padrão (E°): quem se reduz e quem se oxida — p. 334.","Efeito estufa e aumento do CO₂ atmosférico — p. 248.","Fissão nuclear e a Tabela 4 (energia por grama) — p. 410.","Usina termonuclear e lixo nuclear — p. 411."],
+            caderno:{ titulo:"ATIVIDADE 3 — Comparando usinas", html:"<p>Escolha <b>duas</b> entre: usina térmica a combustível fóssil (gás natural), usina termonuclear e usina térmica a etanol. Faça no caderno uma pequena tabela com:</p><ul><li>a usina escolhida;</li><li>uma vantagem;</li><li>uma limitação ou impacto;</li><li>um critério que deveria ser considerado antes de adotá-la em uma região.</li></ul><p class=\"small\">Use os dados do livro: p. 240–241 (combustão), p. 248 (efeito estufa), p. 410–411 (fissão e lixo nuclear).</p>" },
+            questoes:["R7","R8","R12"] },
+  eletro: { n:4, titulo:"Pilhas, baterias e eletrólise", ico:"🔋", paginas:"310 a 312, 339 e 343", cap:"Capítulo 17 — Pilhas e baterias; Capítulo 19 — Eletrólise",
+            lead:"Retome como uma reação química pode gerar corrente elétrica e como a corrente elétrica pode forçar uma reação que não ocorreria sozinha.",
+            guia:["Oxidação e redução; cela galvânica e cela eletrolítica — p. 311.","Pilha de Daniell: quem se oxida e o sentido dos elétrons — p. 312.","Eletrólise: a corrente força uma reação não espontânea — p. 339.","Galvanoplastia — p. 343."],
+            caderno:{ titulo:"ATIVIDADE 4 — Transformações de energia", html:"<p>Registre e explique:</p><p><b>PILHA EM FUNCIONAMENTO:</b> energia química → energia elétrica (reação espontânea, p. 311).</p><p><b>PROCESSO ELETROLÍTICO:</b> energia elétrica → transformação química não espontânea (p. 339).</p><p>Depois, relacione essas ideias ao uso e à recarga da bateria de um celular.</p>" },
+            questoes:["R9","R10","R13"] }
+};
+
+const DOSSIE = [
+  { t:"Energia liberada por grama", p:"Tabela 4, p. 410", d:"Fissão do urânio-235: 7,92 × 10⁷ kJ/g. Combustão do gás hidrogênio: 1,43 × 10² kJ/g. Combustão do etanol líquido: 2,97 × 10¹ kJ/g (cerca de 29,7 kJ/g)." },
+  { t:"Entalpia-padrão de combustão", p:"Tabela 1, p. 241", d:"Metano (gás natural): −891 kJ/mol (massa molar 16 g/mol). Etanol: −1.367 kJ/mol (massa molar 46 g/mol). O sinal negativo indica liberação de calor." },
+  { t:"Efeito estufa e CO₂", p:"p. 248", d:"A concentração de CO₂ na atmosfera passou de 315 ppm em 1958 para mais de 425 ppm em 2024, aumento atribuído principalmente à queima de combustíveis fósseis. Mais CO₂ intensifica o efeito estufa e o aquecimento global." },
+  { t:"Usina termonuclear (tipo PWR, como Angra 1 e 2)", p:"p. 411", d:"O calor da fissão aquece a água, que gera vapor; o vapor gira a turbina ligada ao gerador elétrico. Barras de controle absorvem nêutrons para evitar que a reação saia de controle." },
+  { t:"Lixo nuclear", p:"p. 411 e Tabela 1, p. 405", d:"Os produtos da fissão contêm radionuclídeos como estrôncio-90 (meia-vida de 28 anos, pode se acumular nos ossos), iodo-131 (8 dias, tireoide) e césio-137. Devem ficar em recipientes de chumbo ou concreto, em local seguro, até a radiação cair a níveis não prejudiciais." },
+  { t:"Poluição térmica", p:"p. 412, atividade 21", d:"A água aquecida devolvida a rios e lagos diminui a solubilidade do gás oxigênio, colocando em risco a vida aquática." }
+];
+const DOSSIE_TEXTO = DOSSIE.map(x=>x.d).join(" ");
+
+const QUESTOES = [
+  // ---------- Estação 1 ----------
+  { id:"R1", est:"termo", hab:"EM13CNT102", tipo:"classify",
+    prompt:"Classifique cada processo, à pressão constante:",
+    bins:["Libera calor (exotérmico)","Absorve calor (endotérmico)"],
+    itens:[{t:"Solidificação da água no congelador",a:0},{t:"Fusão (derretimento) do gelo",a:1},{t:"Combustão da glicose",a:0},{t:"Decomposição do carbonato de cálcio (CaCO₃) por aquecimento",a:1}],
+    dica:"Na p. 234, observe se o sistema entrega calor ao ambiente ou recebe calor dele. Para o gelo derreter, por exemplo, ele precisa receber calor.",
+    explica:"Solidificação e combustão liberam calor (ΔH < 0). Fusão do gelo e decomposição do CaCO₃ absorvem calor (ΔH > 0) — p. 234–235.",
+    resposta:"Exotérmicos: solidificação da água e combustão da glicose. Endotérmicos: fusão do gelo e decomposição do CaCO₃." },
+  { id:"R2", est:"termo", hab:"EM13CNT102", tipo:"tf",
+    prompt:"Verdadeiro ou falso?",
+    itens:[{t:"Em um processo exotérmico, a entalpia final do sistema é menor que a inicial.",a:true},
+           {t:"Um ΔH positivo indica que o processo libera calor.",a:false},
+           {t:"A fusão de 1 mol de água absorve a mesma quantidade de energia (6,01 kJ) que a solidificação de 1 mol de água libera.",a:true},
+           {t:"A unidade kJ/mol indica a energia envolvida por grama de substância.",a:false}],
+    dica:"Releia na p. 235 o que o sinal de ΔH informa e como interpretar a unidade kJ/mol.",
+    explica:"ΔH < 0 = exotérmico (a entalpia final é menor); ΔH > 0 = endotérmico. Fusão e solidificação envolvem a mesma energia, com sinais opostos. kJ/mol se refere ao mol do processo equacionado — p. 235.",
+    resposta:"V, F, V, F." },
+  { id:"R11", est:"termo", hab:"EM13CNT102", tipo:"mc",
+    prompt:"Em um processo, H dos reagentes = 350 kJ e H dos produtos = 150 kJ. Qual é o ΔH e o que ele indica?",
+    opcoes:[{t:"+200 kJ: o processo absorve calor.",fb:"ΔH = H(produtos) − H(reagentes). Faça a conta na ordem certa (p. 235)."},
+            {t:"−200 kJ: o processo libera calor.",ok:true},
+            {t:"+500 kJ: o processo absorve calor.",fb:"ΔH é uma diferença, e não uma soma (p. 235)."},
+            {t:"−500 kJ: o processo libera calor.",fb:"ΔH é uma diferença entre final e inicial, e não uma soma (p. 235)."}],
+    explica:"ΔH = 150 − 350 = −200 kJ. O sinal negativo indica processo exotérmico: a entalpia final é menor, porque energia saiu como calor — p. 235.",
+    resposta:"−200 kJ; libera calor." },
+  { id:"R3", est:"termo", hab:"EM13CNT102", tipo:"mc",
+    prompt:"Na lei de Hess, quando invertemos uma equação termoquímica (trocando reagentes e produtos de lugar), o que acontece com o ΔH?",
+    opcoes:[{t:"O valor é mantido, com o mesmo sinal.",fb:"Se um sentido libera calor, o sentido inverso precisa absorver (p. 240)."},
+            {t:"O sinal do ΔH é trocado.",ok:true},
+            {t:"O ΔH é multiplicado por 2.",fb:"Multiplicar o ΔH acontece quando multiplicamos a equação, e não quando a invertemos (p. 240)."},
+            {t:"O ΔH passa a ser zero.",fb:"Releia a p. 240: ao inverter, a endotérmica vira exotérmica, e vice-versa."}],
+    explica:"Ao inverter a equação, o processo endotérmico vira exotérmico (e vice-versa), então o sinal do ΔH é trocado — p. 240.",
+    resposta:"O sinal do ΔH é trocado." },
+  // ---------- Estação 2 ----------
+  { id:"R4", est:"radio", hab:"EM13CNT103", tipo:"match",
+    prompt:"Associe cada processo à sua descrição:",
+    opcoesLista:["2 prótons + 2 nêutrons; o número de massa (A) diminui 4 e o número atômico (Z) diminui 2",
+                 "Elétron emitido pelo núcleo; Z aumenta 1 e A não muda",
+                 "Onda eletromagnética de altíssima frequência; não altera Z nem A",
+                 "Os átomos se recombinam, sem alteração dos núcleos"],
+    itens:[{t:"Emissão alfa (α)",a:0},{t:"Emissão beta negativa (β⁻)",a:1},{t:"Emissão gama (γ)",a:2},{t:"Reação química comum",a:3}],
+    dica:"Na p. 403, compare o que muda no núcleo em cada emissão, e lembre a diferença entre reação química e processo nuclear.",
+    explica:"α = núcleo de hélio (A −4, Z −2); β⁻ = elétron que sai do núcleo quando um nêutron vira próton (Z +1); γ = onda eletromagnética; reação química não altera núcleos — p. 403–404.",
+    resposta:"α → 2 prótons + 2 nêutrons; β⁻ → elétron do núcleo; γ → onda eletromagnética; reação química → recombinação sem alterar núcleos." },
+  { id:"R5", est:"radio", hab:"EM13CNT103", tipo:"mc",
+    prompt:"O iodo-131 tem meia-vida de 8 dias (Tabela 1, p. 405). Uma amostra começa com 100% de iodo-131. Que porcentagem resta após 16 dias?",
+    opcoes:[{t:"50%",fb:"50% resta após uma meia-vida (8 dias). Quantas meias-vidas cabem em 16 dias?"},
+            {t:"25%",ok:true},
+            {t:"12,5%",fb:"12,5% resta após três meias-vidas (24 dias). Quantas cabem em 16 dias?"},
+            {t:"0% — a amostra acabou",fb:"A amostra não acaba: a cada meia-vida ela cai pela metade (Fig. 3, p. 405)."}],
+    explica:"16 dias = 2 meias-vidas: 100% → 50% → 25% — Fig. 3, p. 405.",
+    resposta:"25%." },
+  { id:"R6", est:"radio", hab:"EM13CNT103", tipo:"mc",
+    prompt:"A radiação sobre um tecido humano pode induzir câncer. Por que, então, a Medicina usa radiação no tratamento do câncer?",
+    opcoes:[{t:"Porque a radiação usada em hospitais não é ionizante.",fb:"As emissões radioativas ionizam moléculas (p. 403). O que faz o uso médico valer a pena está na p. 408."},
+            {t:"Porque uma dose controlada, direcionada ao tumor, mata preferencialmente as células cancerosas.",ok:true},
+            {t:"Porque o organismo fica imune à radiação depois da primeira sessão.",fb:"Não há imunidade à radiação. Veja na p. 408 como a dose e o direcionamento são usados."},
+            {t:"Porque a radiação só afeta células de tumores, nunca células saudáveis.",fb:"A p. 408 cita efeitos colaterais justamente porque células saudáveis também podem ser atingidas."}],
+    explica:"Na radioterapia, a dose é controlada e direcionada ao tumor; há efeitos colaterais porque células saudáveis também podem ser atingidas — p. 408.",
+    resposta:"Dose controlada e direcionada ao tumor." },
+  // ---------- Estação 3 ----------
+  { id:"R7", est:"energia", hab:"EM13CNT103", tipo:"mc",
+    ctx:"Dados (p. 334): E°(Ag⁺/Ag) = +0,80 V · E°(Cu²⁺/Cu) = +0,34 V",
+    prompt:"Uma placa de cobre metálico é mergulhada numa solução com íons prata (Ag⁺). O que acontece?",
+    opcoes:[{t:"Há reação: o cobre se oxida e os íons prata se reduzem.",ok:true},
+            {t:"Há reação: a prata se oxida e o cobre se reduz.",fb:"Na p. 334, a espécie com maior E° tende a se reduzir. Quem tem o maior E° aqui?"},
+            {t:"Não há reação, porque os dois são metais.",fb:"Compare os valores de E°: a diferença indica a tendência de transferência de elétrons (p. 334)."},
+            {t:"Não há reação, porque o cobre tem E° menor.",fb:"Ter E° menor significa maior tendência a se oxidar, e isso não impede a reação (p. 334)."}],
+    explica:"O par Ag⁺/Ag tem E° maior, então Ag⁺ se reduz; o cobre, de E° menor, se oxida. O cobre é um redutor mais forte que a prata — p. 334.",
+    resposta:"O cobre se oxida e os íons prata se reduzem." },
+  { id:"R8", est:"energia", hab:"EM13CNT106", tipo:"order",
+    prompt:"Coloque em ordem as etapas de funcionamento de uma usina termonuclear (use as setas):",
+    itens:["A fissão do urânio-235 no reator libera grande quantidade de calor","O calor aquece a água, que gera vapor","O vapor gira a turbina","O gerador ligado à turbina produz energia elétrica"],
+    inicio:[2,0,3,1],
+    dica:"Na p. 411, siga o caminho da energia: nuclear → térmica → movimento → elétrica.",
+    explica:"Fissão (energia nuclear) → aquecimento da água e vapor (térmica) → turbina (movimento) → gerador (elétrica) — p. 411.",
+    resposta:"Fissão → vapor → turbina → gerador." },
+  { id:"R12", est:"energia", hab:"EM13CNT106", tipo:"mc",
+    prompt:"Ao escolher uma usina para uma região, o que é adequado considerar?",
+    opcoes:[{t:"Somente o custo de instalação.",fb:"O custo importa, mas a habilidade estudada pede avaliar também eficiência, recursos disponíveis e impactos (p. 248 e 411)."},
+            {t:"Somente a quantidade de energia gerada.",fb:"A usina termonuclear gera muita energia por grama, mas produz lixo radioativo (p. 410–411). Uma decisão precisa pesar mais de um critério."},
+            {t:"Eficiência, disponibilidade de recursos, custo e impactos socioambientais, em conjunto.",ok:true},
+            {t:"Apenas se a fonte é renovável, porque fontes renováveis não causam impacto.",fb:"Toda fonte tem algum impacto: mesmo o etanol é queimado em combustão (p. 240). É preciso comparar benefícios e impactos."}],
+    explica:"Escolher uma fonte exige ponderar vários critérios ao mesmo tempo: energia e eficiência, recursos disponíveis, custo, emissões e resíduos (p. 240, 248, 410–411).",
+    resposta:"Considerar os critérios em conjunto." },
+  // ---------- Estação 4 ----------
+  { id:"R9", est:"eletro", hab:"EM13CNT107", tipo:"mc",
+    prompt:"Na pilha de Daniell (zinco e cobre), qual espécie se oxida e para onde vão os elétrons no fio metálico?",
+    opcoes:[{t:"O zinco se oxida; os elétrons vão da placa de zinco para a de cobre.",ok:true},
+            {t:"O cobre se oxida; os elétrons vão da placa de cobre para a de zinco.",fb:"Na p. 312, veja qual placa tem maior potencial elétrico: os elétrons se movem do menor para o maior potencial."},
+            {t:"O zinco se reduz; os elétrons vão da placa de cobre para a de zinco.",fb:"Na p. 311, veja qual espécie perde elétrons na reação entre zinco metálico e íons cobre(II)."},
+            {t:"Nenhuma espécie se oxida; os elétrons saem da ponte salina.",fb:"Em toda cela eletroquímica há oxirredução (p. 311). Os elétrons circulam pelo fio, e não pela ponte salina."}],
+    explica:"O zinco perde elétrons (oxidação) e os íons Cu²⁺ os recebem (redução). A placa de cobre tem maior potencial, então os elétrons vão do zinco para o cobre — p. 311–312.",
+    resposta:"O zinco se oxida; elétrons do zinco para o cobre." },
+  { id:"R10", est:"eletro", hab:"EM13CNT107", tipo:"match",
+    prompt:"Associe cada dispositivo ao que acontece nele:",
+    opcoesLista:["Uma reação espontânea de oxirredução produz corrente elétrica","A corrente elétrica força uma reação que não ocorreria espontaneamente","Núcleos atômicos se quebram liberando energia"],
+    itens:[{t:"Pilha (cela galvânica)",a:0},{t:"Eletrólise (cela eletrolítica)",a:1}],
+    dica:"Compare as definições das p. 311 e 339.",
+    explica:"Na pilha, uma reação espontânea gera corrente; na eletrólise, a corrente força uma reação não espontânea — p. 311 e 339. A quebra de núcleos é fissão nuclear.",
+    resposta:"Pilha → reação espontânea gera corrente; eletrólise → corrente força reação não espontânea." },
+  { id:"R13", est:"eletro", hab:"EM13CNT107", tipo:"mc",
+    prompt:"Quando a bateria de um celular está sendo recarregada na tomada, o que acontece do ponto de vista das transformações de energia?",
+    opcoes:[{t:"A energia elétrica da tomada força a reação química inversa, que não ocorreria sozinha, e a energia fica armazenada na forma química.",ok:true},
+            {t:"A bateria produz energia elétrica por uma reação espontânea, como no uso normal.",fb:"Isso descreve a bateria alimentando o celular. Na recarga, quem fornece energia? Compare as p. 311 e 339."},
+            {t:"A energia elétrica apenas aquece a bateria, sem transformação química.",fb:"A recarga refaz os reagentes da bateria: há transformação química (p. 311 e 339)."},
+            {t:"A bateria perde seus reagentes durante a recarga.",fb:"Pense no sentido: no uso, os reagentes são consumidos; na recarga, eles são refeitos."}],
+    explica:"No uso, a bateria funciona como pilha (química → elétrica, reação espontânea). Na recarga, a energia elétrica força a reação inversa, não espontânea, como numa eletrólise — p. 311 e 339.",
+    resposta:"A energia elétrica força a reação inversa e fica armazenada como energia química." },
+  // ---------- Aplicar ----------
+  { id:"A1", est:"aplicar", hab:"EM13CNT102", tipo:"mc", titulo:"A moringa \"sem energia\"",
+    ctx:"Você trabalha no setor de compras de uma empresa. Um fornecedor oferece uma moringa de cerâmica que, segundo ele, \"resfria a água sem usar eletricidade\". A água fica mesmo um pouco mais fria que o ambiente.",
+    prompt:"Qual é a explicação científica correta?",
+    opcoes:[{t:"A cerâmica é um material que produz frio.",fb:"Materiais não \"produzem frio\": o que acontece é transferência de calor. Pense no que ocorre com a água que chega ao lado de fora (p. 234–235)."},
+            {t:"A água que atravessa a cerâmica evapora do lado de fora; a evaporação é endotérmica e retira calor da água de dentro.",ok:true},
+            {t:"A água reage com a argila numa reação química que consome a água.",fb:"Não há reação química aqui, e sim mudança de fase. Qual mudança de fase absorve calor? (p. 234)"},
+            {t:"A moringa libera calor para a água, que depois esfria sozinha.",fb:"Se algo liberasse calor para a água, ela esquentaria. Siga o sentido da transferência de calor (p. 234)."}],
+    explica:"A vaporização da água é endotérmica: para evaporar, a água retira calor da vizinhança, resfriando o conteúdo da moringa — p. 234–235 (atividade 2).",
+    resposta:"A evaporação (endotérmica) retira calor da água." },
+  { id:"A2", est:"aplicar", hab:"EM13CNT102", tipo:"composite", titulo:"Qual combustível para a caldeira?",
+    ctx:"A logística precisa escolher o combustível de uma caldeira abastecida por massa (quilogramas). Dados da Tabela 1 (p. 241):",
+    tabela:{cab:["Combustível","ΔcH° (kJ/mol)","Massa molar (g/mol)"],linhas:[["Gás hidrogênio (H₂)","−286","2"],["Metano (CH₄)","−891","16"],["Etanol (C₂H₆O)","−1.367","46"]]},
+    partes:[
+      { rotulo:"Parte 1 — Ordene do que libera MAIS energia por grama para o que libera MENOS:", tipo:"order",
+        itens:["Gás hidrogênio (H₂)","Metano (CH₄)","Etanol (C₂H₆O)"], inicio:[2,1,0],
+        dicaParte:"Você ordenou pela energia por mol, mas a caldeira é abastecida por massa. Divida o ΔcH pela massa molar de cada combustível." },
+      { rotulo:"Parte 2 — Quantos kJ libera a combustão de 1 g de metano?", tipo:"numeric", min:55, max:56.5, unidade:"kJ/g",
+        dicaParte:"Divida a energia de 1 mol de metano (891 kJ) pela massa de 1 mol (16 g)." }],
+    explica:"Por grama: H₂ = 286 ÷ 2 = 143 kJ/g; metano = 891 ÷ 16 ≈ 55,7 kJ/g; etanol = 1.367 ÷ 46 ≈ 29,7 kJ/g. Os valores conferem com a Tabela 4 da p. 410.",
+    resposta:"H₂ > metano > etanol; cerca de 55,7 kJ/g." },
+  { id:"A3", est:"aplicar", hab:"EM13CNT103", tipo:"composite", titulo:"Rejeitos do hospital",
+    ctx:"O setor de serviços gerais de um hospital armazena rejeitos radioativos até que a radiação caia a níveis seguros. Meias-vidas (Tabela 1, p. 405): iodo-131 = 8 dias; cobalto-60 = 5,26 anos; estrôncio-90 = 28 anos.",
+    partes:[
+      { rotulo:"Parte 1 — Quantos dias até que um rejeito de iodo-131 tenha só 12,5% da quantidade inicial?", tipo:"numeric", min:24, max:24, unidade:"dias",
+        dicaParte:"100% → 50% → 25% → 12,5%: quantas meias-vidas são? Multiplique pelo valor da meia-vida." },
+      { rotulo:"Parte 2 — Qual desses rejeitos exige o armazenamento mais longo?", tipo:"mc",
+        opcoes:[{t:"Iodo-131"},{t:"Cobalto-60"},{t:"Estrôncio-90",ok:true}],
+        dicaParte:"Compare as meias-vidas: quanto maior, mais tempo a amostra leva para decair." }],
+    explica:"12,5% corresponde a 3 meias-vidas: 3 × 8 = 24 dias. O estrôncio-90 tem a maior meia-vida (28 anos) — p. 405 e 411.",
+    resposta:"24 dias; estrôncio-90." },
+  { id:"A4", est:"aplicar", hab:"EM13CNT103", tipo:"mc", titulo:"A carga recusada",
+    ctx:"Uma companhia aérea se recusou a transportar material médico que havia sido esterilizado por irradiação, alegando risco aos passageiros (situação adaptada do Enem, p. 409, atividade 19).",
+    prompt:"A decisão da companhia é equivocada porque:",
+    opcoes:[{t:"o material é incapaz de acumular radiação e não se torna radioativo por ter sido irradiado.",ok:true},
+            {t:"a embalagem é suficiente para bloquear qualquer radiação emitida pelo material.",fb:"O problema não está na embalagem: o material irradiado não passa a emitir radiação. Releia os usos de esterilização na p. 408."},
+            {t:"o tempo decorrido desde a esterilização é suficiente para o material deixar de emitir radiação.",fb:"Essa resposta supõe que o material emitia radiação. Ele emite? Pense na diferença entre ser irradiado e conter um radioisótopo."},
+            {t:"o material emite radiação, mas abaixo do nível perigoso.",fb:"Ser exposto à radiação não torna o material radioativo. Radioativo é o material que contém núcleos instáveis (p. 403)."}],
+    explica:"Irradiar é expor à radiação; isso não torna o material radioativo. Radioativo é o que contém núcleos instáveis — p. 403 e 408.",
+    resposta:"O material irradiado não se torna radioativo." },
+  { id:"A5", est:"aplicar", hab:"EM13CNT106", tipo:"grid", titulo:"Painel de impactos",
+    ctx:"A diretoria de uma empresa quer um painel comparando três usinas de energia elétrica.",
+    prompt:"Para cada característica, toque na(s) usina(s) a que ela se aplica, segundo o livro. Pode haver mais de uma por característica.",
+    colunas:["Térmica a combustível fóssil","Termonuclear","Térmica a etanol"],
+    linhas:[{t:"Intensifica o efeito estufa ao lançar CO₂ de origem fóssil (p. 248)",a:[0]},
+            {t:"Gera lixo radioativo que precisa ser armazenado com segurança por muito tempo (p. 411)",a:[1]},
+            {t:"Libera a maior quantidade de energia por grama de combustível (Tabela 4, p. 410)",a:[1]},
+            {t:"Aquece a água por meio de combustão, uma reação química exotérmica (p. 240)",a:[0,2]},
+            {t:"Usa combustível de fonte renovável, a cana-de-açúcar (p. 350)",a:[2]}],
+    dica:"Confira cada linha com a página indicada e lembre que uma característica pode valer para mais de uma usina.",
+    explica:"Fóssil: CO₂ de origem fóssil e combustão. Termonuclear: lixo radioativo e maior energia por grama. Etanol: combustão e fonte renovável — p. 240, 248, 350, 410–411.",
+    resposta:"1: fóssil · 2: termonuclear · 3: termonuclear · 4: fóssil e etanol · 5: etanol." },
+  { id:"A6", est:"aplicar", hab:"EM13CNT107", tipo:"composite", titulo:"Brincos folheados",
+    ctx:"Uma empresa de bijuterias quer revestir brincos de metal com uma fina camada de prata, usando uma solução aquosa de um sal de prata e um gerador de corrente (p. 343).",
+    partes:[
+      { rotulo:"Parte 1 — Em qual polo o brinco deve ser ligado?", tipo:"mc",
+        opcoes:[{t:"No cátodo (polo negativo)",ok:true},{t:"No ânodo (polo positivo)"}],
+        dicaParte:"Na galvanoplastia, a peça recebe o metal que se deposita. Onde os íons metálicos recebem elétrons? (p. 343)" },
+      { rotulo:"Parte 2 — O que acontece com os íons Ag⁺ na superfície do brinco?", tipo:"mc",
+        opcoes:[{t:"Recebem elétrons e se reduzem a prata metálica, que se deposita",ok:true},{t:"Perdem elétrons e se oxidam"},{t:"Transformam-se em gás e escapam da solução"}],
+        dicaParte:"Revestir com prata significa formar prata metálica (Ag) a partir de Ag⁺. Isso é ganhar ou perder elétrons?" }],
+    explica:"Na galvanoplastia, a peça é o cátodo (polo negativo), onde os íons Ag⁺ recebem elétrons e se depositam como prata metálica. É eletrólise — p. 343.",
+    resposta:"Cátodo (polo negativo); Ag⁺ se reduz a prata metálica." },
+  // ---------- Demonstrar ----------
+  { id:"D1", est:"demonstrar", hab:"EM13CNT102", tipo:"numeric", titulo:"D1 — Analisar dados",
+    prompt:"Usando a Tabela 4 do dossiê: quantas TONELADAS de etanol precisam ser queimadas para liberar a mesma energia que a fissão de 1 g de urânio-235?",
+    min:2.5, max:2.8, unidade:"toneladas",
+    dica:"Divida a energia da fissão (7,92 × 10⁷ kJ/g) pela energia do etanol (29,7 kJ/g). O resultado sai em gramas; 1 tonelada = 1.000.000 g.",
+    explica:"7,92 × 10⁷ ÷ 29,7 ≈ 2,67 × 10⁶ g ≈ 2,7 toneladas de etanol para igualar 1 g de urânio-235 — p. 410.",
+    resposta:"Cerca de 2,7 toneladas (2,67 × 10⁶ g)." }
+];
+
+const TEXTOS = {
+  D1t:{ titulo:"D1 — O que esse número significa?", min:CONFIG.textos.D1textoMin, curto:true, semModo:true,
+        prompt:"Em uma ou duas frases: o que esse resultado significa para Vale Verde, que está escolhendo a usina?" },
+  D2:{ titulo:"D2 — Explicar o fenômeno", min:CONFIG.textos.D2min,
+       prompt:"Explique de onde vem a energia em uma usina térmica (a gás ou etanol) e em uma usina termonuclear, e por que a fissão libera muito mais energia do que a combustão. Depois, compare com uma bateria: que transformação de energia acontece quando ela é usada e quando é recarregada?",
+       apoio:["Combustão é uma reação química exotérmica que rearranja átomos (p. 240 e 403).","A fissão altera o núcleo do átomo (p. 410).","Na usina: química ou nuclear → térmica → movimento da turbina → elétrica (p. 411).","Na bateria em uso: química → elétrica; na recarga, a corrente força a reação inversa (p. 311 e 339)."] },
+  D3:{ titulo:"D3 — Parecer técnico", min:CONFIG.textos.D3min,
+       prompt:"Escreva um parecer técnico (10 a 15 linhas) recomendando UMA das três alternativas a Vale Verde. Não existe resposta única correta: vale a qualidade da sua argumentação.",
+       criterios:["Deixo claro qual alternativa recomendo.","Uso pelo menos dois argumentos científicos, com conceitos corretos.","Cito pelo menos um dado numérico do dossiê.","Aponto um impacto ambiental ou à saúde da opção escolhida e uma ação para reduzi-lo."] },
+  D4:{ titulo:"D4 — Comunicar para os moradores", min:CONFIG.textos.D4min, max:CONFIG.textos.D4max,
+       prompt:"Escreva uma mensagem curta (até 400 caracteres) para os moradores de Vale Verde explicando a sua recomendação, sem termos técnicos e sem erro de conceito." }
+};
+
+const SENTIMENTOS = [["😄","Muito bem"],["🙂","Bem"],["😐","Mais ou menos"],["😟","Preocupado(a)"],["😫","Cansado(a)"]];
+const TEMPOS = ["Até 30 minutos","30 a 60 minutos","1 a 2 horas","Mais de 2 horas"];
+const NIVEL_INI = ["Tenho bastante dificuldade","Tenho alguma dificuldade","Entendo parcialmente","Acredito que domino o conteúdo"];
+const NIVEL_FIM = ["Ainda tenho bastante dificuldade","Ainda tenho algumas dúvidas","Compreendo melhor o conteúdo","Consigo explicar e aplicar o conteúdo"];
+const SELF3 = [["🔴","Ainda preciso estudar"],["🟡","Entendi parcialmente"],["🟢","Consigo explicar"]];
+
+const HABILIDADES = {
+  EM13CNT102:{ nome:"Termoquímica: prever e avaliar trocas de energia", itens:["R1","R2","R11","R3","A1","A2","D1"], paginas:"234 a 241" },
+  EM13CNT103:{ nome:"Radioisótopos e reatividade: potencialidades e riscos", itens:["R4","R5","R6","R7","A3","A4"], paginas:"334, 403 a 405 e 408 a 411" },
+  EM13CNT106:{ nome:"Matriz energética: comparar fontes e impactos", itens:["R8","A5","D3"], paginas:"240, 243 a 248 e 410 a 412" },
+  EM13CNT107:{ nome:"Pilhas e eletrólise: transformações com corrente elétrica", itens:["R9","R10","R13","A6","D2"], paginas:"310 a 312, 339 e 343" }
+};
+
+/* =====================================================================
+   PÁGINAS E NAVEGAÇÃO
+   ===================================================================== */
+const PAGINAS = [
+  {id:"home", grupo:"Comece aqui", rot:"Orientações", n:"⌂"},
+  {id:"caderno", grupo:"Comece aqui", rot:"Como usar o caderno", n:"📓"},
+  {id:"termo", grupo:"Retomar", rot:"Termoquímica", n:"1"},
+  {id:"radio", grupo:"Retomar", rot:"Radioatividade", n:"2"},
+  {id:"energia", grupo:"Retomar", rot:"Energia e usinas", n:"3"},
+  {id:"eletro", grupo:"Retomar", rot:"Pilhas e eletrólise", n:"4"},
+  {id:"aplicar", grupo:"Mobilizar conhecimentos", rot:"Aplicar", n:"5"},
+  {id:"demonstrar", grupo:"Mobilizar conhecimentos", rot:"Demonstrar", n:"6"},
+  {id:"auto", grupo:"Encerrar", rot:"Autoavaliação", n:"7"},
+  {id:"percurso", grupo:"Encerrar", rot:"Meu percurso e entrega", n:"8"}
+];
+const CADERNO_EXTRA = {
+  aplicar:{ titulo:"ATIVIDADE 5 — Combustível A ou B?", html:"<div class=\"tablewrap\"><table class=\"data\"><tr><th>Combustível</th><th>ΔH de combustão</th><th>Emissão de CO₂</th><th>Custo</th></tr><tr><td>A</td><td>−500 kJ/mol</td><td>Menor</td><td>Maior</td></tr><tr><td>B</td><td>−750 kJ/mol</td><td>Maior</td><td>Menor</td></tr></table></div><p>Qual combustível libera maior quantidade de energia por mol? Considerando também custo e emissão de CO₂, seria adequado escolher automaticamente esse combustível? <b>Justifique usando os dados.</b> Depois, explique por que comparar por mol pode enganar quando o combustível é comprado por massa (lembre da questão A2).</p>" }
+};
+
+/* =====================================================================
+   ESTADO (salvo no navegador)
+   ===================================================================== */
+const STORE_KEY = "trilha:" + CONFIG.trilhaId;
+function novoEstado(){
+  return { v:3, pagina:"home", ultima:"caderno", checkin:{nome:"",turma:CONFIG.turmaPadrao,rm:"",pin:"",sentimento:null,tempo:null,nivel:null}, atualizadoEm:0,
+           inicio:null, fim:null, resp:{}, textos:{}, modos:{}, autocheck:[false,false,false,false], cadernoFeito:{}, estacao:{},
+           final:{nivel:null,sentimento:null,tempo:null,antes:"",agora:"",ajudou:"",retomar:""}, entrega:[], envio:{status:null,em:null} };
+}
+let S = carregar();
+function carregar(){
+  try{ const raw = localStorage.getItem(STORE_KEY); if(raw){ const s = JSON.parse(raw); if(s && s.v===3) return Object.assign(novoEstado(), s); } }catch(e){}
+  return novoEstado();
+}
+S.checkin = Object.assign(novoEstado().checkin, S.checkin||{});
+let tSalvar=null;
+/* salvar(): marca a alteração, grava neste navegador e agenda a cópia na nuvem (planilha do professor). */
+function salvar(){ S.atualizadoEm=Date.now(); clearTimeout(tSalvar); tSalvar=setTimeout(gravarLocal,150); agendarNuvem(); }
+function salvarJa(){ S.atualizadoEm=Date.now(); gravarLocal(); agendarNuvem(); }
+function gravarLocal(){ clearTimeout(tSalvar); try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
+window.addEventListener("beforeunload", ()=>{ gravarLocal(); if(nuvemPendente) salvarNuvem(true); });
+document.addEventListener("visibilitychange", ()=>{ if(document.visibilityState==="hidden"){ gravarLocal(); if(nuvemPendente) salvarNuvem(true); } });
+
+/* =====================================================================
+   PROGRESSO NA NUVEM (RM + senha) — funciona em qualquer computador
+   ===================================================================== */
+const NUVEM = !!CONFIG.appsScriptUrl;
+let tNuvem=null, nuvemPendente=false, nuvemUltimo=null, nuvemErro=false;
+function temIdentidade(){ const c=S.checkin; return /^\d{3,}$/.test((c.rm||"").trim()) && /^\d{4}$/.test((c.pin||"").trim()); }
+function agendarNuvem(){
+  if(!NUVEM || !temIdentidade()) return;
+  nuvemPendente=true; statusNuvem();
+  clearTimeout(tNuvem); tNuvem=setTimeout(()=>salvarNuvem(false), 4000);
+}
+function estadoParaNuvem(){ const e=JSON.parse(JSON.stringify(S)); e.checkin.pin=""; e.pagina="home"; return e; }
+function salvarNuvem(saindo){
+  clearTimeout(tNuvem);
+  if(!NUVEM || !temIdentidade()) return Promise.resolve();
+  const c=S.checkin;
+  const corpo=JSON.stringify({tipo:"progresso", trilha:CONFIG.trilhaId, rm:c.rm.trim(), pin:c.pin.trim(), nome:c.nome, atualizadoEm:S.atualizadoEm||Date.now(), estado:estadoParaNuvem()});
+  nuvemPendente=false;
+  return fetch(CONFIG.appsScriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:corpo,keepalive:!!saindo && corpo.length<60000})
+    .then(()=>{ nuvemErro=false; nuvemUltimo=Date.now(); statusNuvem(); })
+    .catch(()=>{ nuvemErro=true; nuvemPendente=true; statusNuvem(); clearTimeout(tNuvem); tNuvem=setTimeout(()=>salvarNuvem(false), 30000); });
+}
+function carregarDaNuvem(rm,pin){
+  const u=CONFIG.appsScriptUrl+(CONFIG.appsScriptUrl.includes("?")?"&":"?")+"acao=carregar&trilha="+encodeURIComponent(CONFIG.trilhaId)+"&rm="+encodeURIComponent(rm)+"&pin="+encodeURIComponent(pin)+"&t="+Date.now();
+  const ctl=("AbortController" in window)?new AbortController():null;
+  const to=setTimeout(()=>ctl&&ctl.abort(), 15000);
+  return fetch(u,{signal:ctl?ctl.signal:undefined}).then(r=>r.json()).then(j=>{ clearTimeout(to); return j; })
+    .catch(()=>{ clearTimeout(to); return {ok:false, motivo:"rede"}; });
+}
+/* Junta duas cópias do mesmo aluno sem perder nada: parte da mais recente e completa com o que só a outra tem. */
+function juntarEstados(a,b){
+  const [nova,velha]=(a.atualizadoEm||0)>=(b.atualizadoEm||0)?[a,b]:[b,a];
+  const r=Object.assign(novoEstado(), JSON.parse(JSON.stringify(nova)));
+  r.checkin=Object.assign(novoEstado().checkin, r.checkin||{});
+  Object.entries(velha.resp||{}).forEach(([k,v])=>{ const n=r.resp[k]; if(!n || (!n.travada && v.travada) || (!n.travada && !v.travada && (v.tentativas||0)>(n.tentativas||0))) r.resp[k]=v; });
+  Object.entries(velha.textos||{}).forEach(([k,v])=>{ const n=r.textos[k]; if(!n || ((v.texto||"").length>(n.texto||"").length && !(n.texto||"").trim())) r.textos[k]=v; });
+  ["modos","estacao"].forEach(g=>{ Object.entries(velha[g]||{}).forEach(([k,v])=>{ if(r[g][k]===undefined || r[g][k]===null) r[g][k]=v; }); });
+  Object.entries(velha.cadernoFeito||{}).forEach(([k,v])=>{ if(v) r.cadernoFeito[k]=v; });
+  (velha.autocheck||[]).forEach((v,i)=>{ if(v) r.autocheck[i]=true; });
+  (velha.entrega||[]).forEach((v,i)=>{ if(v) r.entrega[i]=v; });
+  Object.entries(velha.final||{}).forEach(([k,v])=>{ if((r.final[k]===null||r.final[k]==="") && v!==null && v!=="") r.final[k]=v; });
+  if(velha.inicio && (!r.inicio || velha.inicio<r.inicio)) r.inicio=velha.inicio;
+  if(!r.fim && velha.fim) r.fim=velha.fim;
+  if((!r.envio||r.envio.status!=="ok") && velha.envio && velha.envio.status==="ok") r.envio=velha.envio;
+  if(!r.ultima || r.ultima==="caderno") r.ultima=velha.ultima||r.ultima;
+  r.atualizadoEm=Math.max(a.atualizadoEm||0,b.atualizadoEm||0);
+  return r;
+}
+function hora(t){ return new Date(t).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}); }
+function statusNuvem(){
+  const el=document.getElementById("nuvem"); if(!el) return;
+  el.className="nuvem";
+  if(!NUVEM){ el.textContent="💾 Progresso salvo só neste navegador."; return; }
+  if(!temIdentidade()){ el.textContent="☁️ Informe RM e senha no início para salvar na nuvem."; return; }
+  if(nuvemErro){ el.className="nuvem erro"; el.textContent="⚠️ Sem conexão: tentando salvar na nuvem de novo…"; return; }
+  if(nuvemPendente){ el.textContent="☁️ Salvando na nuvem…"; return; }
+  el.textContent = nuvemUltimo ? "☁️ Salvo na nuvem às "+hora(nuvemUltimo)+" (RM "+S.checkin.rm+")." : "☁️ Progresso guardado com o RM "+S.checkin.rm+".";
+}
+function toast(msg){
+  const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg;
+  document.body.append(t); setTimeout(()=>t.remove(), 6500);
+}
+/* Troca o estado inteiro (restauração da nuvem ou de arquivo). */
+function aplicarEstado(novo, pin){
+  S=Object.assign(novoEstado(), novo);
+  S.checkin=Object.assign(novoEstado().checkin, S.checkin||{});
+  if(pin!==undefined) S.checkin.pin=pin;
+  gravarLocal();
+}
+function baixarProgresso(){
+  const blob=new Blob([JSON.stringify({trilha:CONFIG.trilhaId, estado:S})],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download="progresso-"+CONFIG.trilhaId+"-"+((S.checkin.nome||"aluno").trim().split(/\s+/)[0]||"aluno").toLowerCase()+".json";
+  document.body.append(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+function abrirArquivoProgresso(aoTerminar){
+  const inp=document.createElement("input"); inp.type="file"; inp.accept=".json,application/json";
+  inp.addEventListener("change",()=>{
+    const f=inp.files&&inp.files[0]; if(!f) return;
+    const rd=new FileReader();
+    rd.onload=()=>{ try{ const d=JSON.parse(rd.result); if(!d || d.trilha!==CONFIG.trilhaId || !d.estado) throw 0; aplicarEstado(d.estado); aoTerminar(true); }catch(e){ aoTerminar(false); } };
+    rd.readAsText(f);
+  });
+  inp.click();
+}
+
+/* =====================================================================
+   UTILITÁRIOS
+   ===================================================================== */
+const $ = (s,el=document)=>el.querySelector(s);
+const Q = Object.fromEntries(QUESTOES.map(q=>[q.id,q]));
+function h(tag, attrs={}, ...kids){
+  const el = document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){
+    if(v===null || v===undefined || v===false) continue;
+    if(k==="class") el.className=v;
+    else if(k==="html") el.innerHTML=v;
+    else if(k.startsWith("on")) el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v===true?"":v);
+  }
+  for(const kid of kids.flat()){ if(kid===null||kid===undefined||kid===false) continue; el.append(kid.nodeType?kid:document.createTextNode(String(kid))); }
+  return el;
+}
+function numero(txt){
+  if(txt===null||txt===undefined) return NaN;
+  let s = String(txt).trim().toLowerCase().replace(/\s/g,"").replace(/[^0-9,.\-e]/g,"");
+  if(/^\-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(s)) s = s.replace(/\./g,"").replace(",",".");
+  else s = s.replace(",",".");
+  return parseFloat(s);
+}
+function norm(t){ return (t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9₂ ]+/g," ").replace(/\s+/g," ").trim(); }
+function fmtTempo(ms){ if(!ms||ms<0) return "—"; const m=Math.round(ms/60000); if(m<60) return m+" min"; return Math.floor(m/60)+" h "+String(m%60).padStart(2,"0")+" min"; }
+function cadernoBox(key, c){
+  const cb = h("input",{type:"checkbox",checked:!!S.cadernoFeito[key]});
+  cb.addEventListener("change",()=>{ S.cadernoFeito[key]=cb.checked; salvar(); atualizarNav(); });
+  return h("div",{class:"notebook"}, h("h3",{},"📓 "+c.titulo), h("div",{html:c.html}),
+    h("label",{class:"done-line"}, cb, "Fiz esta atividade no caderno"));
+}
+function dossieEl(){ return h("div",{class:"dossie"}, ...DOSSIE.map(d=>h("div",{class:"doc"},h("b",{},d.t),h("div",{class:"small"},d.d),h("span",{},d.p)))); }
+function dossieDetails(){ return h("details",{class:"doss"},h("summary",{},"📂 Abrir o dossiê técnico"),dossieEl()); }
+
+/* =====================================================================
+   WIDGETS DE QUESTÃO
+   ===================================================================== */
+function valorInicial(q){
+  switch(q.tipo){
+    case "mc": return null;
+    case "tf": case "classify": case "match": return q.itens.map(()=>null);
+    case "order": return q.inicio ? q.inicio.slice() : q.itens.map((_,i)=>i);
+    case "numeric": return "";
+    case "grid": return q.linhas.map(()=>[]);
+    case "composite": return q.partes.map(p=>valorInicial(p));
+  }
+}
+function completo(q,v){
+  switch(q.tipo){
+    case "mc": return v!==null && v!==undefined;
+    case "tf": case "classify": case "match": return v.every(x=>x!==null && x!=="");
+    case "order": return true;
+    case "numeric": return !isNaN(numero(v));
+    case "grid": return v.every(r=>r.length>0);
+    case "composite": return q.partes.every((p,i)=>completo(p,v[i]));
+  }
+}
+function corrigir(q,v){
+  switch(q.tipo){
+    case "mc": return !!(q.opcoes[v] && q.opcoes[v].ok);
+    case "tf": case "classify": case "match": return q.itens.every((it,i)=>v[i]===it.a);
+    case "order": return v.every((x,i)=>x===i);
+    case "numeric": { let n=numero(v); if(q.unidade==="toneladas" && n>1000) n=n/1e6; return n>=q.min-1e-9 && n<=q.max+1e-9; }
+    case "grid": return q.linhas.every((l,i)=>l.a.length===v[i].length && l.a.every(a=>v[i].includes(a)));
+    case "composite": return q.partes.every((p,i)=>corrigir(p,v[i]));
+  }
+}
+function renderWidget(q, v, travado, onChange){
+  const box = h("div"); let cur = v;
+  if(q.tipo==="mc"){
+    const opts = h("div",{class:"opts",role:"radiogroup"});
+    q.opcoes.forEach((o,i)=>{
+      const b = h("button",{type:"button",class:"opt"+(travado && o.ok?" right":""),"aria-pressed":String(v===i),disabled:travado,role:"radio","aria-checked":String(v===i)},
+        h("span",{class:"k"},String.fromCharCode(65+i)), h("span",{},o.t));
+      b.addEventListener("click",()=>onChange(i));
+      opts.append(b);
+    });
+    box.append(opts);
+  } else if(q.tipo==="tf" || q.tipo==="classify"){
+    const labels = q.tipo==="tf" ? ["Verdadeiro","Falso"] : q.bins;
+    q.itens.forEach((it,i)=>{
+      const seg = h("div",{class:"seg",role:"group","aria-label":it.t});
+      labels.forEach((lab,j)=>{
+        const val = q.tipo==="tf" ? (j===0) : j;
+        const b = h("button",{type:"button","aria-pressed":String(v[i]===val),disabled:travado},lab);
+        b.addEventListener("click",()=>{ const nv=v.slice(); nv[i]=val; onChange(nv); });
+        seg.append(b);
+      });
+      box.append(h("div",{class:"row-item"}, h("div",{class:"t"},it.t), seg));
+    });
+  } else if(q.tipo==="match"){
+    q.itens.forEach((it,i)=>{
+      const id = "m_"+q.id+"_"+i;
+      const sel = h("select",{class:"sel",id,disabled:travado}, h("option",{value:""},"Escolha…"),
+        ...q.opcoesLista.map((o,j)=>h("option",{value:String(j),selected:v[i]===j},o)));
+      sel.addEventListener("change",()=>{ const nv=cur.slice(); nv[i]= sel.value===""?null:Number(sel.value); cur=nv; onChange(nv,true); });
+      box.append(h("div",{class:"row-item"}, h("label",{for:id,class:"t",style:"display:block;font-weight:700"},it.t), sel));
+    });
+  } else if(q.tipo==="order"){
+    const ol = h("ol",{class:"order"});
+    v.forEach((idx,pos)=>{
+      const up = h("button",{type:"button","aria-label":"Mover para cima",disabled:travado||pos===0},"▲");
+      const dn = h("button",{type:"button","aria-label":"Mover para baixo",disabled:travado||pos===v.length-1},"▼");
+      up.addEventListener("click",()=>{ const nv=v.slice(); [nv[pos-1],nv[pos]]=[nv[pos],nv[pos-1]]; onChange(nv); });
+      dn.addEventListener("click",()=>{ const nv=v.slice(); [nv[pos+1],nv[pos]]=[nv[pos],nv[pos+1]]; onChange(nv); });
+      ol.append(h("li",{}, h("span",{class:"n"},String(pos+1)), h("span",{class:"txt"},q.itens[idx]), h("span",{class:"mv"},up,dn)));
+    });
+    box.append(ol);
+  } else if(q.tipo==="numeric"){
+    const inp = h("input",{type:"text",inputmode:"decimal",value:v||"",disabled:travado,autocomplete:"off","aria-label":"Resposta em "+q.unidade});
+    inp.addEventListener("input",()=>onChange(inp.value,true));
+    box.append(h("div",{class:"num"}, inp, h("span",{class:"muted"},q.unidade)), h("div",{class:"small muted",style:"margin-top:6px"},"Use vírgula ou ponto para decimais."));
+  } else if(q.tipo==="grid"){
+    q.linhas.forEach((l,i)=>{
+      const seg = h("div",{class:"seg multi",role:"group","aria-label":l.t});
+      q.colunas.forEach((c,j)=>{
+        const on = cur[i].includes(j);
+        const b = h("button",{type:"button","aria-pressed":String(on),disabled:travado}, h("span",{class:"box","aria-hidden":"true"},on?"✓":""), c);
+        b.addEventListener("click",()=>{
+          const nv=cur.map(r=>r.slice());
+          if(nv[i].includes(j)) nv[i]=nv[i].filter(x=>x!==j); else nv[i].push(j);
+          cur=nv; const now=nv[i].includes(j);
+          b.setAttribute("aria-pressed",String(now)); b.querySelector(".box").textContent= now?"✓":"";
+          onChange(nv,true);
+        });
+        seg.append(b);
+      });
+      box.append(h("div",{class:"row-item"}, h("div",{class:"t"},l.t), seg));
+    });
+  } else if(q.tipo==="composite"){
+    q.partes.forEach((p,i)=>{
+      const sub = {...p, id:q.id+"p"+i};
+      box.append(h("h3",{style:"font-size:16.5px"},p.rotulo));
+      box.append(renderWidget(sub, v[i], travado, (nv,soft)=>{ const all=cur.slice(); all[i]=nv; cur=all; onChange(all,soft); }));
+    });
+  }
+  return box;
+}
+function dicaPara(q,v){
+  if(q.tipo==="mc"){ const o=q.opcoes[v]; return (o && o.fb) ? o.fb : (q.dica||""); }
+  if(q.tipo==="composite"){
+    const msgs = q.partes.map((p,i)=>corrigir(p,v[i])?null:p.dicaParte).filter(Boolean);
+    return h("div",{},"Ainda não estão corretas:", h("ul",{style:"margin:6px 0 0;padding-left:20px"},...msgs.map(m=>h("li",{},m))));
+  }
+  if(["tf","classify","match"].includes(q.tipo)){
+    const n = q.itens.filter((it,i)=>v[i]===it.a).length;
+    return h("div",{},q.dica, h("div",{class:"small",style:"margin-top:4px"},"Você acertou "+n+" de "+q.itens.length+" itens."));
+  }
+  if(q.tipo==="grid"){
+    const n = q.linhas.filter((l,i)=>l.a.length===v[i].length && l.a.every(a=>v[i].includes(a))).length;
+    return h("div",{},q.dica, h("div",{class:"small",style:"margin-top:4px"},n+" de "+q.linhas.length+" linhas corretas."));
+  }
+  return q.dica||"";
+}
+function questaoCard(id, numeroTexto){
+  const q = Q[id];
+  if(!S.resp[id]) S.resp[id] = { valor: valorInicial(q), tentativas:0, correta:false, primeira:false, travada:false };
+  const r = S.resp[id];
+  const status = h("span",{class:"qstatus"});
+  const card = h("div",{class:"qcard",id:"q-"+id},
+    h("div",{class:"qhead"}, h("span",{class:"qid"},numeroTexto), status));
+  if(q.titulo) card.append(h("div",{class:"qtitle"},q.titulo));
+  if(q.ctx) card.append(h("div",{class:"ctx"},q.ctx));
+  if(q.tabela) card.append(h("div",{class:"tablewrap"},h("table",{class:"data"},h("thead",{},h("tr",{},...q.tabela.cab.map(c=>h("th",{},c)))),h("tbody",{},...q.tabela.linhas.map(l=>h("tr",{},...l.map(c=>h("td",{},c))))))));
+  if(q.prompt) card.append(h("p",{class:"prompt"},q.prompt));
+  const area = h("div"), fb = h("div",{"aria-live":"polite"});
+  const btn = h("button",{type:"button",class:"btn primary"},"Verificar resposta");
+  const acoes = h("div",{class:"qactions"}, btn);
+  card.append(area, acoes, fb);
+  function desenhar(){
+    area.innerHTML="";
+    area.append(renderWidget(q, r.valor, r.travada, (nv,soft)=>{ r.valor=nv; salvar(); if(!soft) desenhar(); atualizar(); }));
+    atualizar();
+  }
+  function atualizar(){
+    acoes.style.display = r.travada ? "none" : "";
+    btn.disabled = !completo(q, r.valor);
+    status.className = "qstatus " + (r.travada ? (r.correta?"ok":"dev") : "open");
+    status.textContent = r.travada ? (r.correta?"✓ Concluída":"Em desenvolvimento") : (r.tentativas? "1 tentativa restante" : "2 tentativas");
+  }
+  function mostrarFb(){
+    fb.innerHTML="";
+    if(r.travada && r.correta) fb.append(h("div",{class:"fb ok"},h("strong",{},r.primeira?"Isso mesmo!":"Agora sim!"),q.explica));
+    else if(r.travada) fb.append(h("div",{class:"fb end"},h("strong",{},"Vamos seguir — veja a explicação:"),h("div",{},"Resposta esperada: "+q.resposta),h("div",{style:"margin-top:6px"},q.explica),h("div",{class:"small muted",style:"margin-top:6px"},"Esta checagem ficou registrada como \"em desenvolvimento\". Vale revisar as páginas indicadas.")));
+    else if(r.tentativas>0) fb.append(h("div",{class:"fb try"},h("strong",{},"Ainda não."),dicaPara(q,r.valor),h("div",{class:"small muted",style:"margin-top:6px"},"Retome o trecho indicado e tente mais uma vez.")));
+  }
+  btn.addEventListener("click",()=>{
+    if(!completo(q,r.valor)) return;
+    r.tentativas++;
+    if(corrigir(q,r.valor)){ r.correta=true; r.primeira=r.tentativas===1; r.travada=true; }
+    else if(r.tentativas>=CONFIG.maxTentativas){ r.correta=false; r.travada=true; }
+    salvarJa(); desenhar(); mostrarFb(); atualizarNav();
+    fb.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  desenhar(); mostrarFb();
+  return card;
+}
+
+/* =====================================================================
+   TEXTOS: integridade e checagem automática
+   ===================================================================== */
+function registroTexto(id){
+  if(!S.textos[id]) S.textos[id] = { texto:"", colagens:0, charsColados:0, teclas:0, msDigitando:0, ultimo:0 };
+  return S.textos[id];
+}
+function copiaDoDossie(texto){
+  const a = norm(texto).split(" "), b = norm(DOSSIE_TEXTO).split(" ");
+  const N=9, set=new Set();
+  for(let i=0;i+N<=b.length;i++) set.add(b.slice(i,i+N).join(" "));
+  let hits=0; for(let i=0;i+N<=a.length;i++) if(set.has(a.slice(i,i+N).join(" "))) hits++;
+  return hits;
+}
+function alertasTexto(id){
+  const r = S.textos[id]; if(!r || S.modos[id]==="caderno") return [];
+  const out=[], len=(r.texto||"").length;
+  if(r.colagens>0 && r.charsColados > len*0.4) out.push("texto colado ("+r.charsColados+" caracteres em "+r.colagens+" colagem(ns))");
+  const seg = r.msDigitando/1000;
+  if(len>200 && seg < len/12) out.push("digitação muito rápida para o tamanho do texto ("+Math.round(seg)+" s)");
+  const cp = copiaDoDossie(r.texto||""); if(cp>0) out.push("trechos quase idênticos ao dossiê ("+cp+")");
+  return out;
+}
+const RX = {
+  posicao:/\b(recomend|proponho|propomos|sugiro|sugerimos|escolh|defendo|indico|opto|a melhor (opcao|alternativa|proposta)|minha recomendacao)/,
+  conceitos:[/entalpi/,/exoterm/,/combust/,/fiss/,/nucle/,/efeito estufa/,/co2|co₂|dioxido de carbono/,/lixo (nuclear|radioativ)|rejeito|residuo radioativ/,/meia vida/,/renovav/,/radia(c|t)|radioativ/,/kj/,/poluicao termica/,/aquecimento global/,/oxigenio/],
+  numero:/\d/, unidade:/\b(kj|ppm|anos?|dias|toneladas?|t\b|g\b|gramas?|mol)/,
+  impacto:/(impacto|polui|residuo|lixo|rejeito|saude|efeito estufa|aquecimento|contamina|risco|acidente|emiss)/,
+  acao:/(reduz|diminu|mitig|armazen|monitor|fiscaliz|trat|economi|conscientiz|invest|substitu|control|compens|reflorest|seguranc|descart|evitar)/
+};
+function checarD3(){
+  const t = norm((S.textos.D3||{}).texto||"");
+  const c = RX.conceitos.filter(r=>r.test(t)).length;
+  return [ {ok:RX.posicao.test(t),txt:"Posicionamento claro"},
+           {ok:c>=2,txt:"Dois ou mais conceitos científicos ("+c+" encontrados)"},
+           {ok:RX.numero.test(t)&&RX.unidade.test(t),txt:"Dado numérico com unidade"},
+           {ok:RX.impacto.test(t)&&RX.acao.test(t),txt:"Impacto e ação para reduzi-lo"} ];
+}
+function checarD2(){
+  const t = norm((S.textos.D2||{}).texto||"");
+  return [ {ok:/fiss|nucle/.test(t)&&/combust|quimic/.test(t),txt:"Distingue combustão (química) de fissão (nuclear)"},
+           {ok:/termic|calor|vapor|turbina/.test(t)&&/eletric/.test(t),txt:"Descreve a conversão até energia elétrica"},
+           {ok:/(bateria|pilha)/.test(t)&&((/quimic/.test(t)&&/eletric/.test(t))||/oxirreduc|oxida|reduc|recarg/.test(t)),txt:"Compara com a bateria (química ⇄ elétrica)"} ];
+}
+const JARGAO = /(entalpi|exoterm|endoterm|kj|nuclideo|radionuclideo|fissao|oxirreduc|potencial padrao)/;
+function checarD4(){
+  const raw=(S.textos.D4||{}).texto||"", t=norm(raw);
+  return [ {ok:raw.length>=CONFIG.textos.D4min&&raw.length<=CONFIG.textos.D4max,txt:"Entre "+CONFIG.textos.D4min+" e "+CONFIG.textos.D4max+" caracteres"},
+           {ok:!JARGAO.test(t),txt:"Sem termos técnicos (entalpia, kJ, fissão…)"},
+           {ok:RX.posicao.test(t)||/(vamos|a cidade|a prefeitura|usina|vale verde)/.test(t),txt:"Diz qual é a recomendação"} ];
+}
+function textoPronto(id){
+  const T = TEXTOS[id]; const modo = T.semModo ? "aqui" : S.modos[id];
+  if(!modo) return false;
+  if(modo==="caderno") return !!S.cadernoFeito["txt_"+id];
+  const len = ((S.textos[id]||{}).texto||"").length;
+  return len>=T.min && (!T.max || len<=T.max);
+}
+function textoCard(id){
+  const T = TEXTOS[id]; const r = registroTexto(id);
+  const card = h("div",{class:"qcard",id:"t-"+id}, h("div",{class:"qhead"},h("span",{class:"qid"},id==="D1t"?"D1":id),h("span",{class:"qstatus"})), h("div",{class:"qtitle"},T.titulo), h("p",{class:"prompt"},T.prompt));
+  const status = card.querySelector(".qstatus");
+  if(T.apoio) card.append(h("details",{class:"doss"},h("summary",{},"💡 Pistas para organizar a explicação"),h("ul",{class:"guide",style:"padding:0 16px 14px 34px"},...T.apoio.map(a=>h("li",{},a)))));
+  const corpo = h("div");
+  if(!T.semModo){
+    const modoBox = h("div",{class:"mode",role:"radiogroup","aria-label":"Onde vou responder"});
+    [["aqui","⌨️ Vou escrever aqui"],["caderno","📓 Vou fazer no caderno"]].forEach(([k,rot])=>{
+      const b=h("button",{type:"button","aria-pressed":String(S.modos[id]===k),role:"radio"},rot);
+      b.addEventListener("click",()=>{ S.modos[id]=k; salvar(); desenharCorpo(); modoBox.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); atualizarNav(); });
+      modoBox.append(b);
+    });
+    card.append(h("div",{class:"small muted"},"Escolha onde vai responder:"), modoBox);
+  }
+  card.append(corpo);
+  function atualizarStatus(){ const ok=textoPronto(id); status.className="qstatus "+(ok?"ok":"open"); status.textContent= ok ? "✓ Registrado" : "Pendente"; }
+  function desenharCorpo(){
+    corpo.innerHTML="";
+    const modo = T.semModo ? "aqui" : S.modos[id];
+    if(!modo){ atualizarStatus(); return; }
+    if(modo==="caderno"){
+      const cb=h("input",{type:"checkbox",checked:!!S.cadernoFeito["txt_"+id]});
+      cb.addEventListener("change",()=>{ S.cadernoFeito["txt_"+id]=cb.checked; salvar(); atualizarStatus(); atualizarNav(); });
+      corpo.append(h("div",{class:"notebook"},h("h3",{},"📓 No caderno: "+T.titulo),
+        h("p",{class:"small"},"Escreva o título e responda no caderno. Esta resposta será lida pelo professor nas fotos que você enviar pelo Teams."),
+        T.criterios ? h("ul",{class:"guide"},...T.criterios.map(c=>h("li",{},c))) : null,
+        h("label",{class:"done-line"},cb,"Fiz no caderno")));
+      atualizarStatus(); return;
+    }
+    const ta = h("textarea",{"aria-label":T.titulo,spellcheck:"true",maxlength:T.max?String(T.max):null,placeholder:"Escreva aqui com suas palavras…"});
+    ta.value = r.texto||""; if(T.curto||id==="D4") ta.style.minHeight="110px";
+    const cnt = h("div",{class:"counter"}), checks = h("ul",{class:"checks","aria-live":"polite"});
+    corpo.append(ta, cnt);
+    if(T.criterios){
+      const sc = h("div",{class:"selfcheck"}, h("div",{class:"small",style:"font-weight:700;margin-top:10px"},"Antes de seguir, confira seu texto:"));
+      T.criterios.forEach((c,i)=>{ const cb=h("input",{type:"checkbox",checked:!!S.autocheck[i]}); cb.addEventListener("change",()=>{S.autocheck[i]=cb.checked; salvar();}); sc.append(h("label",{},cb,h("span",{},c))); });
+      corpo.append(sc);
+    }
+    if(["D2","D3","D4"].includes(id)) corpo.append(h("div",{class:"small",style:"font-weight:700;margin-top:12px"},"O que o sistema já identificou (provisório):"), checks, h("p",{class:"small muted"},"É só uma pista. Quem valida o seu texto é o professor."));
+    function atualizarTexto(){
+      const len=ta.value.length;
+      cnt.textContent = T.max ? (len+" / "+T.max+" caracteres") : (len+" caracteres · mínimo "+T.min);
+      cnt.classList.toggle("over", T.max ? len>T.max : false);
+      checks.innerHTML="";
+      (id==="D3"?checarD3():id==="D2"?checarD2():id==="D4"?checarD4():[]).forEach(c=>checks.append(h("li",{},h("span",{class:"s "+(c.ok?"y":"n")},c.ok?"✓":"•"),h("span",{},c.txt))));
+      atualizarStatus();
+    }
+    ta.addEventListener("paste",e=>{ const txt=(e.clipboardData||window.clipboardData)?.getData("text")||""; r.colagens++; r.charsColados+=txt.length; salvar(); });
+    ta.addEventListener("keydown",()=>{ r.teclas++; });
+    ta.addEventListener("input",()=>{ const now=Date.now(); if(r.ultimo && now-r.ultimo<10000) r.msDigitando+=now-r.ultimo; r.ultimo=now; r.texto=ta.value; salvar(); atualizarTexto(); atualizarNav(); });
+    atualizarTexto();
+  }
+  desenharCorpo();
+  return card;
+}
+
+/* =====================================================================
+   PROGRESSO E PENDÊNCIAS
+   ===================================================================== */
+function checkinOk(){ const c=S.checkin; return c.nome.trim().split(/\s+/).length>=2 && c.turma.trim() && c.sentimento!==null && c.tempo!==null && c.nivel!==null && (!NUVEM || temIdentidade()); }
+function questoesDe(est){ return QUESTOES.filter(q=>q.est===est).map(q=>q.id); }
+function paginaCompleta(id){
+  if(id==="home") return checkinOk();
+  if(id==="caderno") return !!S.cadernoLido;
+  if(ESTACOES[id]) return questoesDe(id).every(q=>S.resp[q]&&S.resp[q].travada) && S.estacao[id]!==undefined && !!S.cadernoFeito[id];
+  if(id==="aplicar") return questoesDe("aplicar").every(q=>S.resp[q]&&S.resp[q].travada) && !!S.cadernoFeito.aplicar;
+  if(id==="demonstrar") return S.resp.D1 && S.resp.D1.travada && ["D1t","D2","D3","D4"].every(textoPronto);
+  if(id==="auto"){ const f=S.final; return f.nivel!==null && f.sentimento!==null && f.tempo!==null && f.antes.trim().length>=3 && f.agora.trim().length>=3 && f.ajudou.trim().length>=3 && f.retomar.trim().length>=3; }
+  if(id==="percurso") return !!S.envio.status || S.entrega.filter(Boolean).length>=4;
+  return false;
+}
+function pendencias(){
+  const out=[];
+  PAGINAS.forEach(p=>{
+    if(p.id==="percurso"||p.id==="caderno") return;
+    if(ESTACOES[p.id] || p.id==="aplicar"){
+      const faltam = questoesDe(p.id).filter(q=>!(S.resp[q]&&S.resp[q].travada));
+      if(faltam.length) out.push([p.id, p.rot+": checagens "+faltam.join(", ")]);
+      if(!S.cadernoFeito[p.id]) out.push([p.id, p.rot+": atividade do caderno"]);
+      if(ESTACOES[p.id] && S.estacao[p.id]===undefined) out.push([p.id, p.rot+": como foi esta estação"]);
+    } else if(p.id==="demonstrar"){
+      if(!(S.resp.D1&&S.resp.D1.travada)) out.push(["demonstrar","Demonstrar: D1"]);
+      ["D1t","D2","D3","D4"].forEach(t=>{ if(!textoPronto(t)) out.push(["demonstrar","Demonstrar: "+(t==="D1t"?"significado do D1":t)]); });
+    } else if(!paginaCompleta(p.id)) out.push([p.id, p.rot]);
+  });
+  return out;
+}
+function progresso(){
+  const ids = ["home","termo","radio","energia","eletro","aplicar","demonstrar","auto"];
+  let total=0, feito=0;
+  ids.forEach(id=>{
+    if(ESTACOES[id]||id==="aplicar"){ const qs=questoesDe(id); total+=qs.length+1+(ESTACOES[id]?1:0); feito+=qs.filter(q=>S.resp[q]&&S.resp[q].travada).length+(S.cadernoFeito[id]?1:0)+(ESTACOES[id]&&S.estacao[id]!==undefined?1:0); }
+    else if(id==="demonstrar"){ total+=5; feito+=(S.resp.D1&&S.resp.D1.travada?1:0)+["D1t","D2","D3","D4"].filter(textoPronto).length; }
+    else { total+=1; feito+=paginaCompleta(id)?1:0; }
+  });
+  return Math.round(100*feito/total);
+}
+
+/* =====================================================================
+   AVALIAÇÃO
+   ===================================================================== */
+function acertou(id){ const r=S.resp[id]; return !!(r && r.correta); }
+function avaliar(){
+  const L=CONFIG.limites;
+  const modoD2=S.modos.D2, modoD3=S.modos.D3, modoD4=S.modos.D4;
+  const d3=checarD3(), d2=checarD2(), d4=checarD4();
+  const d3n=d3.filter(c=>c.ok).length;
+  const d2ok=d2[0].ok && ((S.textos.D2||{}).texto||"").length>=CONFIG.textos.D2min;
+  const d3ok=((S.textos.D3||{}).texto||"").length>=CONFIG.textos.D3min && d3n>=L.argumentacao.minCriteriosD3;
+  const d4ok=d4.every(c=>c.ok);
+  const R = [].concat(...Object.values(ESTACOES).map(e=>e.questoes));
+  const nR = R.filter(acertou).length;
+  const estOk = Object.keys(ESTACOES).every(k=>questoesDe(k).some(acertou));
+  const nApl=["A1","A3","A4","A6"].filter(acertou).length;
+  const nInt=["A2","A5","D1"].filter(acertou).length;
+  const wait = (...modos)=>modos.includes("caderno");
+  const ind = [
+    {k:"Compreensão dos conceitos", ev:"checagens das 4 estações", st: nR>=L.compreensao.minCorretas && (!L.compreensao.umPorEstacao||estOk) ? "ok":"dev", det:nR+" de "+R.length+" corretas"+(estOk?"":" · falta acerto em alguma estação")},
+    {k:"Aplicação dos conhecimentos", ev:"A1, A3, A4, A6", st: nApl>=L.aplicacao.minCorretas?"ok":"dev", det:nApl+" de 4 corretas"},
+    {k:"Interpretação e análise", ev:"A2, A5, D1", st: nInt>=L.interpretacao.minCorretas && acertou(L.interpretacao.obrigatoria)?"ok":"dev", det:nInt+" de 3 corretas"+(acertou("D1")?"":" · D1 ainda não")},
+    {k:"Argumentação científica", ev:"D2, D3 e caderno", st: wait(modoD2,modoD3) ? "wait" : (d3ok&&d2ok?"ok":"dev"), prov:!wait(modoD2,modoD3), det: wait(modoD2,modoD3) ? "respondido no caderno" : "D3: "+d3n+" de 4 critérios · D2: "+(d2ok?"distingue combustão e fissão":"falta distinguir combustão e fissão")},
+    {k:"Comunicação científica", ev:"D3, D4 e caderno", st: wait(modoD3,modoD4) ? "wait" : (d4ok&&d3[1].ok?"ok":"dev"), prov:!wait(modoD3,modoD4), det: wait(modoD3,modoD4) ? "respondido no caderno" : "D4: "+d4.filter(c=>c.ok).length+" de 3 · vocabulário no D3"}
+  ];
+  const hab={}, cont=ids=>ids.filter(acertou).length;
+  { const ids=HABILIDADES.EM13CNT102.itens, n=cont(ids); hab.EM13CNT102={st: n>=L.hab102.min && L.hab102.precisaUm.some(acertou)?"ok":"dev", det:n+" de "+ids.length}; }
+  { const ids=HABILIDADES.EM13CNT103.itens, n=cont(ids); hab.EM13CNT103={st: n>=L.hab103.min && L.hab103.precisaUm.some(acertou)?"ok":"dev", det:n+" de "+ids.length}; }
+  { const fechado = acertou("R8") && acertou("A5");
+    hab.EM13CNT106 = modoD3==="caderno" ? {st: fechado?"wait":"dev", det:"R8 "+(acertou("R8")?"✓":"✗")+" · A5 "+(acertou("A5")?"✓":"✗")+" · D3 no caderno"}
+                                        : {st: fechado&&d3ok?"ok":"dev", prov:true, det:"R8 "+(acertou("R8")?"✓":"✗")+" · A5 "+(acertou("A5")?"✓":"✗")+" · D3 "+d3n+"/4"}; }
+  { const n = cont(["R9","R10","R13","A6"]);
+    if(modoD2==="caderno") hab.EM13CNT107 = {st: n>=L.hab107.min ? "ok" : (n===L.hab107.min-1 ? "wait":"dev"), det:n+" de 4 checagens · D2 no caderno"};
+    else { const t=n+(d2[2].ok?1:0); hab.EM13CNT107={st: t>=L.hab107.min?"ok":"dev", prov:true, det:t+" de 5"}; } }
+  const primeira = Object.values(S.resp).filter(r=>r.primeira).length;
+  return {ind,hab,d2,d3,d4,primeira,totalFechadas:QUESTOES.length,nR};
+}
+
+/* =====================================================================
+   RENDERIZAÇÃO DAS PÁGINAS
+   ===================================================================== */
+const main = $("#main");
+function go(id){
+  if(id!=="home" && id!=="caderno" && !checkinOk()) id="home";
+  S.pagina = id; if(id!=="home") S.ultima = id;
+  salvar(); render(); fecharMenu(); window.scrollTo(0,0); main.focus({preventScroll:true});
+}
+function render(){
+  main.innerHTML="";
+  const id=S.pagina;
+  ({home:pgHome,caderno:pgCaderno,aplicar:pgAplicar,demonstrar:pgDemonstrar,auto:pgAuto,percurso:pgPercurso}[id] || pgEstacao)(id);
+  atualizarNav();
+}
+function atualizarNav(){
+  const nav=$("#nav"); nav.innerHTML=""; let grupo="";
+  PAGINAS.forEach(p=>{
+    if(p.grupo!==grupo){ grupo=p.grupo; nav.append(h("div",{class:"navtitle"},grupo)); }
+    const bloqueado = p.id!=="home" && p.id!=="caderno" && !checkinOk();
+    const feito = paginaCompleta(p.id);
+    let st="";
+    if(ESTACOES[p.id]||p.id==="aplicar"){ const qs=questoesDe(p.id); st=qs.filter(q=>S.resp[q]&&S.resp[q].travada).length+"/"+qs.length; }
+    const b=h("button",{type:"button",class:"navbtn"+(S.pagina===p.id?" active":"")+(feito?" done":""),disabled:bloqueado,"aria-current":S.pagina===p.id?"page":null},
+      h("span",{class:"n"},feito?"✓":p.n), p.rot, st?h("span",{class:"st"},st):null);
+    b.addEventListener("click",()=>go(p.id));
+    nav.append(b);
+  });
+  const pr=progresso(); $("#prog").style.width=pr+"%"; $("#mprog").style.width=pr+"%"; $("#progTxt").textContent=pr+"%";
+}
+function setTop(eb,t,s){ $("#topTitle").textContent=t; $("#topSub").textContent=s; }
+function acoes(prev, next, rotNext){
+  const a=h("div",{class:"actions"});
+  a.append(prev ? h("button",{type:"button",class:"btn secondary",onclick:()=>go(prev)},"← ANTERIOR") : h("span"));
+  if(next) a.append(h("button",{type:"button",class:"btn primary",onclick:()=>go(next)},rotNext||"SEGUIR →"));
+  return a;
+}
+function feelings(val,on){
+  const g=h("div",{class:"feelings",role:"radiogroup"});
+  SENTIMENTOS.forEach(([e,t],i)=>{ const b=h("button",{type:"button",class:"feel","aria-pressed":String(val===i),role:"radio"},h("span",{class:"e","aria-hidden":"true"},e),t); b.addEventListener("click",()=>{ g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); on(i); }); g.append(b); });
+  return g;
+}
+function chips(lista,val,on){
+  const g=h("div",{class:"chips",role:"radiogroup"});
+  lista.forEach((t,i)=>{ const b=h("button",{type:"button",class:"chip","aria-pressed":String(val===i),role:"radio"},t); b.addEventListener("click",()=>{ g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); on(i); }); g.append(b); });
+  return g;
+}
+
+/* ---------- Orientações + check-in ---------- */
+function pgHome(){
+  setTop("","Aprender, retomar e demonstrar","Você pode fazer esta recuperação em etapas, no seu ritmo.");
+  const c=S.checkin;
+  const p1=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Bem-vindo(a)"), h("h2",{},"Esta recuperação é um novo percurso de aprendizagem"),
+    h("p",{class:"lead"},"Você não precisa fazer toda a trilha de uma vez. Pode estudar uma estação hoje, parar e continuar em outro momento. Use o menu da trilha para escolher onde começar ou retomar."),
+    h("div",{class:"steps3"},
+      h("div",{class:"step"},h("b",{},"1 · ESTUDE"),"Leia as páginas indicadas do livro e assista ao vídeo recomendado."),
+      h("div",{class:"step"},h("b",{},"2 · REGISTRE"),"Faça no caderno as atividades marcadas com 📓."),
+      h("div",{class:"step"},h("b",{},"3 · VERIFIQUE"),"Responda às checagens: se errar, você recebe uma orientação e tenta de novo.")),
+    NUVEM
+      ? h("div",{class:"callout"},h("b",{},"Seu progresso fica guardado com o seu RM e uma senha de 4 números. "),"Assim você pode parar num computador e continuar em outro (na escola, em casa ou no celular). Anote a senha no caderno. O caderno continua sendo o registro principal do percurso.")
+      : h("div",{class:"callout"},h("b",{},"Seu progresso fica salvo neste navegador. "),"Alguns computadores apagam os dados ao desligar. Antes de sair, use “Salvar progresso em arquivo” (no fim desta página) e guarde o arquivo; no outro computador, use “Carregar arquivo”. O caderno é o registro principal do percurso."));
+  const nome=h("input",{type:"text",id:"nome",value:c.nome,autocomplete:"name",placeholder:"Digite seu nome completo"});
+  const turma=h("input",{type:"text",id:"turma",value:c.turma});
+  const rm=h("input",{type:"text",id:"rm",value:c.rm||"",inputmode:"numeric",autocomplete:"off",placeholder:"Somente números"});
+  const pin=h("input",{type:"text",id:"pin",class:"pin",value:c.pin||"",inputmode:"numeric",maxlength:"4",autocomplete:"off",placeholder:"0000"});
+  const btn=h("button",{type:"button",class:"btn primary"}, S.inicio ? "CONTINUAR DE ONDE PAREI →" : "INICIAR MINHA RECUPERAÇÃO");
+  const aviso=h("span",{class:"small muted"});
+  const p2=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Antes de começar..."), h("h2",{},"Conte um pouco sobre você"),
+    NUVEM && !S.inicio ? h("p",{class:"small",style:"margin:-4px 0 4px"},"Já começou em outro computador? ",h("a",{href:"#recuperar"},"Recupere seu progresso aqui ↓")) : null,
+    h("div",{class:"field"},h("label",{for:"nome"},"1. Nome completo"),nome),
+    h("div",{class:"field"},h("label",{for:"turma"},"2. Turma"),turma),
+    NUVEM ? h("div",{class:"row2"},
+      h("div",{class:"field"},h("label",{for:"rm"},"3. RM (número de matrícula)"),rm),
+      h("div",{class:"field"},h("label",{for:"pin"},"4. Crie uma senha de 4 números"),pin,h("div",{class:"small muted",style:"margin-top:6px"},"Anote no caderno. Você vai usar RM e senha para continuar em outro computador."))) : null,
+    h("div",{class:"field"},h("span",{class:"lab"},"Como você está se sentindo agora?"),feelings(c.sentimento,v=>{c.sentimento=v;ok();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Quanto tempo você reservou para esta atividade hoje?"),chips(TEMPOS,c.tempo,v=>{c.tempo=v;ok();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Antes de começar, como você avalia seu conhecimento sobre os conteúdos desta recuperação?"),chips(NIVEL_INI,c.nivel,v=>{c.nivel=v;ok();})),
+    h("div",{class:"actions"},aviso,btn));
+  nome.addEventListener("input",()=>{c.nome=nome.value;ok();});
+  turma.addEventListener("input",()=>{c.turma=turma.value;ok();});
+  const soDig=(el,max)=>{ const v=el.value.replace(/\D/g,"").slice(0,max); if(v!==el.value) el.value=v; return v; };
+  rm.addEventListener("input",()=>{c.rm=soDig(rm,12);ok();});
+  pin.addEventListener("input",()=>{c.pin=soDig(pin,4);ok();});
+  function ok(){ salvar(); ui(); }
+  function ui(){ const v=checkinOk(); btn.disabled=!v; aviso.className="small muted"; aviso.textContent=v?"":(NUVEM?"Preencha nome completo, RM, senha de 4 números e as três perguntas.":"Preencha o nome completo e as três perguntas."); atualizarNav(); statusNuvem(); }
+  function seguir(){ if(!S.inicio) S.inicio=Date.now(); salvarJa(); if(NUVEM) salvarNuvem(false); go(S.ultima && S.ultima!=="home" ? S.ultima : "caderno"); }
+  btn.addEventListener("click",()=>{
+    if(!checkinOk()) return;
+    if(!NUVEM) return seguir();
+    btn.disabled=true; aviso.className="small muted"; aviso.textContent="Conferindo o RM…";
+    carregarDaNuvem(c.rm.trim(), c.pin.trim()).then(j=>{
+      btn.disabled=false;
+      if(j.ok && j.estado){ const meu=JSON.parse(JSON.stringify(S)); aplicarEstado(juntarEstados(meu, j.estado), c.pin); toast("Encontramos seu progresso salvo. Você continua de onde parou."); return seguir(); }
+      if(j.motivo==="senha"){ aviso.className="small msgerro"; aviso.textContent="Este RM já tem progresso salvo com outra senha. Digite a senha que você criou. Se esqueceu, fale com o professor pelo Teams."; return; }
+      if(j.motivo==="rede"){ toast("Sem conexão com a nuvem agora. Você pode continuar; o site tenta salvar de novo sozinho."); }
+      seguir();
+    });
+  });
+  const extra=[];
+  if(NUVEM){
+    const rrm=h("input",{type:"text",id:"rrm",inputmode:"numeric",autocomplete:"off",placeholder:"Seu RM"});
+    const rpin=h("input",{type:"text",id:"rpin",class:"pin",inputmode:"numeric",maxlength:"4",autocomplete:"off",placeholder:"0000"});
+    const rmsg=h("p",{class:"small",role:"status",style:"margin:10px 0 0"});
+    const rbtn=h("button",{type:"button",class:"btn secondary"},"Recuperar meu progresso");
+    rrm.addEventListener("input",()=>soDig(rrm,12)); rpin.addEventListener("input",()=>soDig(rpin,4));
+    rbtn.addEventListener("click",()=>{
+      const a=rrm.value.trim(), b=rpin.value.trim();
+      if(!/^\d{3,}$/.test(a) || !/^\d{4}$/.test(b)){ rmsg.className="small msgerro"; rmsg.textContent="Digite o RM (só números) e a senha de 4 números."; return; }
+      rbtn.disabled=true; rmsg.className="small muted"; rmsg.textContent="Procurando seu progresso…";
+      carregarDaNuvem(a,b).then(j=>{
+        rbtn.disabled=false;
+        if(j.ok && j.estado){
+          const mesmo=(S.checkin.rm||"")===a;
+          aplicarEstado(mesmo ? juntarEstados(JSON.parse(JSON.stringify(S)), j.estado) : j.estado, b);
+          toast("Progresso recuperado. Bem-vindo(a) de volta, "+(S.checkin.nome||"").split(" ")[0]+"!");
+          if(checkinOk()) go(S.ultima && S.ultima!=="home" ? S.ultima : "caderno"); else render();
+          return;
+        }
+        rmsg.className="small msgerro";
+        rmsg.textContent = j.motivo==="senha" ? "Senha não confere para este RM. Confira no caderno; se esqueceu, fale com o professor pelo Teams."
+          : j.motivo==="nao_encontrado" ? "Não encontramos progresso salvo com este RM nesta trilha. Se é a primeira vez, preencha o formulário acima."
+          : "Não foi possível falar com a nuvem agora. Verifique a internet e tente de novo.";
+      });
+    });
+    extra.push(h("section",{class:"panel",id:"recuperar"},
+      h("div",{class:"eyebrow"},"Já começou em outro computador?"), h("h2",{},"Recupere seu progresso"),
+      h("p",{class:"muted"},"Digite o RM e a senha que você criou no primeiro acesso."),
+      h("div",{class:"row2"}, h("div",{class:"field"},h("label",{for:"rrm"},"RM"),rrm), h("div",{class:"field"},h("label",{for:"rpin"},"Senha (4 números)"),rpin)),
+      h("div",{class:"actions",style:"justify-content:flex-start;margin-top:4px"},rbtn), rmsg));
+    if(temIdentidade() && S.inicio){
+      const outro=h("button",{type:"button",class:"btn"},"Não sou "+((c.nome||"").split(" ")[0]||"esta pessoa")+" — começar como outro aluno");
+      outro.addEventListener("click",()=>{ salvarNuvem(false).then(()=>{ S=novoEstado(); gravarLocal(); statusNuvem(); render(); window.scrollTo(0,0); }); });
+      extra.push(h("section",{class:"panel"},
+        h("p",{class:"muted",style:"margin-top:0"},"Computador compartilhado? O progresso de "+(c.nome||"quem estava usando")+" já está guardado na nuvem (RM "+c.rm+"). Para usar este computador com o seu próprio RM, clique abaixo."), outro));
+    }
+  } else {
+    const fmsg=h("p",{class:"small",role:"status",style:"margin:10px 0 0"});
+    const bS=h("button",{type:"button",class:"btn secondary"},"💾 Salvar progresso em arquivo");
+    const bC=h("button",{type:"button",class:"btn"},"📂 Carregar arquivo");
+    bS.addEventListener("click",()=>{ gravarLocal(); baixarProgresso(); fmsg.className="small msgok"; fmsg.textContent="Arquivo baixado. Guarde-o (pen drive, e-mail ou OneDrive) para continuar em outro computador."; });
+    bC.addEventListener("click",()=>abrirArquivoProgresso(okk=>{ if(okk){ toast("Progresso carregado do arquivo."); render(); } else { fmsg.className="small msgerro"; fmsg.textContent="Este arquivo não é o progresso desta trilha."; } }));
+    extra.push(h("section",{class:"panel"},
+      h("div",{class:"eyebrow"},"Vai trocar de computador?"), h("h2",{},"Leve seu progresso num arquivo"),
+      h("p",{class:"muted"},"Antes de sair, salve o arquivo. No outro computador, abra esta trilha e carregue o arquivo."),
+      h("div",{class:"actions",style:"justify-content:flex-start;margin-top:4px"},bS,bC), fmsg));
+  }
+  main.append(p1,p2,...extra); ui();
+}
+/* ---------- Caderno ---------- */
+function pgCaderno(){
+  setTop("","Como registrar seu percurso","O caderno é a sua evidência de aprendizagem.");
+  S.cadernoLido = true; salvar();
+  main.append(h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Organização"), h("h2",{},"Como registrar seu percurso"),
+    h("p",{class:"lead",html:"Comece uma nova página e escreva: <b>Recuperação Contínua de Química — 1º Bimestre</b>, seu nome, turma e data. Cada atividade da trilha terá um título próprio."}),
+    h("div",{class:"notebook"},h("h3",{},"📓 O que vai para o caderno"),
+      h("ul",{},h("li",{},"As atividades marcadas com 📓 em cada estação e na etapa Aplicar."),
+        h("li",{},"No Demonstrar, você escolhe: escrever na tela ou no caderno. As duas formas valem."),
+        h("li",{},"Registre cálculos, esquemas, justificativas e o seu raciocínio, e não só respostas soltas."))),
+    h("div",{class:"callout"},"As checagens da tela não precisam ser copiadas: o site já registra suas respostas e tentativas. Ao final, você fotografa as páginas do caderno e envia pelo Teams."),
+    acoes("home","termo","COMEÇAR A ESTAÇÃO 1 →")));
+}
+/* ---------- Estações ---------- */
+function pgEstacao(id){
+  const e=ESTACOES[id];
+  setTop("","Estação "+e.n+" — "+e.titulo,"Retomar: leia, assista, registre e verifique.");
+  const v=CONFIG.videos[id];
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Retomar · Estação "+e.n), h("h2",{},e.ico+" "+e.titulo),
+    h("p",{class:"lead"},e.lead),
+    h("div",{class:"callout"},h("b",{},"📖 No livro: "),e.cap+". Leia as páginas "+e.paginas+" antes das checagens.",
+      h("div",{class:"small",style:"margin-top:6px"},"O que procurar na leitura:"), h("ul",{class:"guide"},...e.guia.map(g=>h("li",{},g)))),
+    v ? h("div",{class:"video"},h("strong",{},"▶️ Recurso complementar"),v.t+" — "+v.canal+".",h("br"),h("a",{href:v.url,target:"_blank",rel:"noopener"},"ABRIR VÍDEO EM NOVA ABA ↗")) : null,
+    cadernoBox(id, e.caderno),
+    h("h3",{},"🧠 Checagem de aprendizagem"),
+    h("p",{class:"small muted"},"Você tem até "+CONFIG.maxTentativas+" tentativas em cada checagem. Se errar, leia a orientação, volte ao livro e tente de novo."));
+  e.questoes.forEach((qid,i)=>panel.append(questaoCard(qid,"Checagem "+e.n+"."+(i+1))));
+  const self=h("div",{class:"self3",role:"radiogroup"});
+  SELF3.forEach(([ico,t],i)=>{ const b=h("button",{type:"button","aria-pressed":String(S.estacao[id]===i),role:"radio"},ico,h("br"),t); b.addEventListener("click",()=>{ S.estacao[id]=i; salvar(); self.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); atualizarNav(); }); self.append(b); });
+  panel.append(h("h3",{},"Como foi esta estação para você?"), self);
+  const ordem=["termo","radio","energia","eletro"], k=ordem.indexOf(id);
+  const prox=ordem[k+1]||"aplicar";
+  panel.append(acoes(k===0?"caderno":ordem[k-1], prox, prox==="aplicar"?"IR PARA APLICAR →":"SEGUIR PARA A ESTAÇÃO "+(k+2)+" →"));
+  main.append(panel);
+}
+/* ---------- Aplicar ---------- */
+function pgAplicar(){
+  setTop("","Aplicar os conhecimentos","Situações novas, do dia a dia e do mundo do trabalho.");
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 5"), h("h2",{},"🧩 Aplicar os conhecimentos"),
+    h("p",{class:"lead"},"Agora você usa o que retomou para analisar situações novas. Os dados estão todos na tela; se precisar, volte às estações pelo menu."));
+  ["A1","A2"].forEach(id=>panel.append(questaoCard(id,"Situação "+id)));
+  panel.append(cadernoBox("aplicar", CADERNO_EXTRA.aplicar));
+  ["A3","A4","A5","A6"].forEach(id=>panel.append(questaoCard(id,"Situação "+id)));
+  panel.append(acoes("eletro","demonstrar","IR PARA DEMONSTRAR →"));
+  main.append(panel);
+}
+/* ---------- Demonstrar ---------- */
+function pgDemonstrar(){
+  setTop("","Demonstrar o que aprendi","Desafio final: energia para Vale Verde.");
+  const panel=h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 6"), h("h2",{},"🎯 Desafio final: energia para Vale Verde"),
+    h("p",{class:"lead"},"O município fictício de Vale Verde tem uma área industrial em expansão e precisa ampliar o fornecimento de energia elétrica. Você foi chamado(a) como assessor(a) técnico(a) da prefeitura."),
+    h("div",{class:"tablewrap"},h("table",{class:"data"},
+      h("tr",{},h("th",{},"Alternativa"),h("th",{},"Características")),
+      h("tr",{},h("td",{},"A — Usina térmica a gás natural (metano)"),h("td",{},"Geração contínua; queima combustível fóssil; combustão emite CO₂.")),
+      h("tr",{},h("td",{},"B — Usina termonuclear (tipo PWR, como Angra 1 e 2)"),h("td",{},"Altíssima energia por grama de combustível; gera lixo radioativo; exige controle rigoroso.")),
+      h("tr",{},h("td",{},"C — Usina térmica a etanol de cana"),h("td",{},"Combustível de fonte renovável; também usa combustão; menos energia por grama.")))),
+    h("div",{class:"callout"},"Você pode consultar suas anotações, o livro e o dossiê abaixo. O importante é responder com suas palavras e mostrar como chegou à conclusão."),
+    h("h3",{},"📂 Dossiê técnico (dados do livro)"), dossieEl(),
+    h("h3",{},"Suas respostas"));
+  panel.append(questaoCard("D1","D1"), textoCard("D1t"), textoCard("D2"), textoCard("D3"), textoCard("D4"));
+  panel.append(acoes("aplicar","auto","IR PARA A AUTOAVALIAÇÃO →"));
+  main.append(panel);
+}
+/* ---------- Autoavaliação ---------- */
+function pgAuto(){
+  setTop("","Autoavaliação","Antes de encerrar, reflita sobre o que mudou durante o percurso.");
+  const f=S.final;
+  const ta=(k,ph)=>{ const t=h("textarea",{style:"min-height:84px",placeholder:ph||""}); t.value=f[k]; t.addEventListener("input",()=>{f[k]=t.value; salvar(); atualizarNav();}); return t; };
+  main.append(h("section",{class:"panel"},
+    h("div",{class:"eyebrow"},"Etapa 7"), h("h2",{},"🌱 Olhando para a minha aprendizagem"),
+    h("div",{class:"field"},h("span",{class:"lab"},"Depois de realizar esta trilha, como você avalia seu conhecimento sobre os conteúdos estudados?"),chips(NIVEL_FIM,f.nivel,v=>{f.nivel=v;salvar();atualizarNav();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Como você está se sentindo agora?"),feelings(f.sentimento,v=>{f.sentimento=v;salvar();atualizarNav();})),
+    h("div",{class:"field"},h("span",{class:"lab"},"Quanto tempo você realmente usou para fazer toda a trilha?"),chips(TEMPOS,f.tempo,v=>{f.tempo=v;salvar();atualizarNav();}),
+      h("div",{class:"small muted",style:"margin-top:6px"},"Tempo registrado pelo site desde o início (inclui pausas): "+fmtTempo(Date.now()-(S.inicio||Date.now())))),
+    h("div",{class:"field"},h("span",{class:"lab"},"Complete: “Antes desta recuperação eu tinha dificuldade em…”"),ta("antes")),
+    h("div",{class:"field"},h("span",{class:"lab"},"“…Agora consigo compreender que…”"),ta("agora")),
+    h("div",{class:"field"},h("span",{class:"lab"},"Qual parte da trilha mais ajudou você a aprender?"),ta("ajudou")),
+    h("div",{class:"field"},h("span",{class:"lab"},"Qual conteúdo ainda precisa ser retomado?"),ta("retomar")),
+    acoes("demonstrar","percurso","VER MEU PERCURSO →")));
+}
+/* ---------- Meu percurso + entrega ---------- */
+function pgPercurso(){
+  setTop("","Meu percurso e entrega","O que você já demonstrou, o que vale revisar e como entregar.");
+  const pend=pendencias();
+  const completo = pend.length===0;
+  if(completo && !S.fim){ S.fim=Date.now(); salvarJa(); }
+  const A=avaliar(), c=S.checkin, f=S.final;
+  const cab=h("section",{class:"panel"}, h("div",{class:"eyebrow"},"Meu percurso de recuperação"),
+    h("h2",{},(c.nome||"Estudante").split(" ")[0]+", este é o seu percurso"),
+    h("p",{class:"lead"},"Aqui não há nota. Você vê o que já demonstrou e o que ainda vale revisar. \"Aguarda o professor\" indica respostas feitas no caderno, que o professor vai ler nas fotos."));
+  if(!completo){
+    const box=h("div",{class:"pend"},h("b",{},"Ainda falta concluir:"));
+    const ul=h("ul",{style:"margin:6px 0 0;padding-left:20px"});
+    pend.slice(0,14).forEach(([pg,txt])=>ul.append(h("li",{},h("button",{type:"button",onclick:()=>go(pg)},txt))));
+    box.append(ul, h("div",{class:"small",style:"margin-top:6px"},"O envio ao professor é liberado quando tudo estiver concluído."));
+    cab.append(box);
+  }
+  const pill=(st,prov)=>h("div",{},h("span",{class:"pill "+(st==="ok"?"ok":st==="wait"?"wait":"dev")},st==="ok"?"Desenvolvido":st==="wait"?"Aguarda o professor":"Em desenvolvimento"), prov&&st!=="wait"?h("span",{class:"pill prov"},"provisório"):null);
+  const indP=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Indicadores"));
+  A.ind.forEach(i=>indP.append(h("div",{class:"ind"},h("div",{class:"l"},i.k,h("small",{},"Evidências: "+i.ev+" · "+i.det)),pill(i.st,i.prov))));
+  const habP=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Habilidades do 1º bimestre"));
+  Object.entries(HABILIDADES).forEach(([cod,hh])=>{ const r=A.hab[cod];
+    const p=pill(r.st,r.prov); const sp=p.querySelector(".pill"); if(r.st==="ok") sp.textContent="Recuperada";
+    habP.append(h("div",{class:"ind"},h("div",{class:"l"},cod+" — "+hh.nome,h("small",{},"Evidências: "+hh.itens.join(", ")+" · "+r.det+(r.st==="dev"?" · Revise as páginas "+hh.paginas:""))),p)); });
+  const nHab=Object.values(A.hab).filter(x=>x.st==="ok").length;
+  const strip=h("div",{class:"stationstrip"},...Object.entries(ESTACOES).map(([k,e])=>h("div",{},h("b",{},S.estacao[k]!==undefined?SELF3[S.estacao[k]][0]:"·"),e.titulo)));
+  const cmp=h("section",{class:"panel"},h("h3",{style:"margin-top:0"},"Antes → durante → depois"),
+    h("div",{class:"compare"},
+      h("div",{class:"box"},h("b",{},"Antes"),NIVEL_INI[c.nivel]??"—",h("div",{},SENTIMENTOS[c.sentimento]?.[0]||"")),
+      h("div",{class:"arr","aria-hidden":"true"},"→"),
+      h("div",{class:"box"},h("b",{},"Durante"),A.primeira+" de "+A.totalFechadas+" checagens certas na 1ª tentativa",h("div",{},nHab+" de 4 habilidades já confirmadas")),
+      h("div",{class:"arr","aria-hidden":"true"},"→"),
+      h("div",{class:"box"},h("b",{},"Depois"),NIVEL_FIM[f.nivel]??"—",h("div",{},SENTIMENTOS[f.sentimento]?.[0]||""))),
+    h("p",{style:"margin-top:12px"},frase(c.nivel,nHab)),
+    h("div",{class:"small muted",style:"margin-top:8px"},"Como você avaliou cada estação:"), strip);
+  // entrega
+  const itens=["Identifiquei meu nome e turma no caderno.","Fiz as atividades 📓 das quatro estações e da etapa Aplicar.","Se escolhi o caderno no Demonstrar, respondi lá o D2, o D3 ou o D4.","Conferi se cálculos e justificativas estão legíveis.","Fotografei todas as páginas utilizadas."];
+  const chk=h("div",{class:"checklist"});
+  itens.forEach((t,i)=>{ const cb=h("input",{type:"checkbox",checked:!!S.entrega[i]}); cb.addEventListener("change",()=>{S.entrega[i]=cb.checked; salvar();}); chk.append(h("label",{},cb,h("span",{},t))); });
+  const status=h("div",{class:"small","aria-live":"polite",style:"margin-top:10px"});
+  const bEnv=h("button",{type:"button",class:"btn primary",disabled:!completo},"ENVIAR MEU PERCURSO AO PROFESSOR");
+  const bBx=h("button",{type:"button",class:"btn secondary"},"Baixar meu relatório");
+  bEnv.addEventListener("click",()=>enviar(status)); bBx.addEventListener("click",baixarRelatorio);
+  const ent=h("section",{class:"panel"},h("div",{class:"eyebrow"},"Etapa 8"),h("h2",{},"📤 Entrega das evidências"),
+    h("p",{class:"lead"},"São duas partes: o site envia suas checagens e textos, e você posta as fotos do caderno no Teams."),
+    h("h3",{},"1. Enviar o que fiz no site"),
+    h("div",{class:"actions",style:"justify-content:flex-start;margin-top:8px"}, CONFIG.appsScriptUrl?bEnv:null, bBx),
+    CONFIG.appsScriptUrl ? null : h("p",{class:"small muted",style:"margin-top:8px"},"Baixe o relatório e anexe na mesma atividade do Teams, junto com as fotos."),
+    status,
+    h("h3",{},"2. Enviar as fotos do caderno"), chk,
+    h("div",{class:"callout",html:"<b>Próximo passo:</b> abra o Microsoft Teams → canal <b>Recuperação Contínua</b> → atividade <b>Recuperação do 1º Bimestre</b> → anexe as fotos → clique em <b>Entregar</b>."}),
+    h("div",{class:"notebook"},h("h3",{},"🎯 O que será analisado?"),"As produções permitem observar evidências de compreensão dos conceitos, aplicação dos conhecimentos, interpretação e análise, argumentação científica e comunicação científica. A recuperação é uma nova oportunidade para desenvolver e demonstrar as habilidades que ainda precisam ser consolidadas."));
+  mostrarEnvio(status);
+  const reset=h("button",{type:"button"},"Recomeçar a trilha neste aparelho"); let n=0;
+  reset.addEventListener("click",()=>{ n++; if(n===1) reset.textContent="Tem certeza? Clique de novo para apagar tudo deste aparelho."; else { try{localStorage.removeItem(STORE_KEY);}catch(e){} S=novoEstado(); go("home"); } });
+  main.append(cab, indP, habP, cmp, ent, h("div",{class:"footer"},reset));
+}
+function frase(ini,nHab){
+  if(ini===null||ini===undefined) return "";
+  if(ini<=1 && nHab>=3) return "Você começou avaliando que tinha dificuldade e já demonstrou "+nHab+" das 4 habilidades. Você sabe mais do que imaginava.";
+  if(ini<=1) return "Você começou avaliando que tinha dificuldade. As habilidades em desenvolvimento acima mostram por onde continuar.";
+  if(ini>=3 && nHab<3) return "Você começou avaliando que dominava o conteúdo. Vale revisar com atenção as habilidades ainda em desenvolvimento.";
+  return nHab===4 ? "Você demonstrou as 4 habilidades. Parabéns pelo percurso!" : "Continue pelas páginas indicadas nas habilidades em desenvolvimento.";
+}
+
+/* =====================================================================
+   RELATÓRIO E ENVIO
+   ===================================================================== */
+function montarPayload(){
+  const A=avaliar(), c=S.checkin, f=S.final;
+  const itens={}; QUESTOES.forEach(q=>{ const r=S.resp[q.id]||{}; itens[q.id]={correta:!!r.correta,primeira:!!r.primeira,tentativas:r.tentativas||0,resposta:r.valor??null}; });
+  const alertas={}; ["D1t","D2","D3","D4"].forEach(id=>{ const a=alertasTexto(id); if(a.length) alertas[id]=a; });
+  const stTxt=(st,prov)=>(st==="ok"?"Desenvolvido":st==="wait"?"Aguarda leitura do caderno":"Em desenvolvimento")+(prov&&st!=="wait"?" (provisório)":"");
+  const txt=id=> S.modos[id]==="caderno" ? "[no caderno]" : ((S.textos[id]||{}).texto||"");
+  const linha={
+    "Enviado em":new Date().toLocaleString("pt-BR"), "Trilha":CONFIG.trilhaId, "Nome":c.nome, "RM":c.rm||"", "Turma":c.turma,
+    "Sentimento início":SENTIMENTOS[c.sentimento]?.[1]||"", "Sentimento fim":SENTIMENTOS[f.sentimento]?.[1]||"",
+    "Tempo reservado":TEMPOS[c.tempo]||"", "Tempo informado":TEMPOS[f.tempo]||"", "Tempo registrado (min, com pausas)":Math.round(((S.fim||Date.now())-(S.inicio||Date.now()))/60000),
+    "Autoavaliação início":NIVEL_INI[c.nivel]||"", "Autoavaliação fim":NIVEL_FIM[f.nivel]||"",
+    ...Object.fromEntries(Object.entries(ESTACOES).map(([k,e])=>["Estação "+e.n+" (como foi)", S.estacao[k]!==undefined?SELF3[S.estacao[k]][1]:""])),
+    ...Object.fromEntries(A.ind.map(i=>["IND "+i.k, stTxt(i.st,i.prov)])),
+    ...Object.fromEntries(Object.entries(A.hab).map(([k,v])=>["HAB "+k, v.st==="ok"?"Recuperada"+(v.prov?" (provisório)":""):stTxt(v.st,v.prov)])),
+    "Acertos na 1ª tentativa":A.primeira+"/"+A.totalFechadas,
+    "Itens corretos":QUESTOES.filter(q=>acertou(q.id)).map(q=>q.id).join(" "),
+    "Itens em desenvolvimento":QUESTOES.filter(q=>!acertou(q.id)).map(q=>q.id).join(" "),
+    "Atividades no caderno (declaradas)":["termo","radio","energia","eletro","aplicar"].map((k,i)=>"Ativ."+(i+1)+(S.cadernoFeito[k]?" ✓":" ✗")).join(" · "),
+    "D1 (toneladas)":(S.resp.D1||{}).valor||"", "D1 significado":txt("D1t"),
+    "D2":txt("D2"), "D3 parecer":txt("D3"), "D4 mensagem":txt("D4"),
+    "D3 critérios (auto)":S.modos.D3==="caderno"?"—":A.d3.map(x=>(x.ok?"✓ ":"✗ ")+x.txt).join(" | "),
+    "D3 autoverificação do aluno":S.modos.D3==="caderno"?"—":TEXTOS.D3.criterios.map((t,i)=>(S.autocheck[i]?"✓ ":"✗ ")+t).join(" | "),
+    "Alertas de integridade":Object.entries(alertas).map(([k,v])=>k+": "+v.join("; ")).join(" | ")||"nenhum",
+    "Antes eu tinha dificuldade em":f.antes, "Agora consigo compreender que":f.agora, "O que mais ajudou":f.ajudou, "O que retomar":f.retomar
+  };
+  return {trilha:CONFIG.trilhaId, versao:3, linha, itens, textos:S.textos, modos:S.modos, checkin:Object.assign({},c,{pin:undefined}), final:f, inicio:S.inicio, fim:S.fim};
+}
+function enviar(el){
+  if(!CONFIG.appsScriptUrl) return;
+  el.textContent="Enviando…";
+  fetch(CONFIG.appsScriptUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(montarPayload())})
+    .then(()=>{ S.envio={status:"ok",em:Date.now()}; salvarJa(); mostrarEnvio(el); atualizarNav(); })
+    .catch(()=>{ S.envio={status:"erro",em:Date.now()}; salvarJa(); mostrarEnvio(el); });
+}
+function mostrarEnvio(el){
+  if(S.envio.status==="ok") el.textContent="✓ Enviado em "+new Date(S.envio.em).toLocaleString("pt-BR")+". Se o professor pedir, você pode enviar de novo.";
+  else if(S.envio.status==="erro") el.textContent="Não foi possível enviar agora (verifique a internet). Tente de novo ou baixe o relatório e anexe no Teams.";
+}
+function baixarRelatorio(){
+  const P=montarPayload(), L=P.linha, out=[CONFIG.titulo,"=".repeat(60),""];
+  Object.entries(L).forEach(([k,v])=>{ out.push(k+": "+(v===""?"—":v)); if(String(v).length>80) out.push(""); });
+  out.push("","DETALHE DAS CHECAGENS","-".repeat(60));
+  QUESTOES.forEach(q=>{ const r=P.itens[q.id]; out.push(q.id+" ("+q.hab+"): "+(r.correta?"correta":"em desenvolvimento")+" · tentativas: "+r.tentativas+(r.primeira?" · certa na 1ª":"")); });
+  try{
+    const blob=new Blob([out.join("\n")],{type:"text/plain;charset=utf-8"}), a=document.createElement("a");
+    const nome=(S.checkin.nome||"estudante").trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-");
+    a.href=URL.createObjectURL(blob); a.download="recuperacao-quimica-1bim-"+nome+".txt"; document.body.append(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},500);
+  }catch(e){}
+}
+
+/* =====================================================================
+   MENU (celular)
+   ===================================================================== */
+const sidebar=$("#sidebar"), scrim=$("#scrim"), btnMenu=$("#btnMenu");
+function abrirMenu(){ sidebar.classList.add("open"); scrim.classList.add("open"); btnMenu.setAttribute("aria-expanded","true"); }
+function fecharMenu(){ sidebar.classList.remove("open"); scrim.classList.remove("open"); btnMenu.setAttribute("aria-expanded","false"); }
+btnMenu.addEventListener("click",()=> sidebar.classList.contains("open") ? fecharMenu() : abrirMenu());
+scrim.addEventListener("click",fecharMenu);
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") fecharMenu(); });
+
+if(!PAGINAS.some(p=>p.id===S.pagina)) S.pagina="home";
+if(S.pagina!=="home" && !checkinOk()) S.pagina="home";
+render(); statusNuvem();
+/* Ao abrir: se o aluno já se identificou, confere se existe uma cópia mais nova na nuvem (feita em outro computador). */
+let ultimaSync=0;
+function sincronizar(comTela){
+  if(!NUVEM || !temIdentidade()) return;
+  ultimaSync=Date.now();
+  let ov=null;
+  if(comTela){
+    ov=document.createElement("div"); ov.className="syncov"; ov.setAttribute("role","status");
+    ov.innerHTML='<div class="box"><b>☁️ Sincronizando seu progresso…</b><p class="small muted" style="margin:8px 0 0">Conferindo se você avançou em outro computador.</p></div>';
+    document.body.append(ov);
+  }
+  const fechar=()=>{ if(ov) ov.remove(); };
+  const lento=setTimeout(fechar, 9000);
+  const rmAtual=S.checkin.rm.trim();
+  carregarDaNuvem(rmAtual, S.checkin.pin.trim()).then(j=>{
+    clearTimeout(lento); fechar();
+    if(S.checkin.rm.trim()!==rmAtual) return;
+    if(j.ok && j.estado){
+      const tLocal=S.atualizadoEm||0, tNuvemE=j.estado.atualizadoEm||0;
+      if(tNuvemE>tLocal){
+        const pag=S.pagina; aplicarEstado(juntarEstados(JSON.parse(JSON.stringify(S)), j.estado), S.checkin.pin);
+        S.pagina = pag==="home" ? "home" : (S.ultima||pag); gravarLocal(); render();
+        toast("Seu progresso foi atualizado com o que você fez em outro computador.");
+      } else if(tLocal>tNuvemE){ agendarNuvem(); }
+      nuvemUltimo=nuvemUltimo||Date.now(); statusNuvem();
+    } else if(j.motivo==="nao_encontrado"){ agendarNuvem(); }
+    else if(j.motivo==="rede"){ nuvemErro=true; statusNuvem(); }
+  });
+}
+sincronizar(true);
+/* Voltou para esta aba depois de um tempo (talvez tenha avançado em outro computador): confere de novo. */
+document.addEventListener("visibilitychange", ()=>{
+  if(document.visibilityState!=="visible" || Date.now()-ultimaSync<60000) return;
+  const campo=document.activeElement && /^(TEXTAREA|INPUT)$/.test(document.activeElement.tagName);
+  if(!campo) sincronizar(false);
+});
+</script>
+</body>
+</html>
